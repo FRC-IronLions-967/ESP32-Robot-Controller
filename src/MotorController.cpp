@@ -1,4 +1,4 @@
-#include "include/MotorController.h"
+#include "MotorController.h"
 
 MotorController::MotorController(int pin, int channel, int frequency, int resolution): p(pin), chan(channel), freq(frequency), res(resolution) {
     // maximum supported resolution is 16 bits

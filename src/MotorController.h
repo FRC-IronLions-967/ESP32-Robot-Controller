@@ -23,7 +23,7 @@ private:
 public:
     MotorController(int pin, int channel, int frequency = DEFAULT_PWM_FREQ, int resolution = DEFAULT_PWM_RES);
     void begin(void);
-    void set(int power);
+    void set(int16_t power);
 
 };
 
