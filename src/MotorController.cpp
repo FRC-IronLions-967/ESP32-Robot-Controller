@@ -21,7 +21,7 @@ void MotorController::set(int16_t power) {
     // the neutral duty cycle is 1/4 of the full duty cycle, which is why the - 2 is here
     uint16_t dutyCycle = (1<<(res - 2));
 
-    int16_t divisor = (1<<(sizeof(power) * 8)) / (dutyCycleMax - dutyCycleMin);
+    int16_t divisor = (1<<res) / (dutyCycleMax - dutyCycleMin);
 
     dutyCycle += power / divisor;
 
