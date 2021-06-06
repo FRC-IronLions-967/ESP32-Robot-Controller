@@ -21,8 +21,12 @@ class MotorController {
         int dutyCycleMin;
         int dutyCycleMax;
 
+        bool inv;
+
     public:
         MotorController(int pin, int channel, int frequency = DEFAULT_PWM_FREQ, int resolution = DEFAULT_PWM_RES);
+        void setInverted(bool inverted);
+        bool isInverted();
         void begin(void);
         void set(int16_t power);
 

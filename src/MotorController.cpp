@@ -6,6 +6,16 @@ MotorController::MotorController(int pin, int channel, int frequency, int resolu
 
     dutyCycleMin = ((1<<res) / 6);
     dutyCycleMax = ((1<<res) / 3);
+
+    inv = false;
+}
+
+void MotorController::setInverted(bool inverted) {
+    inv = inverted;
+}
+
+bool MotorController::isInverted() {
+    return inv;
 }
 
 void MotorController::begin() {
@@ -23,7 +33,11 @@ void MotorController::set(int16_t power) {
 
     int16_t divisor = (1<<res) / (dutyCycleMax - dutyCycleMin);
 
-    dutyCycle += power / divisor;
+    if(!inv) {
+        dutyCycle += power / divisor;
+    } else {
+        dutyCycle -= power / divisor;
+    }
 
     // I don't think we can exceed these bounds, but check just to be safe
     if(dutyCycle > dutyCycleMax) dutyCycle = dutyCycleMax;
