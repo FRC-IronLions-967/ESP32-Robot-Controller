@@ -1,5 +1,5 @@
-#ifndef MOTORCONTROLLER_H
-#define MOTORCONTROLLER_H
+#ifndef PWMSERVO_H
+#define PWMSERVO_H
 
 #include <Arduino.h>
 #include <stdint.h>
@@ -8,10 +8,9 @@
 #define DEFAULT_PWM_FREQ 167
 
 // resolution of the PWM duty cycles in bits
-#define DEFAULT_PWM_RES 8
+#define DEFAULT_PWM_RES 16
 
-class MotorController {
-
+class PWMServo {
     private:
         int p;
         int freq;
@@ -24,13 +23,12 @@ class MotorController {
         bool inv;
 
     public:
-        MotorController(int pin, int channel, int frequency = DEFAULT_PWM_FREQ, int resolution = DEFAULT_PWM_RES);
+        PWMServo(int pin, int channel, int frequency = DEFAULT_PWM_FREQ, int resolution = DEFAULT_PWM_RES);
         void setInverted(bool inverted);
         bool isInverted(void);
         void begin(void);
-        void set(int16_t power);
+        void setAngleDegrees(int8_t angle);
 
 };
-
 
 #endif

@@ -1,8 +1,11 @@
 #include <MotorController.h>
 #include <GameController.h>
+#include <PWMServo.h>
 
 MotorController leftController(15, 0);
 MotorController rightController(16, 1);
+MotorController arm(4, 4);
+PWMServo grabber(5, 3);
 
 GameController gameController("00:22:44:66:88:aa");
 
@@ -11,9 +14,12 @@ void setup() {
 
   leftController.begin();
   rightController.begin();
+  arm.begin();
+  grabber.begin();
 
   leftController.setInverted(true);
   rightController.setInverted(false);
+  arm.setInverted(true);
 
   gameController.begin();
 
@@ -39,9 +45,26 @@ void loop() {
 
     leftController.set(leftPower);
     rightController.set(rightPower);
+
+    if(gameController.isButtonPressed(UP)) {
+      arm.set(20);
+    } else if(gameController.isButtonPressed(DOWN)) {
+      arm.set(-20);
+    } else {
+      arm.set(0);
+    }
+
+    if(gameController.isButtonPressed(RIGHT_BUMP)) {
+      grabber.setAngleDegrees(45);
+    } else if(gameController.isButtonPressed(LEFT_BUMP)) {
+      grabber.setAngleDegrees(-45);
+    }
+    
   } else {
     leftController.set(0);
     rightController.set(0);
+    arm.set(0);
+    grabber.setAngleDegrees(0);
   }
 
 }
