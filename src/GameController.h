@@ -1,3 +1,20 @@
+/**************************************************************************************************************************************
+
+Author(s): Nathan Stark
+
+Created: 6-6-2021
+
+Last Updated: 6-17-2021
+
+This header provides a class that allows for a more object-oriented approach to using the PS3 library for the ESP32 developed by
+jvpernis, available here: https://github.com/jvpernis/esp32-ps3.  It allows for access to all of the buttons, analog sticks, and the
+battery level of the controller.
+
+In the future this class may be replaced with a more generic one, with subclasses for different controller types if more controller
+support is added.
+
+**************************************************************************************************************************************/
+
 #ifndef GAMECONTROLLER_H
 #define GAMECONTROLLER_H
 
@@ -46,6 +63,7 @@ class GameController {
 
     public:
         GameController(char *mac);
+        ~GameController();
         void begin();
         bool isConnected();
         int8_t getRightStickX();

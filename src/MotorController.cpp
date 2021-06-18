@@ -1,3 +1,15 @@
+/**************************************************************************************************************************************
+
+Author(s): Nathan Stark
+
+Created: 5-15-2021
+
+Last Updated: 6-17-2021
+
+This file provides the definitions of the class methods declared in MotorController.h.  Please see that file for more details.
+
+**************************************************************************************************************************************/
+
 #include "MotorController.h"
 
 MotorController::MotorController(int pin, int channel, int frequency, int resolution): p(pin), chan(channel), freq(frequency), res(resolution) {
@@ -8,6 +20,10 @@ MotorController::MotorController(int pin, int channel, int frequency, int resolu
     dutyCycleMax = ((1<<res) / 3);
 
     inv = false;
+}
+
+MotorController::~MotorController() {
+    ledcDetachPin(p);
 }
 
 void MotorController::setInverted(bool inverted) {

@@ -1,3 +1,15 @@
+/**************************************************************************************************************************************
+
+Author(s): Nathan Stark
+
+Created: 6-12-2021
+
+Last Updated: 6-17-2021
+
+This file provides the definitions of the class methods defined in PWMServo.h.  Please see that file for more details.
+
+**************************************************************************************************************************************/
+
 #include "PWMServo.h"
 
 PWMServo::PWMServo(int pin, int channel, int frequency, int resolution): p(pin), chan(channel), freq(frequency), res(resolution) {
@@ -8,6 +20,10 @@ PWMServo::PWMServo(int pin, int channel, int frequency, int resolution): p(pin),
     dutyCycleMax = ((1<<res) / 3);
 
     inv = false;
+}
+
+PWMServo::~PWMServo() {
+    ledcDetachPin(p)
 }
 
 void PWMServo::setInverted(bool inverted) {
