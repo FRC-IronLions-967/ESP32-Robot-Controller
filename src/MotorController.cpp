@@ -4,7 +4,7 @@ Author(s): Nathan Stark
 
 Created: 5-15-2021
 
-Last Updated: 6-17-2021
+Last Updated: 6-19-2021
 
 This file provides the definitions of the class methods declared in MotorController.h.  Please see that file for more details.
 
@@ -60,4 +60,12 @@ void MotorController::set(int16_t power) {
     if(dutyCycle < dutyCycleMin) dutyCycle = dutyCycleMin;
 
     ledcWrite(chan, dutyCycle);
+}
+
+void MotorController::attachEncoder(RotaryEncoder& encoder) {
+    rotaryEncoder = &encoder;
+}
+
+RotaryEncoder& MotorController::getEncoder() {
+    return *rotaryEncoder;
 }

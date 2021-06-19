@@ -4,7 +4,7 @@ Author(s): Nathan Stark
 
 Created: 6-12-2021
 
-Last Updated: 6-17-2021
+Last Updated: 6-19-2021
 
 This header provides a class that provides similar functionality to the MotorController class, but commands servos to absolute
 positions instead.  Currently the class is rather limited, and only supports a range of motion of +-90° from the neutral position.
@@ -17,6 +17,7 @@ identical to the PWM control for a motor controller, so you can just use the Mot
 #define PWMSERVO_H
 
 #include <Arduino.h>
+#include <RotaryEncoder.h>
 #include <stdint.h>
 
 // default frequency for the PWM signal in Hz
@@ -37,13 +38,17 @@ class PWMServo {
 
         bool inv;
 
+        RotaryEncoder* rotaryEncoder;
+
     public:
         PWMServo(int pin, int channel, int frequency = DEFAULT_PWM_FREQ, int resolution = DEFAULT_PWM_RES);
-        ~PWMServo();
+        ~PWMServo(void);
         void setInverted(bool inverted);
         bool isInverted(void);
         void begin(void);
         void setAngleDegrees(int8_t angle);
+        void attachEncoder(RotaryEncoder& encoder);
+        RotaryEncoder& getEncoder(void);
 
 };
 

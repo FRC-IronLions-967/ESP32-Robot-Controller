@@ -4,7 +4,7 @@ Author(s): Nathan Stark
 
 Created: 6-12-2021
 
-Last Updated: 6-17-2021
+Last Updated: 6-19-2021
 
 This file provides the definitions of the class methods defined in PWMServo.h.  Please see that file for more details.
 
@@ -23,7 +23,7 @@ PWMServo::PWMServo(int pin, int channel, int frequency, int resolution): p(pin),
 }
 
 PWMServo::~PWMServo() {
-    ledcDetachPin(p)
+    ledcDetachPin(p);
 }
 
 void PWMServo::setInverted(bool inverted) {
@@ -61,4 +61,12 @@ void PWMServo::setAngleDegrees(int8_t angle) {
     if(dutyCycle < dutyCycleMin) dutyCycle = dutyCycleMin;
 
     ledcWrite(chan, dutyCycle);
+}
+
+void PWMServo::attachEncoder(RotaryEncoder& encoder) {
+    rotaryEncoder = &encoder;
+}
+
+RotaryEncoder& PWMServo::getEncoder() {
+    return *rotaryEncoder;
 }

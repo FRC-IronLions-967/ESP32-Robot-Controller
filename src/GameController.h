@@ -63,13 +63,13 @@ class GameController {
 
     public:
         GameController(char *mac);
-        ~GameController();
-        void begin();
-        bool isConnected();
-        int8_t getRightStickX();
-        int8_t getRightStickY();
-        int8_t getLeftStickX();
-        int8_t getLeftStickY();
+        ~GameController(void);
+        void begin(void);
+        bool isConnected(void);
+        int8_t getRightStickX(void);
+        int8_t getRightStickY(void);
+        int8_t getLeftStickX(void);
+        int8_t getLeftStickY(void);
         bool isButtonPressed(uint8_t button);     
         int getBattery();
 
