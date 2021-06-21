@@ -14,4 +14,4 @@ After setting up your IDE, you should download SixaxisPairTool from [this link](
 You should be good to go to begin your development with the motor controllers and the ESP32!  Examples coming soon.
 
 # Limitations
-This code will run a very minimalist robot, with only basic motor and controller support.  More features may be added in the future, but as of now more complicated features like PID control, encoder, gyroscopes, etc. are up to you to implement.
+This code will run a very minimalist robot, with only basic motor and controller support, in addition to crude encoder support.  More features may be added in the future, but as of now more complicated features like PID control, gyroscopes, etc. are up to you to implement.
