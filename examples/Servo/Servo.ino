@@ -1,4 +1,6 @@
-#include <PWMServo.h>
+#include <motors/PWMServo.h>
+
+using namespace team967;
 
 PWMServo servo(15, 0);
 

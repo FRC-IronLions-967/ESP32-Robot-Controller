@@ -1,5 +1,7 @@
-#include <MotorController.h>
-#include <GameController.h>
+#include <motors/MotorController.h>
+#include <inputs/GameController.h>
+
+using namespace team967;
 
 MotorController leftController(15, 0);
 MotorController rightController(16, 1);

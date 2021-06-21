@@ -1,5 +1,7 @@
-#include <MotorController.h>
-#include <GameController.h>
+#include <inputs/GameController.h>
+#include <motors/MotorController.h>
+
+using namespace team967;
 
 // Motor Controller objects, the 1st parameter in the constructor is the pin number that will be used for the PWM signal
 // the second parameter is the PWM channel to be used, can be a number between 1 and 16
