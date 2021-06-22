@@ -16,7 +16,7 @@ PWM frequency and timer resolution.
 #define MOTORCONTROLLER_H
 
 #include <Arduino.h>
-#include <sensors/ExternalEncoder.h>
+#include "ExternalEncoder.h"
 #include <stdint.h>
 
 // default frequency for the PWM signal in Hz

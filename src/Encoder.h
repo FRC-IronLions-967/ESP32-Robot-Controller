@@ -33,7 +33,7 @@ namespace team967 {
             // get the number of rotations as an integer
             virtual int64_t getRotationsInt(void) = 0;
             // get the number of clicks since the last rotation
-            virtual uint16_t getRotationsRem(void) = 0;
+            virtual int16_t getRotationsRem(void) = 0;
             // get the number of rotations as a floating point value
             virtual double getRotationsDouble(void) = 0;
 

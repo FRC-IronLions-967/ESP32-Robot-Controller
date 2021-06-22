@@ -17,7 +17,7 @@ identical to the PWM control for a motor controller, so you can just use the Mot
 #define PWMSERVO_H
 
 #include <Arduino.h>
-#include <sensors/ExternalEncoder.h>
+#include "ExternalEncoder.h"
 #include <stdint.h>
 
 // default frequency for the PWM signal in Hz

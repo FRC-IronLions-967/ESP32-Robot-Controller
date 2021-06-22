@@ -26,10 +26,10 @@ support is added.
 #define SQUARE 1
 #define TRIANGLE 2
 #define CIRCLE 3
-#define UP 4
-#define DOWN 5
-#define LEFT 6
-#define RIGHT 7
+#define D_UP 4
+#define D_DOWN 5
+#define D_LEFT 6
+#define D_RIGHT 7
 #define LEFT_BUMP 8
 #define RIGHT_BUMP 9
 #define LEFT_TRIGGER 10

@@ -66,9 +66,9 @@ namespace team967 {
             void setCPR(uint16_t cpr);
             uint16_t getCPR(void);
             // returns the number of rotations as an integer, rounded down
-            uint64_t getRotationsInt(void);
+            int64_t getRotationsInt(void);
             // returns the number of clicks towards the next rotation (i.e. if cpr = 128, and count = 192, returns 64)
-            uint16_t getRotationsRem(void);
+            int16_t getRotationsRem(void);
             // returns the number of rotations as a decimal
             double getRotationsDouble(void);
 

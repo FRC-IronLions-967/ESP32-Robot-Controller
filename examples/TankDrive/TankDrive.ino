@@ -1,5 +1,5 @@
-#include <inputs/GameController.h>
-#include <motors/MotorController.h>
+#include <GameController.h>
+#include <MotorController.h>
 
 using namespace team967;
 

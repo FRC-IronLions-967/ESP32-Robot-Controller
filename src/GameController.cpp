@@ -26,10 +26,10 @@ void team967::GameController::controller_update_callback() {
     buttons[SQUARE] = Ps3.data.button.square;
     buttons[TRIANGLE] = Ps3.data.button.triangle;
     buttons[CIRCLE] = Ps3.data.button.circle;
-    buttons[UP] = Ps3.data.button.up;
-    buttons[DOWN] = Ps3.data.button.down;
-    buttons[LEFT] = Ps3.data.button.left;
-    buttons[RIGHT] = Ps3.data.button.right;
+    buttons[D_UP] = Ps3.data.button.up;
+    buttons[D_DOWN] = Ps3.data.button.down;
+    buttons[D_LEFT] = Ps3.data.button.left;
+    buttons[D_RIGHT] = Ps3.data.button.right;
     buttons[LEFT_BUMP] = Ps3.data.button.l1;
     buttons[RIGHT_BUMP] = Ps3.data.button.r1;
     buttons[LEFT_TRIGGER] = Ps3.data.button.l2;

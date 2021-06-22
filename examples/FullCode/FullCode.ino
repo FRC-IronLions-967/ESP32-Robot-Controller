@@ -1,6 +1,6 @@
-#include <inputs/GameController.h>
-#include <motors/MotorController.h>
-#include <motors/PWMServo.h>
+#include <GameController.h>
+#include <MotorController.h>
+#include <PWMServo.h>
 
 using namespace team967;
 
@@ -48,9 +48,9 @@ void loop() {
     leftController.set(leftPower);
     rightController.set(rightPower);
 
-    if(gameController.isButtonPressed(UP)) {
+    if(gameController.isButtonPressed(D_UP)) {
       arm.set(20);
-    } else if(gameController.isButtonPressed(DOWN)) {
+    } else if(gameController.isButtonPressed(D_DOWN)) {
       arm.set(-20);
     } else {
       arm.set(0);

@@ -75,11 +75,11 @@ void team967::ExternalEncoder::setCPR(uint16_t cpr) {
     clicksPerRotation = cpr;
 }
 
-uint64_t team967::ExternalEncoder::getRotationsInt() {
+int64_t team967::ExternalEncoder::getRotationsInt() {
     return encoder.getCount() / clicksPerRotation;
 }
 
-uint16_t team967::ExternalEncoder::getRotationsRem() {
+int16_t team967::ExternalEncoder::getRotationsRem() {
     return encoder.getCount() % clicksPerRotation;
 }
 
