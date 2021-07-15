@@ -4,7 +4,7 @@ Author(s): Nathan Stark
 
 Created: 6-6-2021
 
-Last Updated: 6-17-2021
+Last Updated: 6-21-2021
 
 This file provides the definitions of the methods declared in GameController.h.  Please see that file for more details.
 

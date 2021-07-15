@@ -22,9 +22,16 @@ now.
 
 namespace team967 {
 
+    /**
+     * Class that provides a way to talk to externally connected encoders (ones that are not integrated into a motor controller or other peripheral).
+     */
     class ExternalEncoder : public team967::Encoder {
 
         public:
+            /**
+             * Enum describing the different ways to measure the encoder pulses.  Single only uses one of the two channels, half uses both channels but measures only one edge of the
+             * waveform, and full uses both channels and measures both the leading and trailing edges of the waveform.
+             */
             enum EncoderType {
                 Single,
                 Half,
@@ -41,35 +48,120 @@ namespace team967 {
 
 
         public:
-            // constructor and destructor, pinA and pinB are the pins the encoder is attached to, type is the type (single, half, full)
-            // of encoder being used, and cpr is the number of clicks per rotation of the encoder, which defaults to 128
+            /**
+             * Constructor to create a new ExternalEncoder object with the specified options.
+             * 
+             * @param pinA The pin number for channel A of the encoder
+             * @param pinB The pin number for channel B of the encoder, this will not be used in EncoderType::Single mode
+             * @param type The type of measurement to use, @see EncoderType
+             * @param cpr The number of clicks the encoder will send per each rotation, default is 128
+             * @return A new ExternalEncoder object
+             */
             ExternalEncoder(uint8_t pinA, uint8_t pinB, EncoderType type, uint16_t cpr = 128);
+
+            /**
+             * Destructor, stops the encoder counter, but does not change the pin assignments.  This can be done manually by the user if so desired.
+             * 
+             * @param none
+             * @return nothing
+             */
             ~ExternalEncoder(void);
-            // attach encoder to pins and begin counting
+
+            /**
+             * Attaches the pins to the pulse counter and begins counting pulses.
+             * 
+             * @param none
+             * @return nothing
+             */
             void begin(void);
-            // these functions are all just wrappers of the standard functions provided by the underlying class
-            // sets count to a specified value
+
+            /**
+             * Sets the encoder count (clicks) to a specified value.
+             * 
+             * @param count A 64 bit signed integer specifying the number of clicks
+             * @return nothing
+             */
             void setCount(int64_t count);
-            // gets the count from the interrupt handlers
+
+            /**
+             * Returns the number of clicks counted by the pulse counter.
+             * 
+             * @param none
+             * @return The number of clicks as a 64 bit signed integer
+             */
             int64_t getCount(void);
-            // clears count to 0
+
+            /**
+             * Zeros the click count in the pulse counter.
+             * 
+             * @param none
+             * @return nothing
+             */
             int64_t clearCount(void);
-            // pauses counting of new ticks
+
+            /**
+             * Stops the pulse counter from counting future ticks.  The pulse counter can be reenabled with resumeCount().
+             * 
+             * @param none
+             * @return nothing
+             */
             int64_t pauseCount(void);
-            // resumes counting of new ticks
+
+            /**
+             * Resumes the counting of ticks.  This should only be used after a call to pauseCount().
+             * 
+             * @param none
+             * @return nothing
+             */
             int64_t resumeCount(void);
-            // this sets a filtering parameter for ignoring glitches in signals
-            // read more about it here: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/pcnt.html
+
+            /**
+             * Sets a filtering parameter for ignoring variances in signals.  Read more about this at:
+             * https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/pcnt.html
+             * 
+             * @param value The filter value to be used
+             * @return nothing
+             */
             void setFilter(uint16_t value);
 
-            // these functions provide additional functionality
+            /**
+             * Sets the clicks per rotation (CPR) value to be used by this encoder.
+             * 
+             * @param cpr The number of clicks per rotation
+             * @return nothing
+             */
             void setCPR(uint16_t cpr);
+
+            /**
+             * Returns the number of clicks per rotation for this object.
+             * 
+             * @param none
+             * @return The number of clicks per rotation as a 16 bit unsigned integer
+             */
             uint16_t getCPR(void);
-            // returns the number of rotations as an integer, rounded down
+
+            /**
+             * Returns the number of rotations rounded down to the closest integer value.  This can be useful if you do not want floating point value for whatever reason.
+             * 
+             * @param none
+             * @return The number of rotations as a 64 bit signed integer
+             */
             int64_t getRotationsInt(void);
-            // returns the number of clicks towards the next rotation (i.e. if cpr = 128, and count = 192, returns 64)
+
+            /**
+             * Returns the number of clicks above the last rotation.  In other words, if CPR = 128, and the encoder has counted 191 clicks, 63 will be returned.
+             * 
+             * @param none
+             * @return The number of clicks above the last rotation as a 16 bit signed integer
+             */
             int16_t getRotationsRem(void);
-            // returns the number of rotations as a decimal
+
+            /**
+             * Returns the number of rotations as a floating point.
+             * 
+             * @param none
+             * @return The number of rotations as a floating point value
+             */
             double getRotationsDouble(void);
 
     };

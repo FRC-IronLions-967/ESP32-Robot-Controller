@@ -4,7 +4,7 @@ Author(s): Nathan Stark
 
 Created: 6-12-2021
 
-Last Updated: 6-20-2021
+Last Updated: 6-21-2021
 
 This header provides a class that provides similar functionality to the MotorController class, but commands servos to absolute
 positions instead.  Currently the class is rather limited, and only supports a range of motion of +-90° from the neutral position.
@@ -44,7 +44,7 @@ namespace team967 {
 
         public:
             PWMServo(int pin, int channel, int frequency = DEFAULT_PWM_FREQ, int resolution = DEFAULT_PWM_RES);
-            ~PWMServo(void);
+            ~PWMServo();
             void setInverted(bool inverted);
             bool isInverted(void);
             void begin(void);

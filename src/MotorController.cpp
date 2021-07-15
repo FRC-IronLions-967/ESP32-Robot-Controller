@@ -4,7 +4,7 @@ Author(s): Nathan Stark
 
 Created: 5-15-2021
 
-Last Updated: 6-20-2021
+Last Updated: 6-21-2021
 
 This file provides the definitions of the class methods declared in MotorController.h.  Please see that file for more details.
 
@@ -20,6 +20,8 @@ team967::MotorController::MotorController(int pin, int channel, int frequency, i
     dutyCycleMax = ((1<<res) / 3);
 
     inv = false;
+
+    attachedEncoder = nullptr;
 }
 
 team967::MotorController::~MotorController() {

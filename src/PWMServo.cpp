@@ -4,7 +4,7 @@ Author(s): Nathan Stark
 
 Created: 6-12-2021
 
-Last Updated: 6-20-2021
+Last Updated: 6-21-2021
 
 This file provides the definitions of the class methods defined in PWMServo.h.  Please see that file for more details.
 
