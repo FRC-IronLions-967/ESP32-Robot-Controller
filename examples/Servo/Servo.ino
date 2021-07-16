@@ -1,8 +1,9 @@
+#include <CustomBoardPinDefs.h>
 #include <PWMServo.h>
 
 using namespace team967;
 
-PWMServo servo(15, 0);
+PWMServo servo(PCB_GPIO_0, 0);
 
 void setup() {
   servo.begin();

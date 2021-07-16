@@ -5,10 +5,10 @@
 
 using namespace team967;
 
-MotorController leftController(P0, 0);
-MotorController rightController(P1, 1);
-MotorController arm(P2, 4);
-PWMServo grabber(P3, 3);
+MotorController leftController(PCB_GPIO_0, 0);
+MotorController rightController(PCB_GPIO_1, 1);
+MotorController arm(PCB_GPIO_2, 4);
+PWMServo grabber(PCB_GPIO_3, 3);
 
 GameController gameController("00:22:44:66:88:aa");
 

@@ -1,10 +1,11 @@
+#include <CustomBoardPinDefs.h>
 #include <MotorController.h>
 #include <GameController.h>
 
 using namespace team967;
 
-MotorController leftController(15, 0);
-MotorController rightController(16, 1);
+MotorController leftController(PCB_GPIO_0, 0);
+MotorController rightController(PCB_GPIO_1, 1);
 
 GameController gameController("00:22:44:66:88:aa");
 

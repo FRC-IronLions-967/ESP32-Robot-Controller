@@ -1,3 +1,4 @@
+#include <CustomBoardPinDefs.h>
 #include <GameController.h>
 #include <MotorController.h>
 
@@ -5,8 +6,8 @@ using namespace team967;
 
 // Motor Controller objects, the 1st parameter in the constructor is the pin number that will be used for the PWM signal
 // the second parameter is the PWM channel to be used, can be a number between 1 and 16
-MotorController leftController(15, 0);
-MotorController rightController(16, 1);
+MotorController leftController(PCB_GPIO_0, 0);
+MotorController rightController(PCB_GPIO_1, 1);
 
 // Game controller to be used, the string passed is the MAC you set with the SixaxisPairTool
 GameController gameController("00:22:44:66:88:aa");
