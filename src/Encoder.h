@@ -64,7 +64,7 @@ namespace team967 {
              * @param none
              * @return The number of rotations as a 64 bit signed integer
              */
-            virtual int64_t getRotationsInt(void) = 0;
+            virtual int16_t getRotationsInt(void) = 0;
 
             /**
              * Returns the number of clicks above the last rotation.  In other words, if CPR = 128, and the encoder has counted 191 clicks, 63 will be returned.
