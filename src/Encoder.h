@@ -27,6 +27,14 @@ namespace team967 {
 
         public:
             /**
+             * Virtual destructor to ensure derived class destructors get called.
+             * 
+             * @param none
+             * @return nothing
+             */
+            virtual ~Encoder(void);
+
+            /**
              * Sets the count (number of ticks) on this encoder object.
              * 
              * @param count The number of ticks

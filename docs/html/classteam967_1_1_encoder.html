@@ -88,6 +88,8 @@ Inheritance diagram for team967::Encoder:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aa7ef488b99581dd3be9fb29e13c84bf1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteam967_1_1_encoder.html#aa7ef488b99581dd3be9fb29e13c84bf1">~Encoder</a> (void)</td></tr>
+<tr class="separator:aa7ef488b99581dd3be9fb29e13c84bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87d5ba1b4da3f42dbf53e27bd9bfe136"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteam967_1_1_encoder.html#a87d5ba1b4da3f42dbf53e27bd9bfe136">setCount</a> (int64_t count)=0</td></tr>
 <tr class="separator:a87d5ba1b4da3f42dbf53e27bd9bfe136"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64cca570f855528cace1319c3a3a7b90"><td class="memItemLeft" align="right" valign="top">virtual int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classteam967_1_1_encoder.html#a64cca570f855528cace1319c3a3a7b90">getCount</a> (void)=0</td></tr>
@@ -105,7 +107,42 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Virtual class that defines methods that should be implemented by all encoder objects. This was implemented so that motor controllers can have a unified way to access encoder data for more control options. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa7ef488b99581dd3be9fb29e13c84bf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7ef488b99581dd3be9fb29e13c84bf1">&#9670;&nbsp;</a></span>~Encoder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual team967::Encoder::~Encoder </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual destructor to ensure derived class destructors get called.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>nothing </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a64cca570f855528cace1319c3a3a7b90"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a64cca570f855528cace1319c3a3a7b90">&#9670;&nbsp;</a></span>getCount()</h2>
 
