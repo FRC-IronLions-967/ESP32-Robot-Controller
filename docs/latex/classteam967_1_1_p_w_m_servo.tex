@@ -1,0 +1,167 @@
+\hypertarget{classteam967_1_1_p_w_m_servo}{}\doxysection{team967\+::PWMServo Class Reference}
+\label{classteam967_1_1_p_w_m_servo}\index{team967::PWMServo@{team967::PWMServo}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1_p_w_m_servo_a6ca0ccc73d9d060395b2999a204afcfe}{PWMServo}} (int pin, int channel, int frequency=DEFAULT\+\_\+\+PWM\+\_\+\+FREQ, int resolution=DEFAULT\+\_\+\+PWM\+\_\+\+RES)
+\item 
+\mbox{\hyperlink{classteam967_1_1_p_w_m_servo_a4072598ca7ca99afec81358be2fc3cc6}{$\sim$\+PWMServo}} ()
+\item 
+void \mbox{\hyperlink{classteam967_1_1_p_w_m_servo_a71834f24c7fa30098d1e70db5f399b3b}{set\+Inverted}} (bool inverted)
+\item 
+bool \mbox{\hyperlink{classteam967_1_1_p_w_m_servo_abb822216fdf47a8c32b7af2d5bc00fa8}{is\+Inverted}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_p_w_m_servo_a5dc8d6bd9257d2f910d63efda3256538}{begin}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_p_w_m_servo_a0477d7682c72b53e3f121faaaf7b74c6}{set\+Angle\+Degrees}} (int8\+\_\+t angle)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_p_w_m_servo_a02df39a723036cc1a443e4b6dd21be80}{attach\+Encoder}} (\mbox{\hyperlink{classteam967_1_1_encoder}{team967\+::\+Encoder}} $\ast$encoder)
+\item 
+\mbox{\hyperlink{classteam967_1_1_encoder}{team967\+::\+Encoder}} $\ast$ \mbox{\hyperlink{classteam967_1_1_p_w_m_servo_a31f0c186956e694caecd8b019d151e17}{get\+Encoder}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteam967_1_1_p_w_m_servo_a6ca0ccc73d9d060395b2999a204afcfe}\label{classteam967_1_1_p_w_m_servo_a6ca0ccc73d9d060395b2999a204afcfe}} 
+\index{team967::PWMServo@{team967::PWMServo}!PWMServo@{PWMServo}}
+\index{PWMServo@{PWMServo}!team967::PWMServo@{team967::PWMServo}}
+\doxysubsubsection{\texorpdfstring{PWMServo()}{PWMServo()}}
+{\footnotesize\ttfamily team967\+::\+PWMServo\+::\+PWMServo (\begin{DoxyParamCaption}\item[{int}]{pin,  }\item[{int}]{channel,  }\item[{int}]{frequency = {\ttfamily DEFAULT\+\_\+PWM\+\_\+FREQ},  }\item[{int}]{resolution = {\ttfamily DEFAULT\+\_\+PWM\+\_\+RES} }\end{DoxyParamCaption})}
+
+Constructor to create a new \mbox{\hyperlink{classteam967_1_1_p_w_m_servo}{PWMServo}} object with the specified options.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & The GPIO pin to use for PWM output, can be one of the constants in \mbox{\hyperlink{_custom_board_pin_defs_8h_source}{Custom\+Board\+Pin\+Defs.\+h}} \\
+\hline
+{\em channel} & The PWM channel to be used, can be any value between 0-\/15 \\
+\hline
+{\em frequency} & Optional parameter if a servo uses a different frequency, default is 167 Hz which should work with most servos \\
+\hline
+{\em resolution} & Optional parameter which specifies the resolution (in bits) to use with the PWM channel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \mbox{\hyperlink{classteam967_1_1_p_w_m_servo}{PWMServo}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_p_w_m_servo_a4072598ca7ca99afec81358be2fc3cc6}\label{classteam967_1_1_p_w_m_servo_a4072598ca7ca99afec81358be2fc3cc6}} 
+\index{team967::PWMServo@{team967::PWMServo}!````~PWMServo@{$\sim$PWMServo}}
+\index{````~PWMServo@{$\sim$PWMServo}!team967::PWMServo@{team967::PWMServo}}
+\doxysubsubsection{\texorpdfstring{$\sim$PWMServo()}{~PWMServo()}}
+{\footnotesize\ttfamily team967\+::\+PWMServo\+::$\sim$\+PWMServo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor, detaches the pin from the PWM channel so that both can be used by something else.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteam967_1_1_p_w_m_servo_a02df39a723036cc1a443e4b6dd21be80}\label{classteam967_1_1_p_w_m_servo_a02df39a723036cc1a443e4b6dd21be80}} 
+\index{team967::PWMServo@{team967::PWMServo}!attachEncoder@{attachEncoder}}
+\index{attachEncoder@{attachEncoder}!team967::PWMServo@{team967::PWMServo}}
+\doxysubsubsection{\texorpdfstring{attachEncoder()}{attachEncoder()}}
+{\footnotesize\ttfamily void team967\+::\+PWMServo\+::attach\+Encoder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classteam967_1_1_encoder}{team967\+::\+Encoder}} $\ast$}]{encoder }\end{DoxyParamCaption})}
+
+Member function to attach an \mbox{\hyperlink{classteam967_1_1_encoder}{Encoder}} object to the PWM servo for position/velocity tracking. Please note that this class does not copy or modify the \mbox{\hyperlink{classteam967_1_1_encoder}{Encoder}} pointer, the user is responsible for deleting it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encoder} & A pointer to the \mbox{\hyperlink{classteam967_1_1_encoder}{Encoder}} object to attach \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_p_w_m_servo_a5dc8d6bd9257d2f910d63efda3256538}\label{classteam967_1_1_p_w_m_servo_a5dc8d6bd9257d2f910d63efda3256538}} 
+\index{team967::PWMServo@{team967::PWMServo}!begin@{begin}}
+\index{begin@{begin}!team967::PWMServo@{team967::PWMServo}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void team967\+::\+PWMServo\+::begin (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Member function to attach to the PWM channel and begin neutral output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_p_w_m_servo_a31f0c186956e694caecd8b019d151e17}\label{classteam967_1_1_p_w_m_servo_a31f0c186956e694caecd8b019d151e17}} 
+\index{team967::PWMServo@{team967::PWMServo}!getEncoder@{getEncoder}}
+\index{getEncoder@{getEncoder}!team967::PWMServo@{team967::PWMServo}}
+\doxysubsubsection{\texorpdfstring{getEncoder()}{getEncoder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classteam967_1_1_encoder}{team967\+::\+Encoder}} $\ast$ team967\+::\+PWMServo\+::get\+Encoder (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Member function to get a pointer to the attached encoder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the attached encoder, or nullptr if it does not exist 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_p_w_m_servo_abb822216fdf47a8c32b7af2d5bc00fa8}\label{classteam967_1_1_p_w_m_servo_abb822216fdf47a8c32b7af2d5bc00fa8}} 
+\index{team967::PWMServo@{team967::PWMServo}!isInverted@{isInverted}}
+\index{isInverted@{isInverted}!team967::PWMServo@{team967::PWMServo}}
+\doxysubsubsection{\texorpdfstring{isInverted()}{isInverted()}}
+{\footnotesize\ttfamily bool team967\+::\+PWMServo\+::is\+Inverted (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Member function to get the current inversion state of a \mbox{\hyperlink{classteam967_1_1_p_w_m_servo}{PWMServo}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the object is inverted, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_p_w_m_servo_a0477d7682c72b53e3f121faaaf7b74c6}\label{classteam967_1_1_p_w_m_servo_a0477d7682c72b53e3f121faaaf7b74c6}} 
+\index{team967::PWMServo@{team967::PWMServo}!setAngleDegrees@{setAngleDegrees}}
+\index{setAngleDegrees@{setAngleDegrees}!team967::PWMServo@{team967::PWMServo}}
+\doxysubsubsection{\texorpdfstring{setAngleDegrees()}{setAngleDegrees()}}
+{\footnotesize\ttfamily void team967\+::\+PWMServo\+::set\+Angle\+Degrees (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{angle }\end{DoxyParamCaption})}
+
+Member function to set the angle of the servo in degrees. Allowable values are between -\/90° and 90°.
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & The angle in degrees to set to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_p_w_m_servo_a71834f24c7fa30098d1e70db5f399b3b}\label{classteam967_1_1_p_w_m_servo_a71834f24c7fa30098d1e70db5f399b3b}} 
+\index{team967::PWMServo@{team967::PWMServo}!setInverted@{setInverted}}
+\index{setInverted@{setInverted}!team967::PWMServo@{team967::PWMServo}}
+\doxysubsubsection{\texorpdfstring{setInverted()}{setInverted()}}
+{\footnotesize\ttfamily void team967\+::\+PWMServo\+::set\+Inverted (\begin{DoxyParamCaption}\item[{bool}]{inverted }\end{DoxyParamCaption})}
+
+Member function to set the inversion state of this \mbox{\hyperlink{classteam967_1_1_p_w_m_servo}{PWMServo}} object. An inverted \mbox{\hyperlink{classteam967_1_1_p_w_m_servo}{PWMServo}} rotates the opposite way as a non-\/inverted one to reach the same angle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inverted} & Whether or not this object should be inverted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/PWMServo.\+h\item 
+src/PWMServo.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,32 @@
+\hypertarget{classteam967_1_1_battery_monitor}{}\doxysection{team967\+::Battery\+Monitor Class Reference}
+\label{classteam967_1_1_battery_monitor}\index{team967::BatteryMonitor@{team967::BatteryMonitor}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{classteam967_1_1_battery_monitor_af85a4c8a950a71dd145235bb4b0bb7f2}{get\+Battery\+Voltage}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteam967_1_1_battery_monitor_af85a4c8a950a71dd145235bb4b0bb7f2}\label{classteam967_1_1_battery_monitor_af85a4c8a950a71dd145235bb4b0bb7f2}} 
+\index{team967::BatteryMonitor@{team967::BatteryMonitor}!getBatteryVoltage@{getBatteryVoltage}}
+\index{getBatteryVoltage@{getBatteryVoltage}!team967::BatteryMonitor@{team967::BatteryMonitor}}
+\doxysubsubsection{\texorpdfstring{getBatteryVoltage()}{getBatteryVoltage()}}
+{\footnotesize\ttfamily double team967\+::\+Battery\+Monitor\+::get\+Battery\+Voltage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Static member function that returns an estimate of the current battery voltage by reading the analog input pin tied to the battery and dividing that value by FULL\+\_\+\+VAL, then multiplying the result by FULL\+\_\+\+VOLTAGE.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An estimate of the battery voltage as a double 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Battery\+Monitor.\+h\item 
+src/Battery\+Monitor.\+cpp\end{DoxyCompactItemize}

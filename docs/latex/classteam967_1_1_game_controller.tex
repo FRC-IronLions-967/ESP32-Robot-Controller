@@ -1,0 +1,204 @@
+\hypertarget{classteam967_1_1_game_controller}{}\doxysection{team967\+::Game\+Controller Class Reference}
+\label{classteam967_1_1_game_controller}\index{team967::GameController@{team967::GameController}}
+
+
+{\ttfamily \#include $<$Game\+Controller.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1_game_controller_af2e574c5d6f76004539a14537e3f1773}{Game\+Controller}} (char $\ast$mac)
+\item 
+\mbox{\hyperlink{classteam967_1_1_game_controller_a7bf2249e60565941ff757031f63bd6a6}{$\sim$\+Game\+Controller}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_game_controller_a5fe38b7e04d18896fc2eea4d45b01da7}{begin}} (void)
+\item 
+bool \mbox{\hyperlink{classteam967_1_1_game_controller_a9342dfdb0f61707ccac11791b3f5af77}{is\+Connected}} (void)
+\item 
+int8\+\_\+t \mbox{\hyperlink{classteam967_1_1_game_controller_a9aeace65934173e7b83e7eac7ef1f738}{get\+Right\+StickX}} (void)
+\item 
+int8\+\_\+t \mbox{\hyperlink{classteam967_1_1_game_controller_a1366b6f88e311d21eef31a932cf2b6ad}{get\+Right\+StickY}} (void)
+\item 
+int8\+\_\+t \mbox{\hyperlink{classteam967_1_1_game_controller_a4a5d4cca1881f65a661e14797b75c19d}{get\+Left\+StickX}} (void)
+\item 
+int8\+\_\+t \mbox{\hyperlink{classteam967_1_1_game_controller_a0b748f6b6502270a3944b788ebd148b7}{get\+Left\+StickY}} (void)
+\item 
+bool \mbox{\hyperlink{classteam967_1_1_game_controller_a5aef78cbfe014164bd968ad46085b519}{is\+Button\+Pressed}} (uint8\+\_\+t button)
+\item 
+int \mbox{\hyperlink{classteam967_1_1_game_controller_a19c6e31876888206299a18509ab7fe40}{get\+Battery}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that provides access to a PS3 controller\textquotesingle{}s button and joystick information. Since the controller connects over Bluetooth, it only makes sense to instantiate one object of this class at a time. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteam967_1_1_game_controller_af2e574c5d6f76004539a14537e3f1773}\label{classteam967_1_1_game_controller_af2e574c5d6f76004539a14537e3f1773}} 
+\index{team967::GameController@{team967::GameController}!GameController@{GameController}}
+\index{GameController@{GameController}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{GameController()}{GameController()}}
+{\footnotesize\ttfamily team967\+::\+Game\+Controller\+::\+Game\+Controller (\begin{DoxyParamCaption}\item[{char $\ast$}]{mac }\end{DoxyParamCaption})}
+
+Constructor to create a new \mbox{\hyperlink{classteam967_1_1_game_controller}{Game\+Controller}} object with the specified option.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mac} & The MAC address of the controller to connect to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \mbox{\hyperlink{classteam967_1_1_game_controller}{Game\+Controller}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_game_controller_a7bf2249e60565941ff757031f63bd6a6}\label{classteam967_1_1_game_controller_a7bf2249e60565941ff757031f63bd6a6}} 
+\index{team967::GameController@{team967::GameController}!````~GameController@{$\sim$GameController}}
+\index{````~GameController@{$\sim$GameController}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{$\sim$GameController()}{~GameController()}}
+{\footnotesize\ttfamily team967\+::\+Game\+Controller\+::$\sim$\+Game\+Controller (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Destructor for the \mbox{\hyperlink{classteam967_1_1_game_controller}{Game\+Controller}} object. Disconnects from the control so Bluetooth can be used by something else.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteam967_1_1_game_controller_a5fe38b7e04d18896fc2eea4d45b01da7}\label{classteam967_1_1_game_controller_a5fe38b7e04d18896fc2eea4d45b01da7}} 
+\index{team967::GameController@{team967::GameController}!begin@{begin}}
+\index{begin@{begin}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void team967\+::\+Game\+Controller\+::begin (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Begins the connection with the controller. After this is called, button and joystick values will begin to be updated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_game_controller_a19c6e31876888206299a18509ab7fe40}\label{classteam967_1_1_game_controller_a19c6e31876888206299a18509ab7fe40}} 
+\index{team967::GameController@{team967::GameController}!getBattery@{getBattery}}
+\index{getBattery@{getBattery}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{getBattery()}{getBattery()}}
+{\footnotesize\ttfamily int team967\+::\+Game\+Controller\+::get\+Battery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the state of the battery of the controller. States range from 0x05 (full) to 0x01 (controller shutdown). 0x\+EE is returned if the battery is charging.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state of the battery 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_game_controller_a4a5d4cca1881f65a661e14797b75c19d}\label{classteam967_1_1_game_controller_a4a5d4cca1881f65a661e14797b75c19d}} 
+\index{team967::GameController@{team967::GameController}!getLeftStickX@{getLeftStickX}}
+\index{getLeftStickX@{getLeftStickX}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{getLeftStickX()}{getLeftStickX()}}
+{\footnotesize\ttfamily int8\+\_\+t team967\+::\+Game\+Controller\+::get\+Left\+StickX (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns the current value of the left stick\textquotesingle{}s x-\/axis as an integer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the left stick\textquotesingle{}s x-\/axis as a 8 bit signed integer (-\/128 to 127) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_game_controller_a0b748f6b6502270a3944b788ebd148b7}\label{classteam967_1_1_game_controller_a0b748f6b6502270a3944b788ebd148b7}} 
+\index{team967::GameController@{team967::GameController}!getLeftStickY@{getLeftStickY}}
+\index{getLeftStickY@{getLeftStickY}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{getLeftStickY()}{getLeftStickY()}}
+{\footnotesize\ttfamily int8\+\_\+t team967\+::\+Game\+Controller\+::get\+Left\+StickY (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns the current value of the left stick\textquotesingle{}s y-\/axis as an integer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the left stick\textquotesingle{}s y-\/axis as a 8 bit signed integer (-\/128 to 127) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_game_controller_a9aeace65934173e7b83e7eac7ef1f738}\label{classteam967_1_1_game_controller_a9aeace65934173e7b83e7eac7ef1f738}} 
+\index{team967::GameController@{team967::GameController}!getRightStickX@{getRightStickX}}
+\index{getRightStickX@{getRightStickX}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{getRightStickX()}{getRightStickX()}}
+{\footnotesize\ttfamily int8\+\_\+t team967\+::\+Game\+Controller\+::get\+Right\+StickX (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns the current value of the right stick\textquotesingle{}s x-\/axis as an integer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the right stick\textquotesingle{}s x-\/axis as a 8 bit signed integer (-\/128 to 127) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_game_controller_a1366b6f88e311d21eef31a932cf2b6ad}\label{classteam967_1_1_game_controller_a1366b6f88e311d21eef31a932cf2b6ad}} 
+\index{team967::GameController@{team967::GameController}!getRightStickY@{getRightStickY}}
+\index{getRightStickY@{getRightStickY}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{getRightStickY()}{getRightStickY()}}
+{\footnotesize\ttfamily int8\+\_\+t team967\+::\+Game\+Controller\+::get\+Right\+StickY (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns the current value of the right stick\textquotesingle{}s y-\/axis as an integer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the right stick\textquotesingle{}s y-\/axis as a 8 bit signed integer (-\/128 to 127) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_game_controller_a5aef78cbfe014164bd968ad46085b519}\label{classteam967_1_1_game_controller_a5aef78cbfe014164bd968ad46085b519}} 
+\index{team967::GameController@{team967::GameController}!isButtonPressed@{isButtonPressed}}
+\index{isButtonPressed@{isButtonPressed}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{isButtonPressed()}{isButtonPressed()}}
+{\footnotesize\ttfamily bool team967\+::\+Game\+Controller\+::is\+Button\+Pressed (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{button }\end{DoxyParamCaption})}
+
+Returns the state of the specified button. Values can be passed in manually, but the defines at the top of this header can also be used for convenience.
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & The numeric ID of the button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the button is pressed, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_game_controller_a9342dfdb0f61707ccac11791b3f5af77}\label{classteam967_1_1_game_controller_a9342dfdb0f61707ccac11791b3f5af77}} 
+\index{team967::GameController@{team967::GameController}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool team967\+::\+Game\+Controller\+::is\+Connected (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns whether or not there is currently a valid connection between the ESP32 and the controller. Can be useful to disable motors or other functionality in the event that connection is lost.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if connected, false otherwise 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Game\+Controller.\+h\item 
+src/Game\+Controller.\+cpp\end{DoxyCompactItemize}

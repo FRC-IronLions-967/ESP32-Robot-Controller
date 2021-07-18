@@ -1,0 +1,387 @@
+\hypertarget{classteam967_1_1_external_encoder}{}\doxysection{team967\+::External\+Encoder Class Reference}
+\label{classteam967_1_1_external_encoder}\index{team967::ExternalEncoder@{team967::ExternalEncoder}}
+
+
+{\ttfamily \#include $<$External\+Encoder.\+h$>$}
+
+Inheritance diagram for team967\+::External\+Encoder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteam967_1_1_external_encoder}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classteam967_1_1_external_encoder_a5e8f2b8f44121b7aae4548823e05c4a9}{Encoder\+Type}} \{ {\bfseries Single}
+, {\bfseries Half}
+, {\bfseries Full}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1_external_encoder_a705ba1e2a12819b7b8161b47e320e41f}{External\+Encoder}} (uint8\+\_\+t pinA, uint8\+\_\+t pinB, \mbox{\hyperlink{classteam967_1_1_external_encoder_a5e8f2b8f44121b7aae4548823e05c4a9}{Encoder\+Type}} type, uint16\+\_\+t cpr=128, bool use\+Pull\+Ups=true)
+\item 
+\mbox{\hyperlink{classteam967_1_1_external_encoder_a7e3eed021f8d842507f1fe278d46e589}{$\sim$\+External\+Encoder}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_external_encoder_aad161fddcf59f597f57faab5d5ac56de}{begin}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_external_encoder_ac6d7709f974c876d4c27830756d01506}{set\+Count}} (int64\+\_\+t count)
+\item 
+int64\+\_\+t \mbox{\hyperlink{classteam967_1_1_external_encoder_a9f01b97faafc0003cc43bb96c5cff25c}{get\+Count}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_external_encoder_a512457d448fe417bd072e582d586ea09}{clear\+Count}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_external_encoder_ac7bcf2676d98e0818f9b49609eac07c1}{pause\+Count}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_external_encoder_a9075f66999225ceccc335d0db87109f6}{resume\+Count}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_external_encoder_aae7a246456fa1b621230a49ab6fc76be}{set\+Filter}} (uint16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_external_encoder_a6097a77607b37e92466ae073e947ab79}{set\+CPR}} (uint16\+\_\+t cpr)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classteam967_1_1_external_encoder_a10efc519a67eb36e20d7a967f57e20d0}{get\+CPR}} (void)
+\item 
+double \mbox{\hyperlink{classteam967_1_1_external_encoder_a7f579fd7d9fef18d95db7125c5a9b8c6}{get\+Velocity}} (void)
+\item 
+int16\+\_\+t \mbox{\hyperlink{classteam967_1_1_external_encoder_ac79bb8958a427ee78d172afabe6c9940}{get\+Rotations\+Int}} (void)
+\item 
+int16\+\_\+t \mbox{\hyperlink{classteam967_1_1_external_encoder_a0b0e7be3d13a69f5807522ed59d1806b}{get\+Rotations\+Rem}} (void)
+\item 
+double \mbox{\hyperlink{classteam967_1_1_external_encoder_ae1e8966caab3535345a8f209a04065ba}{get\+Rotations\+Double}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+pcnt\+\_\+config\+\_\+t \mbox{\hyperlink{classteam967_1_1_external_encoder_a69e9eb7e94e833bc690347764b2d296e}{enc\+Config}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{classteam967_1_1_external_encoder_aa8f57d903911d4f7240b3cfeceaca723}{last\+Update}}
+\item 
+int64\+\_\+t \mbox{\hyperlink{classteam967_1_1_external_encoder_a7dedf60012b124bdd62a241f2a834934}{last\+Value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that provides a way to talk to externally connected encoders (ones that are not integrated into a motor controller or other peripheral). 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_a5e8f2b8f44121b7aae4548823e05c4a9}\label{classteam967_1_1_external_encoder_a5e8f2b8f44121b7aae4548823e05c4a9}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!EncoderType@{EncoderType}}
+\index{EncoderType@{EncoderType}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{EncoderType}{EncoderType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classteam967_1_1_external_encoder_a5e8f2b8f44121b7aae4548823e05c4a9}{team967\+::\+External\+Encoder\+::\+Encoder\+Type}}}
+
+Enum describing the different ways to measure the encoder pulses. Single only uses one of the two channels, half uses both channels but measures only one edge of the waveform, and full uses both channels and measures both the leading and trailing edges of the waveform. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_a705ba1e2a12819b7b8161b47e320e41f}\label{classteam967_1_1_external_encoder_a705ba1e2a12819b7b8161b47e320e41f}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!ExternalEncoder@{ExternalEncoder}}
+\index{ExternalEncoder@{ExternalEncoder}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{ExternalEncoder()}{ExternalEncoder()}}
+{\footnotesize\ttfamily team967\+::\+External\+Encoder\+::\+External\+Encoder (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pinA,  }\item[{uint8\+\_\+t}]{pinB,  }\item[{\mbox{\hyperlink{classteam967_1_1_external_encoder_a5e8f2b8f44121b7aae4548823e05c4a9}{Encoder\+Type}}}]{type,  }\item[{uint16\+\_\+t}]{cpr = {\ttfamily 128},  }\item[{bool}]{use\+Pull\+Ups = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Constructor to create a new \mbox{\hyperlink{classteam967_1_1_external_encoder}{External\+Encoder}} object with the specified options.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pinA} & The pin number for channel A of the encoder \\
+\hline
+{\em pinB} & The pin number for channel B of the encoder, this will not be used in Encoder\+Type\+::\+Single mode \\
+\hline
+{\em type} & The type of measurement to use, \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classteam967_1_1_external_encoder_a5e8f2b8f44121b7aae4548823e05c4a9}{Encoder\+Type}} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em cpr} & The number of clicks the encoder will send per each rotation, default is 128 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \mbox{\hyperlink{classteam967_1_1_external_encoder}{External\+Encoder}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_a7e3eed021f8d842507f1fe278d46e589}\label{classteam967_1_1_external_encoder_a7e3eed021f8d842507f1fe278d46e589}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!````~ExternalEncoder@{$\sim$ExternalEncoder}}
+\index{````~ExternalEncoder@{$\sim$ExternalEncoder}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{$\sim$ExternalEncoder()}{~ExternalEncoder()}}
+{\footnotesize\ttfamily team967\+::\+External\+Encoder\+::$\sim$\+External\+Encoder (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Destructor, stops the encoder counter, but does not change the pin assignments. This can be done manually by the user if so desired.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_aad161fddcf59f597f57faab5d5ac56de}\label{classteam967_1_1_external_encoder_aad161fddcf59f597f57faab5d5ac56de}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!begin@{begin}}
+\index{begin@{begin}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void team967\+::\+External\+Encoder\+::begin (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Attaches the pins to the pulse counter and begins counting pulses.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_a512457d448fe417bd072e582d586ea09}\label{classteam967_1_1_external_encoder_a512457d448fe417bd072e582d586ea09}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!clearCount@{clearCount}}
+\index{clearCount@{clearCount}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{clearCount()}{clearCount()}}
+{\footnotesize\ttfamily void team967\+::\+External\+Encoder\+::clear\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Zeros the click count in the pulse counter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_a9f01b97faafc0003cc43bb96c5cff25c}\label{classteam967_1_1_external_encoder_a9f01b97faafc0003cc43bb96c5cff25c}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!getCount@{getCount}}
+\index{getCount@{getCount}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{getCount()}{getCount()}}
+{\footnotesize\ttfamily int64\+\_\+t team967\+::\+External\+Encoder\+::get\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the number of clicks counted by the pulse counter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of clicks as a 16 bit signed integer 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1_encoder_a64cca570f855528cace1319c3a3a7b90}{team967\+::\+Encoder}}.
+
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_a10efc519a67eb36e20d7a967f57e20d0}\label{classteam967_1_1_external_encoder_a10efc519a67eb36e20d7a967f57e20d0}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!getCPR@{getCPR}}
+\index{getCPR@{getCPR}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{getCPR()}{getCPR()}}
+{\footnotesize\ttfamily uint16\+\_\+t team967\+::\+External\+Encoder\+::get\+CPR (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the number of clicks per rotation for this object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of clicks per rotation as a 16 bit unsigned integer 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1_encoder_a6cb4d965c8380d3a2110edf519e33aef}{team967\+::\+Encoder}}.
+
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_ae1e8966caab3535345a8f209a04065ba}\label{classteam967_1_1_external_encoder_ae1e8966caab3535345a8f209a04065ba}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!getRotationsDouble@{getRotationsDouble}}
+\index{getRotationsDouble@{getRotationsDouble}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{getRotationsDouble()}{getRotationsDouble()}}
+{\footnotesize\ttfamily double team967\+::\+External\+Encoder\+::get\+Rotations\+Double (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the number of rotations as a floating point.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rotations as a floating point value 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1_encoder_af0a0387532c37fba3de1d36621c1ea2e}{team967\+::\+Encoder}}.
+
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_ac79bb8958a427ee78d172afabe6c9940}\label{classteam967_1_1_external_encoder_ac79bb8958a427ee78d172afabe6c9940}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!getRotationsInt@{getRotationsInt}}
+\index{getRotationsInt@{getRotationsInt}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{getRotationsInt()}{getRotationsInt()}}
+{\footnotesize\ttfamily int16\+\_\+t team967\+::\+External\+Encoder\+::get\+Rotations\+Int (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the number of rotations rounded down to the closest integer value. This can be useful if you do not want floating point value for whatever reason.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rotations as a 64 bit signed integer 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1_encoder_aa11d2544095470a899c0a61478710ae1}{team967\+::\+Encoder}}.
+
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_a0b0e7be3d13a69f5807522ed59d1806b}\label{classteam967_1_1_external_encoder_a0b0e7be3d13a69f5807522ed59d1806b}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!getRotationsRem@{getRotationsRem}}
+\index{getRotationsRem@{getRotationsRem}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{getRotationsRem()}{getRotationsRem()}}
+{\footnotesize\ttfamily int16\+\_\+t team967\+::\+External\+Encoder\+::get\+Rotations\+Rem (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the number of clicks above the last rotation. In other words, if CPR = 128, and the encoder has counted 191 clicks, 63 will be returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of clicks above the last rotation as a 16 bit signed integer 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1_encoder_a4f0bb09e9819645f12d81a5c223835f2}{team967\+::\+Encoder}}.
+
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_a7f579fd7d9fef18d95db7125c5a9b8c6}\label{classteam967_1_1_external_encoder_a7f579fd7d9fef18d95db7125c5a9b8c6}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!getVelocity@{getVelocity}}
+\index{getVelocity@{getVelocity}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{getVelocity()}{getVelocity()}}
+{\footnotesize\ttfamily double team967\+::\+External\+Encoder\+::get\+Velocity (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns the current velocity, in revolutions per second, of the encoder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The speed in rotations per second 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_ac7bcf2676d98e0818f9b49609eac07c1}\label{classteam967_1_1_external_encoder_ac7bcf2676d98e0818f9b49609eac07c1}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!pauseCount@{pauseCount}}
+\index{pauseCount@{pauseCount}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{pauseCount()}{pauseCount()}}
+{\footnotesize\ttfamily void team967\+::\+External\+Encoder\+::pause\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Stops the pulse counter from counting future ticks. The pulse counter can be reenabled with \mbox{\hyperlink{classteam967_1_1_external_encoder_a9075f66999225ceccc335d0db87109f6}{resume\+Count()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_a9075f66999225ceccc335d0db87109f6}\label{classteam967_1_1_external_encoder_a9075f66999225ceccc335d0db87109f6}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!resumeCount@{resumeCount}}
+\index{resumeCount@{resumeCount}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{resumeCount()}{resumeCount()}}
+{\footnotesize\ttfamily void team967\+::\+External\+Encoder\+::resume\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Resumes the counting of ticks. This should only be used after a call to \mbox{\hyperlink{classteam967_1_1_external_encoder_ac7bcf2676d98e0818f9b49609eac07c1}{pause\+Count()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_ac6d7709f974c876d4c27830756d01506}\label{classteam967_1_1_external_encoder_ac6d7709f974c876d4c27830756d01506}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!setCount@{setCount}}
+\index{setCount@{setCount}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{setCount()}{setCount()}}
+{\footnotesize\ttfamily void team967\+::\+External\+Encoder\+::set\+Count (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the encoder count (clicks) to a specified value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & A 64 bit signed integer specifying the number of clicks \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1_encoder_a87d5ba1b4da3f42dbf53e27bd9bfe136}{team967\+::\+Encoder}}.
+
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_a6097a77607b37e92466ae073e947ab79}\label{classteam967_1_1_external_encoder_a6097a77607b37e92466ae073e947ab79}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!setCPR@{setCPR}}
+\index{setCPR@{setCPR}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{setCPR()}{setCPR()}}
+{\footnotesize\ttfamily void team967\+::\+External\+Encoder\+::set\+CPR (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{cpr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the clicks per rotation (CPR) value to be used by this encoder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cpr} & The number of clicks per rotation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1_encoder_ae7f446d597db3d1d2bd4d8d58f5c7de4}{team967\+::\+Encoder}}.
+
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_aae7a246456fa1b621230a49ab6fc76be}\label{classteam967_1_1_external_encoder_aae7a246456fa1b621230a49ab6fc76be}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!setFilter@{setFilter}}
+\index{setFilter@{setFilter}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{setFilter()}{setFilter()}}
+{\footnotesize\ttfamily void team967\+::\+External\+Encoder\+::set\+Filter (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Sets a filtering parameter for ignoring variances in signals. Read more about this at\+: \href{https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/pcnt.html}{\texttt{ https\+://docs.\+espressif.\+com/projects/esp-\/idf/en/latest/esp32/api-\/reference/peripherals/pcnt.\+html}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The filter value to be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classteam967_1_1_external_encoder_a69e9eb7e94e833bc690347764b2d296e}\label{classteam967_1_1_external_encoder_a69e9eb7e94e833bc690347764b2d296e}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!encConfig@{encConfig}}
+\index{encConfig@{encConfig}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{encConfig}{encConfig}}
+{\footnotesize\ttfamily pcnt\+\_\+config\+\_\+t team967\+::\+External\+Encoder\+::enc\+Config}
+
+\mbox{\hyperlink{classteam967_1_1_encoder}{Encoder}} configuration field. DO NOT USE. It is public so that it can be accessed from the interrupt handler, which must be static. \mbox{\Hypertarget{classteam967_1_1_external_encoder_aa8f57d903911d4f7240b3cfeceaca723}\label{classteam967_1_1_external_encoder_aa8f57d903911d4f7240b3cfeceaca723}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!lastUpdate@{lastUpdate}}
+\index{lastUpdate@{lastUpdate}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{lastUpdate}{lastUpdate}}
+{\footnotesize\ttfamily uint64\+\_\+t team967\+::\+External\+Encoder\+::last\+Update}
+
+Time of last update. DO NOT USE. It is public so that it can be accessed from the interrupt handler. \mbox{\Hypertarget{classteam967_1_1_external_encoder_a7dedf60012b124bdd62a241f2a834934}\label{classteam967_1_1_external_encoder_a7dedf60012b124bdd62a241f2a834934}} 
+\index{team967::ExternalEncoder@{team967::ExternalEncoder}!lastValue@{lastValue}}
+\index{lastValue@{lastValue}!team967::ExternalEncoder@{team967::ExternalEncoder}}
+\doxysubsubsection{\texorpdfstring{lastValue}{lastValue}}
+{\footnotesize\ttfamily int64\+\_\+t team967\+::\+External\+Encoder\+::last\+Value}
+
+Value at time of last update. DO NOT USE. It is public so that it can be accessed from the interrupt handler. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/External\+Encoder.\+h\item 
+src/External\+Encoder.\+cpp\end{DoxyCompactItemize}

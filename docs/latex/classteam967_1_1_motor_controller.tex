@@ -1,0 +1,174 @@
+\hypertarget{classteam967_1_1_motor_controller}{}\doxysection{team967\+::Motor\+Controller Class Reference}
+\label{classteam967_1_1_motor_controller}\index{team967::MotorController@{team967::MotorController}}
+
+
+{\ttfamily \#include $<$Motor\+Controller.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1_motor_controller_a6f30f0c5eb5f0dfd1436af646cc6b969}{Motor\+Controller}} (int pin, int channel, int frequency=DEFAULT\+\_\+\+PWM\+\_\+\+FREQ, int resolution=DEFAULT\+\_\+\+PWM\+\_\+\+RES)
+\item 
+\mbox{\hyperlink{classteam967_1_1_motor_controller_a261448b0c2be60e23a1903c28e981381}{$\sim$\+Motor\+Controller}} ()
+\item 
+void \mbox{\hyperlink{classteam967_1_1_motor_controller_aa8235d3a10d65ed95ede33d318b96dda}{set\+Inverted}} (bool inverted)
+\item 
+bool \mbox{\hyperlink{classteam967_1_1_motor_controller_a9460094e29fa494aafb4e0a3aceb162f}{is\+Inverted}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_motor_controller_a8120bdc71041a6b2611eb13f7e208dd1}{begin}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_motor_controller_a7bae722085fadfd8b25595e31da57425}{set}} (int16\+\_\+t power)
+\item 
+void \mbox{\hyperlink{classteam967_1_1_motor_controller_ada2d7b557cc73efcd0127d4d97c51e98}{attach\+Encoder}} (\mbox{\hyperlink{classteam967_1_1_encoder}{team967\+::\+Encoder}} $\ast$encoder)
+\item 
+\mbox{\hyperlink{classteam967_1_1_encoder}{team967\+::\+Encoder}} $\ast$ \mbox{\hyperlink{classteam967_1_1_motor_controller_a95a01286f9cc6915ebe539244aa76ff7}{get\+Encoder}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that provides a way to interact with PWM motor controllers. This class assumes that the controller accepts 1/4 duty cycle as neutral, 1/6 as full reverse, and 1/3 as full forward. This include most CTRE Talons and Victors, as well as REV Sparks. This has been tested with Victor 888\textquotesingle{}s and 884\textquotesingle{}s, but it is assumed that it would work with other controllers as well. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classteam967_1_1_motor_controller_a6f30f0c5eb5f0dfd1436af646cc6b969}\label{classteam967_1_1_motor_controller_a6f30f0c5eb5f0dfd1436af646cc6b969}} 
+\index{team967::MotorController@{team967::MotorController}!MotorController@{MotorController}}
+\index{MotorController@{MotorController}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{MotorController()}{MotorController()}}
+{\footnotesize\ttfamily team967\+::\+Motor\+Controller\+::\+Motor\+Controller (\begin{DoxyParamCaption}\item[{int}]{pin,  }\item[{int}]{channel,  }\item[{int}]{frequency = {\ttfamily DEFAULT\+\_\+PWM\+\_\+FREQ},  }\item[{int}]{resolution = {\ttfamily DEFAULT\+\_\+PWM\+\_\+RES} }\end{DoxyParamCaption})}
+
+Constructor to create a new \mbox{\hyperlink{classteam967_1_1_motor_controller}{Motor\+Controller}} with the specified options.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & The pin to use as a signal output for the motor controller \\
+\hline
+{\em channel} & The PWM channel on the ESP32 to use to generate the waveform, can be 0-\/15 \\
+\hline
+{\em frequency} & The frequency (in Hz) to be used for the waveform, default is 167 Hz \\
+\hline
+{\em resolution} & The resolution (in bits) to use for PWM generation, default is 8, max is 16 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \mbox{\hyperlink{classteam967_1_1_motor_controller}{Motor\+Controller}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_motor_controller_a261448b0c2be60e23a1903c28e981381}\label{classteam967_1_1_motor_controller_a261448b0c2be60e23a1903c28e981381}} 
+\index{team967::MotorController@{team967::MotorController}!````~MotorController@{$\sim$MotorController}}
+\index{````~MotorController@{$\sim$MotorController}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{$\sim$MotorController()}{~MotorController()}}
+{\footnotesize\ttfamily team967\+::\+Motor\+Controller\+::$\sim$\+Motor\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor for the motor controller object. Detaches the signal pin from the PWM channel so they can both be reused.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classteam967_1_1_motor_controller_ada2d7b557cc73efcd0127d4d97c51e98}\label{classteam967_1_1_motor_controller_ada2d7b557cc73efcd0127d4d97c51e98}} 
+\index{team967::MotorController@{team967::MotorController}!attachEncoder@{attachEncoder}}
+\index{attachEncoder@{attachEncoder}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{attachEncoder()}{attachEncoder()}}
+{\footnotesize\ttfamily void team967\+::\+Motor\+Controller\+::attach\+Encoder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classteam967_1_1_encoder}{team967\+::\+Encoder}} $\ast$}]{encoder }\end{DoxyParamCaption})}
+
+Attaches an \mbox{\hyperlink{classteam967_1_1_encoder}{Encoder}} object to this motor controller for measuring position, speed, etc.
+
+
+\begin{DoxyParams}{Parameters}
+{\em encoder} & A pointer to the \mbox{\hyperlink{classteam967_1_1_encoder}{Encoder}} object to attach \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_motor_controller_a8120bdc71041a6b2611eb13f7e208dd1}\label{classteam967_1_1_motor_controller_a8120bdc71041a6b2611eb13f7e208dd1}} 
+\index{team967::MotorController@{team967::MotorController}!begin@{begin}}
+\index{begin@{begin}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void team967\+::\+Motor\+Controller\+::begin (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Begins PWM output using the channel and pin specified in the constructor. PWM duty cycle is set to 1/4 by default.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_motor_controller_a95a01286f9cc6915ebe539244aa76ff7}\label{classteam967_1_1_motor_controller_a95a01286f9cc6915ebe539244aa76ff7}} 
+\index{team967::MotorController@{team967::MotorController}!getEncoder@{getEncoder}}
+\index{getEncoder@{getEncoder}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{getEncoder()}{getEncoder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classteam967_1_1_encoder}{team967\+::\+Encoder}} \& team967\+::\+Motor\+Controller\+::get\+Encoder (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns a pointer to the \mbox{\hyperlink{classteam967_1_1_encoder}{Encoder}} attached to this object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \mbox{\hyperlink{classteam967_1_1_encoder}{Encoder}} object attached to this object, or nullptr if does not exist 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_motor_controller_a9460094e29fa494aafb4e0a3aceb162f}\label{classteam967_1_1_motor_controller_a9460094e29fa494aafb4e0a3aceb162f}} 
+\index{team967::MotorController@{team967::MotorController}!isInverted@{isInverted}}
+\index{isInverted@{isInverted}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{isInverted()}{isInverted()}}
+{\footnotesize\ttfamily bool team967\+::\+Motor\+Controller\+::is\+Inverted (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns whether or not this object\textquotesingle{}s output is inverted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if inverted, false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_motor_controller_a7bae722085fadfd8b25595e31da57425}\label{classteam967_1_1_motor_controller_a7bae722085fadfd8b25595e31da57425}} 
+\index{team967::MotorController@{team967::MotorController}!set@{set}}
+\index{set@{set}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void team967\+::\+Motor\+Controller\+::set (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{power }\end{DoxyParamCaption})}
+
+Sets the power output of the motor. The values passed to this depend on the resolution values specified earlier. For example, in 8 bit mode the acceptable range for values passed to this function is -\/128 to 127. For 16 bit mode they are -\/32768 to 32767.
+
+
+\begin{DoxyParams}{Parameters}
+{\em power} & The power value to set the output to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classteam967_1_1_motor_controller_aa8235d3a10d65ed95ede33d318b96dda}\label{classteam967_1_1_motor_controller_aa8235d3a10d65ed95ede33d318b96dda}} 
+\index{team967::MotorController@{team967::MotorController}!setInverted@{setInverted}}
+\index{setInverted@{setInverted}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{setInverted()}{setInverted()}}
+{\footnotesize\ttfamily void team967\+::\+Motor\+Controller\+::set\+Inverted (\begin{DoxyParamCaption}\item[{bool}]{inverted }\end{DoxyParamCaption})}
+
+Sets the inversion state of this object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inverted} & Whether or not this object\textquotesingle{}s output should be inverted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Motor\+Controller.\+h\item 
+src/Motor\+Controller.\+cpp\end{DoxyCompactItemize}

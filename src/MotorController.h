@@ -103,17 +103,18 @@ namespace team967 {
             /**
              * Attaches an Encoder object to this motor controller for measuring position, speed, etc.
              * 
-             * @param encoder A reference to the encoder object to attach
+             * @param encoder A pointer to the Encoder object to attach
              * @return nothing
              */
-            void attachEncoder(team967::Encoder& encoder);
+            void attachEncoder(team967::Encoder *encoder);
 
             /**
-             * Returns a reference to the Encoder attached to this object.
+             * Returns a pointer to the Encoder attached to this object.
              * 
-             * @
+             * @param none
+             * @return A pointer to the Encoder object attached to this object, or nullptr if does not exist
              */
-            team967::Encoder& getEncoder(void);
+            team967::Encoder* getEncoder(void);
 
     };
 

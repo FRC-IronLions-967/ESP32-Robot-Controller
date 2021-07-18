@@ -19,6 +19,8 @@ team967::PWMServo::PWMServo(int pin, int channel, int frequency, int resolution)
     dutyCycleMin = ((1<<res) / 6);
     dutyCycleMax = ((1<<res) / 3);
 
+    attachedEncoder = nullptr;
+
     inv = false;
 }
 
@@ -63,10 +65,13 @@ void team967::PWMServo::setAngleDegrees(int8_t angle) {
     ledcWrite(chan, dutyCycle);
 }
 
-void team967::PWMServo::attachEncoder(team967::Encoder& encoder) {
-    attachedEncoder = &encoder;
+void team967::PWMServo::attachEncoder(team967::Encoder *encoder) {
+    attachedEncoder = encoder;
 }
 
-team967::Encoder& team967::PWMServo::getEncoder() {
-    return *attachedEncoder;
+team967::Encoder* team967::PWMServo::getEncoder() {
+    if(attachedEncoder != nullptr) {
+        return attachedEncoder;
+    }
+    return nullptr;
 }
