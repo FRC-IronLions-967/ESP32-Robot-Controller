@@ -17,6 +17,9 @@ namespace team967 {
     const int PCB_GPIO_10 = 27;
     const int PCB_GPIO_11 = 16;
 
+    // definition for the battery monitoring pin
+    const int PCB_BATT = 34;
+
     // definitions for the default I2C pins
     const int PCB_I2C_SCL = PCB_GPIO_1;
     const int PCB_I2C_SDA = PCB_GPIO_2;
