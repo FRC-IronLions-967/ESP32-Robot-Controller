@@ -64,10 +64,10 @@ void team967::MotorController::set(int16_t power) {
     ledcWrite(chan, dutyCycle);
 }
 
-void team967::MotorController::attachEncoder(team967::Encoder& encoder) {
-    attachedEncoder = &encoder;
+void team967::MotorController::attachEncoder(team967::Encoder *encoder) {
+    attachedEncoder = encoder;
 }
 
-team967::Encoder& team967::MotorController::getEncoder() {
-    return *attachedEncoder;
+team967::Encoder* team967::MotorController::getEncoder() {
+    return attachedEncoder;
 }
