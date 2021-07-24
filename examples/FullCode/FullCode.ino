@@ -32,8 +32,8 @@ void setup() {
   arm.begin();
   grabber.begin();
 
-  leftController.setInverted(true);
-  rightController.setInverted(false);
+  leftController.setInverted(false);
+  rightController.setInverted(true);
   arm.setInverted(true);
 
   gameController.begin();
@@ -49,9 +49,9 @@ void setup() {
 
 void loop() {
   if(gameController.isConnected()) {
-    short leftPower = ((-gameController.getLeftStickY() > 0) ? driveLookup[-gameController.getLeftStickY()] : -driveLookup[gameController.getLeftStickY()]) + 
+    short leftPower = ((-gameController.getLeftStickY() > 0) ? driveLookup[-gameController.getLeftStickY()] : -driveLookup[gameController.getLeftStickY()]) - 
                       ((gameController.getRightStickX() > 0) ? turnLookup[gameController.getRightStickX()] : -turnLookup[-gameController.getRightStickX()]);
-    short rightPower = ((-gameController.getLeftStickY() > 0) ? driveLookup[-gameController.getLeftStickY()] : -driveLookup[gameController.getLeftStickY()]) - 
+    short rightPower = ((-gameController.getLeftStickY() > 0) ? driveLookup[-gameController.getLeftStickY()] : -driveLookup[gameController.getLeftStickY()]) + 
                       ((gameController.getRightStickX() > 0) ? turnLookup[gameController.getRightStickX()] : -turnLookup[-gameController.getRightStickX()]);
 
     Serial.print("Left Power: ");
@@ -69,9 +69,9 @@ void loop() {
     rightController.set(rightPower);
 
     if(gameController.isButtonPressed(D_UP)) {
-      arm.set(20);
+      arm.set(40);
     } else if(gameController.isButtonPressed(D_DOWN)) {
-      arm.set(-20);
+      arm.set(-40);
     } else {
       arm.set(0);
     }
