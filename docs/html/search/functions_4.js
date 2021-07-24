@@ -5,7 +5,7 @@ var searchData=
   ['getbatteryvoltage_58',['getBatteryVoltage',['../classteam967_1_1_battery_monitor.html#af85a4c8a950a71dd145235bb4b0bb7f2',1,'team967::BatteryMonitor']]],
   ['getcount_59',['getCount',['../classteam967_1_1_encoder.html#a64cca570f855528cace1319c3a3a7b90',1,'team967::Encoder::getCount()'],['../classteam967_1_1_external_encoder.html#a9f01b97faafc0003cc43bb96c5cff25c',1,'team967::ExternalEncoder::getCount()']]],
   ['getcpr_60',['getCPR',['../classteam967_1_1_encoder.html#a6cb4d965c8380d3a2110edf519e33aef',1,'team967::Encoder::getCPR()'],['../classteam967_1_1_external_encoder.html#a10efc519a67eb36e20d7a967f57e20d0',1,'team967::ExternalEncoder::getCPR()']]],
-  ['getencoder_61',['getEncoder',['../classteam967_1_1_motor_controller.html#a95a01286f9cc6915ebe539244aa76ff7',1,'team967::MotorController::getEncoder()'],['../classteam967_1_1_p_w_m_servo.html#a31f0c186956e694caecd8b019d151e17',1,'team967::PWMServo::getEncoder()']]],
+  ['getencoder_61',['getEncoder',['../classteam967_1_1_motor_controller.html#a1874d22fcf2cae5619789ce23080a8c7',1,'team967::MotorController::getEncoder()'],['../classteam967_1_1_p_w_m_servo.html#a31f0c186956e694caecd8b019d151e17',1,'team967::PWMServo::getEncoder()']]],
   ['getleftstickx_62',['getLeftStickX',['../classteam967_1_1_game_controller.html#a4a5d4cca1881f65a661e14797b75c19d',1,'team967::GameController']]],
   ['getleftsticky_63',['getLeftStickY',['../classteam967_1_1_game_controller.html#a0b748f6b6502270a3944b788ebd148b7',1,'team967::GameController']]],
   ['getrightstickx_64',['getRightStickX',['../classteam967_1_1_game_controller.html#a9aeace65934173e7b83e7eac7ef1f738',1,'team967::GameController']]],
