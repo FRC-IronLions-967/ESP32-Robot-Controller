@@ -20,6 +20,7 @@ ability to set the number of clicks per rotation to get the number of rotations 
 #include <Arduino.h>
 #include <driver/gpio.h>
 #include <driver/pcnt.h>
+#include <soc/pcnt_struct.h>
 #include "Encoder.h"
 
 namespace team967 {
