@@ -11,7 +11,7 @@ MotorController rightController(PCB_GPIO_1, 1);
 SparkController lowerRoller(PCB_GPIO_3, PCB_GPIO_2);
 SparkController upperRoller(PCB_GPIO_5, PCB_GPIO_4);
 
-GameController gameController("00:22:44:66:88:aa");
+GameController gameController("99:66:77:00:00:00");
 
 void setup() {
   Serial.begin(115200);
@@ -24,6 +24,8 @@ void setup() {
 
   lowerRoller.begin();
   upperRoller.begin();
+
+  pinMode(PCB_GPIO_6, INPUT);
 
   gameController.begin();
 
@@ -40,6 +42,16 @@ void loop() {
   if(gameController.isConnected()) {
     short leftPower = gameController.getLeftStickY() - gameController.getRightStickX();
     short rightPower = gameController.getLeftStickY() + gameController.getRightStickX();
+
+    if(digitalRead(PCB_GPIO_6) == HIGH) {
+      leftPower *= 3;
+      rightPower *= 3;
+      leftPower >>= 2;
+      rightPower >>= 2;
+    } else {
+      leftPower >>= 1;
+      rightPower >>= 1;
+    }
 
     // not sure if this is necessary, but check to make sure we haven't exceeded the range on an 8 bit signed int
     leftPower = (leftPower > 127) ? 127 : leftPower;
