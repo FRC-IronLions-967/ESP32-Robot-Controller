@@ -26,6 +26,7 @@ void setup() {
   upperRoller.begin();
 
   pinMode(PCB_GPIO_6, INPUT);
+  pinMode(ESP32_ONBOARD_LED, OUTPUT);
 
   gameController.begin();
 
@@ -40,6 +41,8 @@ void setup() {
 
 void loop() {
   if(gameController.isConnected()) {
+    digitalWrite(ESP32_ONBOARD_LED, HIGH);
+    
     short leftPower = gameController.getLeftStickY() - gameController.getRightStickX();
     short rightPower = gameController.getLeftStickY() + gameController.getRightStickX();
 
@@ -74,6 +77,8 @@ void loop() {
       upperRoller.coast();
     }
   } else {
+    digitalWrite(ESP32_ONBOARD_LED, LOW);
+    
     leftController.set(0);
     rightController.set(0);
 

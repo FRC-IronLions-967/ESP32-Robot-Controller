@@ -17,6 +17,8 @@ namespace team967 {
     const int PCB_GPIO_10 = 27;
     const int PCB_GPIO_11 = 16;
 
+    const int ESP32_ONBOARD_LED = 2;
+
     // definition for the battery monitoring pin
     const int PCB_BATT = 34;
 
