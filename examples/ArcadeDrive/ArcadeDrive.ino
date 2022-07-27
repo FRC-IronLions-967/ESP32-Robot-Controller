@@ -1,13 +1,13 @@
 #include <CustomBoardPinDefs.h>
 #include <MotorController.h>
-#include <GameController.h>
+#include <BluetoothGameController.h>
 
 using namespace team967;
 
 MotorController leftController(PCB_GPIO_0, 0);
 MotorController rightController(PCB_GPIO_1, 1);
 
-GameController gameController("00:22:44:66:88:aa");
+BluetoothGameController gameController("00:22:44:66:88:aa");
 
 void setup() {
   Serial.begin(115200);

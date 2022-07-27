@@ -54,9 +54,11 @@ void loop() {
     short leftPower = controller.getJoystickY(0) - controller.getJoystickX(1);
     short rightPower = controller.getJoystickY(0) + controller.getJoystickX(1);
 
-    Serial.print(leftPower);
-    Serial.print("\t");
-    Serial.println(rightPower);
+    if(leftPower != 0 || rightPower != 0) {
+      Serial.print(leftPower);
+      Serial.print("\t");
+      Serial.println(rightPower);
+    }
 
     if(digitalRead(PCB_GPIO_6) == HIGH) {
       leftPower *= 3;
