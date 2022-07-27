@@ -22,25 +22,6 @@ support is added.
 #include <Ps3Controller.h>
 #include <stdint.h>
 
-// definitions for the various buttons
-// #define CROSS 0
-// #define SQUARE 1
-// #define TRIANGLE 2
-// #define CIRCLE 3
-// #define D_UP 4
-// #define D_DOWN 5
-// #define D_LEFT 6
-// #define D_RIGHT 7
-// #define LEFT_BUMP 8
-// #define RIGHT_BUMP 9
-// #define LEFT_TRIGGER 10
-// #define RIGHT_TRIGGER 11
-// #define LEFT_STICK 12
-// #define RIGHT_STICK 13
-// #define START 14
-// #define SELECT 15
-// #define PS 16
-
 namespace team967 {
 
     /**
@@ -107,7 +88,7 @@ namespace team967 {
             BluetoothGameController(char *mac);
 
             /**
-             * Destructor for the BluetoothGameController object.  Disconnects from the control so Bluetooth can be used by something else.
+             * Destructor.  Disconnects from the control so Bluetooth can be used by something else.
              * 
              * @param none
              * @return nothing
@@ -131,8 +112,20 @@ namespace team967 {
              */
             bool isConnected(void);
 
+            /**
+             * Returns the number of joystick axes on the PS3 Controller, which is always 4.  The joystick constants defined in this class can be used with this method.
+             * 
+             * @param none
+             * @return The number of axes
+             */
             uint8_t getNumAxes(void);
 
+            /**
+             * Returns the value of a joystick axis by id.
+             * 
+             * @param id the id of the axis to retrieve
+             * @return The value of the specified axis as a 8 bit signed integer (-128 to 127)
+             */
             int8_t getJoystickAxis(uint8_t id);
 
             /**
@@ -167,12 +160,18 @@ namespace team967 {
              */
             int8_t getLeftStickY(void);
 
+            /**
+             * Returns the number of buttons on the PS3 Controller, which is always 17.
+             * 
+             * @param none
+             * @return The number of buttons
+             */
             uint8_t getNumButtons(void);
 
             /**
-             * Returns the state of the specified button.  Values can be passed in manually, but the defines at the top of this header can also be used for convenience.
+             * Returns the state of the specified button.  The button constants defined in this class can be used with this method.
              * 
-             * @param id The numeric ID of the button
+             * @param id The numeric id of the button
              * @return true if the button is pressed, false otherwise
              */
             bool isButtonPressed(uint8_t id);

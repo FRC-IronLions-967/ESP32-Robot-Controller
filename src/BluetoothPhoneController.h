@@ -47,34 +47,87 @@ namespace team967 {
             void setConnected(bool c);
 
         public:
+            /**
+             * Creates a new instance of this class and sets it as the global instance.  Only one instance of this class can exist at a time.
+             * 
+             * @param name Bluetooth device name to use for this device
+             * @return Reference to the global instance
+             */
             static BluetoothPhoneController& createInstance(char* name);
         
-            // destructor
+            /**
+             * Destructor.
+             */
             ~BluetoothPhoneController();
 
-            // starts Bluetooth and starts listening for connections
+            /**
+             * Starts Bluetooth and allows incoming devices to connect.  Waiting for devices to connect is non-blocking.
+             * 
+             * @return true if Bluetooth initializes successfully, false otherwise
+             */
             bool begin(void);
 
-            // checks whether or not this object has a valid connection
+            /**
+             * Returns whether the ESP32 is connected to a phone acting as a joystick.
+             * 
+             * @return true if connected, false otherwise
+             */
             bool isConnected(void);
 
+            /**
+             * Returns the number of joystick axes on the phone controller, which can vary.  (Robotics app has 4)
+             * 
+             * @param none
+             * @return The number of axes
+             */
             uint8_t getNumAxes(void);
 
+            /**
+             * Returns the value of a joystick axis by id.
+             * 
+             * @param id the id of the axis to retrieve
+             * @return The value of the specified axis as a 8 bit signed integer (-128 to 127)
+             */
             int8_t getJoystickAxis(uint8_t id);
 
-            // returns the number of joysticks this controller has
+            /**
+             * Returns the number of joysticks on the phone controller.
+             * 
+             * @param none
+             * @return The number of joysticks
+             */
             uint8_t getNumJoysticks(void);
 
-            // returns the x axis value of the joystick with the given id
+            /**
+             * Returns the x axis value of the joystick with the specified id.
+             * 
+             * @param id the id of the joystick to retrieve
+             * @return The value of the x axis as a 8 bit signed integer (-128 to 127)
+             */
             int8_t getJoystickX(uint8_t id);
 
-            // returns the y axis value of the joystick with the given id
+            /**
+             * Returns the y axis value of the joystick with the specified id.
+             * 
+             * @param id the id of the joystick to retrieve
+             * @return The value of the y axis as a 8 bit signed integer (-128 to 127)
+             */
             int8_t getJoystickY(uint8_t id);
 
-            // returns the number of buttons this controller has
+            /**
+             * Returns the number of buttons on the phone controller, which can vary.  (Robotics app has 4)
+             * 
+             * @param none
+             * @return The number of buttons
+             */
             uint8_t getNumButtons();
 
-            // returns whether the button with the given id is pressed
+            /**
+             * Returns the state of the specified button.
+             * 
+             * @param id The numeric id of the button
+             * @return true if the button is pressed, false otherwise
+             */
             bool isButtonPressed(uint8_t id);
 
     };
