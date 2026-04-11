@@ -10,7 +10,7 @@ This file provides the definitions of the class methods defined in ExternalEncod
 
 **************************************************************************************************************************************/
 
-#include "ExternalEncoder.h"
+#include <ExternalEncoder.h>
 
 const uint8_t team967::ExternalEncoder::MAX_ENCODERS = 8;
 

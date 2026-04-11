@@ -10,13 +10,17 @@ This file provides the definitions of the class methods declared in RobotSchedul
 
 **************************************************************************************************************************************/
 
-#include "RobotScheduler.h" 
+#include <RobotScheduler.h> 
 
 team967::RobotScheduler::RobotScheduler() {
 
 }
 
 team967::RobotScheduler::~RobotScheduler() {
+
+}
+
+team967::RobotScheduler& team967::RobotScheduler::getInstance() {
 
 }
 

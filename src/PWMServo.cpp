@@ -10,7 +10,7 @@ This file provides the definitions of the class methods defined in PWMServo.h.  
 
 **************************************************************************************************************************************/
 
-#include "PWMServo.h"
+#include <PWMServo.h>
 
 team967::PWMServo::PWMServo(int pin, int channel, int frequency, int resolution): p(pin), chan(channel), freq(frequency), res(resolution) {
     // maximum supported resolution is 16 bits
