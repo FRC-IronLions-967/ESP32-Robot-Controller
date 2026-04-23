@@ -25,7 +25,7 @@ namespace team967 {
      */
     class MotorController {
 
-        private:
+        protected:
             uint32_t features;
 
             int32_t maximumPower;
@@ -49,6 +49,13 @@ namespace team967 {
              * @return nothing
              */
             ~MotorController();
+
+            /**
+             * Initialize the MotorController in hardware.
+             * 
+             * @return nothing
+             */
+            virtual void begin(void) = 0;
 
             /**
              * Bit masks for the various potential features a MotorController might support.

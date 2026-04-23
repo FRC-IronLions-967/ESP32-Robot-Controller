@@ -22,7 +22,7 @@ team967::FRCPWMMotorController::FRCPWMMotorController(int pin, int channel, int 
     dutyCycleMin = ((1<<res) / 6);
     dutyCycleMax = ((1<<res) / 3);
 
-    attachedEncoder = nullptr;
+    // attachedEncoder = nullptr;
 }
 
 team967::FRCPWMMotorController::~FRCPWMMotorController() {
@@ -44,7 +44,7 @@ void team967::FRCPWMMotorController::setPower(int32_t power) {
 
     int16_t divisor = (1<<res) / (dutyCycleMax - dutyCycleMin);
 
-    if(!inv) {
+    if(!inverted) {
         dutyCycle += power / divisor;
     } else {
         dutyCycle -= power / divisor;
@@ -57,10 +57,10 @@ void team967::FRCPWMMotorController::setPower(int32_t power) {
     ledcWrite(chan, dutyCycle);
 }
 
-void team967::FRCPWMMotorController::attachEncoder(team967::Encoder *encoder) {
-    attachedEncoder = encoder;
-}
+// void team967::FRCPWMMotorController::attachEncoder(team967::Encoder *encoder) {
+//     attachedEncoder = encoder;
+// }
 
-team967::Encoder* team967::FRCPWMMotorController::getEncoder() {
-    return attachedEncoder;
-}
+// team967::Encoder* team967::FRCPWMMotorController::getEncoder() {
+//     return attachedEncoder;
+// }

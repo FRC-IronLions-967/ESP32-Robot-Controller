@@ -1,0 +1,13 @@
+{
+  "name": "ESP32-Robot-Controller",
+  "version": "1.0.0",
+  "description": "A library to utilize an ESP32 to control a simple robot for Team 967 summer camps",
+  "keywords": "",
+  "repository":{},
+  "authors":[],
+  "license": "GPL 2.0",
+  "homepage": "",
+  "dependencies": {},
+  "frameworks": "*",
+  "platforms": "*"
+}

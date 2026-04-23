@@ -45,7 +45,7 @@ namespace team967 {
             int dutyCycleMin;
             int dutyCycleMax;
 
-            team967::Encoder* attachedEncoder;
+            // team967::Encoder* attachedEncoder;
 
         public:
             /**
@@ -90,7 +90,7 @@ namespace team967 {
              * @param encoder A pointer to the Encoder object to attach
              * @return nothing
              */
-            void attachEncoder(team967::Encoder *encoder);
+            // void attachEncoder(team967::Encoder *encoder);
 
             /**
              * Returns a pointer to the Encoder attached to this object.
@@ -98,7 +98,7 @@ namespace team967 {
              * @param none
              * @return A pointer to the Encoder object attached to this object, or nullptr if does not exist
              */
-            team967::Encoder* getEncoder(void);
+            // team967::Encoder* getEncoder(void);
 
     };
 
