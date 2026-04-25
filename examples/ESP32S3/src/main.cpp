@@ -3,7 +3,7 @@
 
 #include <DRV8873MotorController.h>
 
-team967::DRV8873MotorController motorController(47, 21, 0, 10000, 9);
+team967::DRV8873MotorController motorController(47, 21, 10000, 9);
 
 void setup() {
   Serial.begin(115200);

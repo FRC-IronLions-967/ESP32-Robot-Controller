@@ -19,7 +19,7 @@ This header provides a class for generating a PWM output on the ESP32 S3 board.
 
 namespace team967 {
 
-    class ESP32S3PWMOutput {
+    class ESP32S3PWMOutput : public PWMOutput {
 
         private:
             ledc_timer_config_t* timerConfig;
@@ -43,7 +43,7 @@ namespace team967 {
              */
             ~ESP32S3PWMOutput();
 
-            
+
 
             /**
              * Function to get the frequency in Hertz of the PWM channel.

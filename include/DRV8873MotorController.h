@@ -30,11 +30,8 @@ namespace team967 {
         private:
             int pin0;
             int pin1;
-            int channel;
             int frequency;
             int resolution;
-
-            int currentAttachedPin;
 
         public:
             /**
@@ -42,7 +39,7 @@ namespace team967 {
              * 
              * @return A new DRV8873MotorController object
              */
-            DRV8873MotorController(int pin0, int pin1, int channel, int frequency, int resolution);
+            DRV8873MotorController(int pin0, int pin1, int frequency, int resolution);
 
             /**
              * Virtual destructor for class.
