@@ -15,8 +15,11 @@ for device specific details.
 #define TEAM967_DRV8873MOTORCONTROLLER_H
 
 #include <MotorController.h>
+#include <MCPWMChannel.h>
 
 #include <stdint.h>
+
+#include <Arduino.h>
 
 namespace team967 {
 
@@ -28,10 +31,7 @@ namespace team967 {
     class DRV8873MotorController : public MotorController {
 
         private:
-            int pin0;
-            int pin1;
-            int frequency;
-            int resolution;
+            MCPWMChannel* pwmChannel;
 
         public:
             /**
@@ -39,7 +39,7 @@ namespace team967 {
              * 
              * @return A new DRV8873MotorController object
              */
-            DRV8873MotorController(int pin0, int pin1, int frequency, int resolution);
+            DRV8873MotorController(MCPWMChannel* pwmChannel);
 
             /**
              * Virtual destructor for class.
@@ -57,6 +57,8 @@ namespace team967 {
 
             /**
              * Function to set motor power.
+             * 
+             * @param power motor power (will be constrained within motor power bounds)
              * 
              * @return nothing
              */
