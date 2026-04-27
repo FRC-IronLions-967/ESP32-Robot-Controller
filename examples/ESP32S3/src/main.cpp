@@ -1,13 +1,31 @@
 #include <Arduino.h>
 #include <Bluepad32.h>
 
+#include <ESP32S3Rev1BoardDefs.h>
+
 #include <DRV8873MotorController.h>
 #include <ESP32S3LegacyMCPWMChannel.h>
 
+using namespace team967;
+
 GamepadPtr myControllers[BP32_MAX_GAMEPADS] = {};
 
-team967::ESP32S3LegacyMCPWMChannel pwmChannel(0, 0, 47, 21, 20000, 9);
-team967::DRV8873MotorController motorController(&pwmChannel);
+ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_0(0, 0, MOTOR_CONTROLLER_0_IN1_PIN, MOTOR_CONTROLLER_0_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_1(0, 1, MOTOR_CONTROLLER_1_IN1_PIN, MOTOR_CONTROLLER_1_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_2(0, 2, MOTOR_CONTROLLER_2_IN1_PIN, MOTOR_CONTROLLER_2_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_3(1, 0, MOTOR_CONTROLLER_3_IN1_PIN, MOTOR_CONTROLLER_3_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_4(1, 1, MOTOR_CONTROLLER_4_IN1_PIN, MOTOR_CONTROLLER_4_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_5(1, 2, MOTOR_CONTROLLER_5_IN1_PIN, MOTOR_CONTROLLER_5_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+
+DRV8873MotorController MOTOR_CONTROLLER_0(&MCPWM_CHANNEL_0);
+DRV8873MotorController MOTOR_CONTROLLER_1(&MCPWM_CHANNEL_1);
+DRV8873MotorController MOTOR_CONTROLLER_2(&MCPWM_CHANNEL_2);
+DRV8873MotorController MOTOR_CONTROLLER_3(&MCPWM_CHANNEL_3);
+DRV8873MotorController MOTOR_CONTROLLER_4(&MCPWM_CHANNEL_4);
+DRV8873MotorController MOTOR_CONTROLLER_5(&MCPWM_CHANNEL_5);
+
+// team967::ESP32S3LegacyMCPWMChannel pwmChannel(0, 0, 47, 21, 20000, 9);
+// team967::DRV8873MotorController motorController(&pwmChannel);
 
 void onConnectedController(ControllerPtr ctl);
 
@@ -20,7 +38,13 @@ void setup() {
 
   delay(2000);
 
-  motorController.begin();
+  // motorController.begin();
+  MOTOR_CONTROLLER_0.begin();
+  MOTOR_CONTROLLER_1.begin();
+  MOTOR_CONTROLLER_2.begin();
+  MOTOR_CONTROLLER_3.begin();
+  MOTOR_CONTROLLER_4.begin();
+  MOTOR_CONTROLLER_5.begin();
 
   String fv = BP32.firmwareVersion();
   Serial.print("Firmware version installed: ");
@@ -194,7 +218,12 @@ void loop() {
   }
 
   if(myControllers[0] && myControllers[0]->isConnected()) {
-    motorController.setPower(myControllers[0]->axisX());
+    MOTOR_CONTROLLER_0.setPower(myControllers[0]->axisX());
+    MOTOR_CONTROLLER_1.setPower(myControllers[0]->axisX());
+    MOTOR_CONTROLLER_2.setPower(myControllers[0]->axisX());
+    MOTOR_CONTROLLER_3.setPower(myControllers[0]->axisX());
+    MOTOR_CONTROLLER_4.setPower(myControllers[0]->axisX());
+    MOTOR_CONTROLLER_5.setPower(myControllers[0]->axisX());
   }
 
   delay(10);
