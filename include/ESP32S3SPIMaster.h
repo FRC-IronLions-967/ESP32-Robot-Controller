@@ -10,8 +10,8 @@ This header provides a class that describes a SPI interface for the ESP32S3.
 
 **************************************************************************************************************************************/
 
-#ifndef TEAM967_SPIMASTER_H
-#define TEAM967_SPIMASTER_H
+#ifndef TEAM967_ESP32S3SPIMASTER_H
+#define TEAM967_ESP32S3SPIMASTER_H
 
 #include <stdint.h>
 
@@ -21,7 +21,7 @@ This header provides a class that describes a SPI interface for the ESP32S3.
 
 namespace team967 {
 
-    class ESP32S3SPIMaster {
+    class ESP32S3SPIMaster : public SPIMaster {
 
         private:
             spi_device_handle_t spiHandle;

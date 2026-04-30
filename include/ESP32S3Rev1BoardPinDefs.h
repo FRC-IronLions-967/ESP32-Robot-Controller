@@ -28,17 +28,37 @@ namespace team967 {
     const int MOTOR_CONTROLLER_5_IN1_PIN = 18;
     const int MOTOR_CONTROLLER_5_IN2_PIN = 17;
 
+    const int MOTOR_CONTROLLER_NFAULT_PIN = 1;
+
     const int MOTOR_CONTROLLER_PWM_FREQ = 20000;
 
     const int MOTOR_CONTROLLER_RESOLUTION_BITS = 9;
 
     const int NUM_MOTOR_CONTROLLERS = 6;
 
-    const int GPIO_SERVO_PIN_0 = 16;
-    const int GPIO_SERVO_PIN_1 = 15;
-    const int GPIO_SERVO_PIN_2 = 7;
-    const int GPIO_SERVO_PIN_3 = 6;
-    const int GPIO_SERVO_PIN_4 = 5;
+    const int GPIO_SERVO_0_PIN = 16;
+    const int GPIO_SERVO_1_PIN = 15;
+    const int GPIO_SERVO_2_PIN = 7;
+    const int GPIO_SERVO_3_PIN = 6;
+    const int GPIO_SERVO_4_PIN = 5;
+
+    const int NUM_GPIO_SERVOS = 5;
+
+    const int SPI_CSN_0_PIN = 42;
+    const int SPI_CSN_1_PIN = 41;
+    const int SPI_CSN_2_PIN = 40;
+    const int SPI_CSN_3_PIN = 36;
+    const int SPI_CSN_4_PIN = 35;
+    const int SPI_CSN_5_PIN = 48;
+
+    const int SPI_SCLK_PIN = 37;
+    const int SPI_SDI_PIN  = 39;
+    const int SPI_SDO_PIN  = 2;
+
+    const int SPI_FREQUENCY = 10 * 1000 * 1000; // not yet tested, but defaulting to 10 MHz
+    
+    const int RGB_LED_PIN = 38;
+
 }
 
 #endif

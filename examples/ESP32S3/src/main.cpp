@@ -1,28 +1,36 @@
 #include <Arduino.h>
 #include <Bluepad32.h>
 
-#include <ESP32S3Rev1BoardDefs.h>
+#include <ESP32S3Rev1BoardPinDefs.h>
 
 #include <DRV8873MotorController.h>
 #include <ESP32S3LegacyMCPWMChannel.h>
+#include <ESP32S3SPIMaster.h>
 
 using namespace team967;
 
 GamepadPtr myControllers[BP32_MAX_GAMEPADS] = {};
 
-ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_0(0, 0, MOTOR_CONTROLLER_0_IN1_PIN, MOTOR_CONTROLLER_0_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
-ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_1(0, 1, MOTOR_CONTROLLER_1_IN1_PIN, MOTOR_CONTROLLER_1_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
-ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_2(0, 2, MOTOR_CONTROLLER_2_IN1_PIN, MOTOR_CONTROLLER_2_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
-ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_3(1, 0, MOTOR_CONTROLLER_3_IN1_PIN, MOTOR_CONTROLLER_3_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
-ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_4(1, 1, MOTOR_CONTROLLER_4_IN1_PIN, MOTOR_CONTROLLER_4_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
-ESP32S3LegacyMCPWMChannel MCPWM_CHANNEL_5(1, 2, MOTOR_CONTROLLER_5_IN1_PIN, MOTOR_CONTROLLER_5_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+ESP32S3LegacyMCPWMChannel mcpwmChannel0(0, 0, MOTOR_CONTROLLER_0_IN1_PIN, MOTOR_CONTROLLER_0_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+ESP32S3LegacyMCPWMChannel mcpwmChannel1(0, 1, MOTOR_CONTROLLER_1_IN1_PIN, MOTOR_CONTROLLER_1_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+ESP32S3LegacyMCPWMChannel mcpwmChannel2(0, 2, MOTOR_CONTROLLER_2_IN1_PIN, MOTOR_CONTROLLER_2_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+ESP32S3LegacyMCPWMChannel mcpwmChannel3(1, 0, MOTOR_CONTROLLER_3_IN1_PIN, MOTOR_CONTROLLER_3_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+ESP32S3LegacyMCPWMChannel mcpwmChannel4(1, 1, MOTOR_CONTROLLER_4_IN1_PIN, MOTOR_CONTROLLER_4_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
+ESP32S3LegacyMCPWMChannel mcpwmChannel5(1, 2, MOTOR_CONTROLLER_5_IN1_PIN, MOTOR_CONTROLLER_5_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
 
-DRV8873MotorController MOTOR_CONTROLLER_0(&MCPWM_CHANNEL_0);
-DRV8873MotorController MOTOR_CONTROLLER_1(&MCPWM_CHANNEL_1);
-DRV8873MotorController MOTOR_CONTROLLER_2(&MCPWM_CHANNEL_2);
-DRV8873MotorController MOTOR_CONTROLLER_3(&MCPWM_CHANNEL_3);
-DRV8873MotorController MOTOR_CONTROLLER_4(&MCPWM_CHANNEL_4);
-DRV8873MotorController MOTOR_CONTROLLER_5(&MCPWM_CHANNEL_5);
+ESP32S3SPIMaster motorControllerSPI0(SPI_SCLK_PIN, SPI_SDO_PIN, SPI_SDI_PIN, SPI_CSN_0_PIN, SPI_FREQUENCY);
+ESP32S3SPIMaster motorControllerSPI1(SPI_SCLK_PIN, SPI_SDO_PIN, SPI_SDI_PIN, SPI_CSN_1_PIN, SPI_FREQUENCY);
+ESP32S3SPIMaster motorControllerSPI2(SPI_SCLK_PIN, SPI_SDO_PIN, SPI_SDI_PIN, SPI_CSN_2_PIN, SPI_FREQUENCY);
+ESP32S3SPIMaster motorControllerSPI3(SPI_SCLK_PIN, SPI_SDO_PIN, SPI_SDI_PIN, SPI_CSN_3_PIN, SPI_FREQUENCY);
+ESP32S3SPIMaster motorControllerSPI4(SPI_SCLK_PIN, SPI_SDO_PIN, SPI_SDI_PIN, SPI_CSN_4_PIN, SPI_FREQUENCY);
+ESP32S3SPIMaster motorControllerSPI5(SPI_SCLK_PIN, SPI_SDO_PIN, SPI_SDI_PIN, SPI_CSN_5_PIN, SPI_FREQUENCY);
+
+DRV8873MotorController motorController0(&mcpwmChannel0, &motorControllerSPI0);
+DRV8873MotorController motorController1(&mcpwmChannel1, &motorControllerSPI1);
+DRV8873MotorController motorController2(&mcpwmChannel2, &motorControllerSPI2);
+DRV8873MotorController motorController3(&mcpwmChannel3, &motorControllerSPI3);
+DRV8873MotorController motorController4(&mcpwmChannel4, &motorControllerSPI4);
+DRV8873MotorController motorController5(&mcpwmChannel5, &motorControllerSPI5);
 
 // team967::ESP32S3LegacyMCPWMChannel pwmChannel(0, 0, 47, 21, 20000, 9);
 // team967::DRV8873MotorController motorController(&pwmChannel);
@@ -39,12 +47,12 @@ void setup() {
   delay(2000);
 
   // motorController.begin();
-  MOTOR_CONTROLLER_0.begin();
-  MOTOR_CONTROLLER_1.begin();
-  MOTOR_CONTROLLER_2.begin();
-  MOTOR_CONTROLLER_3.begin();
-  MOTOR_CONTROLLER_4.begin();
-  MOTOR_CONTROLLER_5.begin();
+  motorController0.begin();
+  motorController1.begin();
+  motorController2.begin();
+  motorController3.begin();
+  motorController4.begin();
+  motorController5.begin();
 
   String fv = BP32.firmwareVersion();
   Serial.print("Firmware version installed: ");
@@ -218,12 +226,12 @@ void loop() {
   }
 
   if(myControllers[0] && myControllers[0]->isConnected()) {
-    MOTOR_CONTROLLER_0.setPower(myControllers[0]->axisX());
-    MOTOR_CONTROLLER_1.setPower(myControllers[0]->axisX());
-    MOTOR_CONTROLLER_2.setPower(myControllers[0]->axisX());
-    MOTOR_CONTROLLER_3.setPower(myControllers[0]->axisX());
-    MOTOR_CONTROLLER_4.setPower(myControllers[0]->axisX());
-    MOTOR_CONTROLLER_5.setPower(myControllers[0]->axisX());
+    motorController0.setPower(myControllers[0]->axisX());
+    motorController1.setPower(myControllers[0]->axisX());
+    motorController2.setPower(myControllers[0]->axisX());
+    motorController3.setPower(myControllers[0]->axisX());
+    motorController4.setPower(myControllers[0]->axisX());
+    motorController5.setPower(myControllers[0]->axisX());
   }
 
   delay(10);
