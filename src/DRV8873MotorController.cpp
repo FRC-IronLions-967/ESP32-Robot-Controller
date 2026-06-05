@@ -29,11 +29,11 @@ void team967::DRV8873MotorController::begin() {
     spi->begin();
     pwmChannel->begin();
 
-  writeRegister(2, 0xDD, nullptr);
+    writeRegister(2, 0xDD, nullptr);
 
-  writeRegister(3, 0xEE, nullptr);
+    writeRegister(3, 0xEE, nullptr);
 
-  writeRegister(5, 0x0C, nullptr);
+    writeRegister(5, 0x0C, nullptr);
 }
 
 void team967::DRV8873MotorController::setPower(int32_t power) {

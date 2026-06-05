@@ -4,88 +4,87 @@
 
 // Created: 6-6-2021
 
-// Last Updated: 6-21-2021
+// Last Updated: 6-4-2026
 
 // This file provides the definitions of the methods declared in GameController.h.  Please see that file for more details.
 
 // **************************************************************************************************************************************/
 
-// #include <GameController.h>
+#include <GameController.h>
 
-// int8_t team967::GameController::rx = 0;
-// int8_t team967::GameController::ry = 0;
-// int8_t team967::GameController::lx = 0;
-// int8_t team967::GameController::ly = 0;
+GamepadPtr team967::GameController::controllers[BP32_MAX_GAMEPADS] = {};
 
-// bool team967::GameController::buttons[17];
+bool team967::GameController::isConnected[BP32_MAX_GAMEPADS] = {};
 
-// int team967::GameController::battery = 0;
+bool team967::GameController::isObject[BP32_MAX_GAMEPADS] = {};
 
-// void team967::GameController::controller_update_callback() {
-//     buttons[CROSS] = Ps3.data.button.cross;
-//     buttons[SQUARE] = Ps3.data.button.square;
-//     buttons[TRIANGLE] = Ps3.data.button.triangle;
-//     buttons[CIRCLE] = Ps3.data.button.circle;
-//     buttons[D_UP] = Ps3.data.button.up;
-//     buttons[D_DOWN] = Ps3.data.button.down;
-//     buttons[D_LEFT] = Ps3.data.button.left;
-//     buttons[D_RIGHT] = Ps3.data.button.right;
-//     buttons[LEFT_BUMP] = Ps3.data.button.l1;
-//     buttons[RIGHT_BUMP] = Ps3.data.button.r1;
-//     buttons[LEFT_TRIGGER] = Ps3.data.button.l2;
-//     buttons[RIGHT_TRIGGER] = Ps3.data.button.r2;
-//     buttons[LEFT_STICK] = Ps3.data.button.l3;
-//     buttons[RIGHT_STICK] = Ps3.data.button.r3;
-//     buttons[START] = Ps3.data.button.start;
-//     buttons[SELECT] = Ps3.data.button.select;
-//     buttons[PS] = Ps3.data.button.ps;
+void team967::GameController::onConnectedController(ControllerPtr ctl) {
+    Serial.println("Inside onConnectedController");
+    for (int i = 0; i < BP32_MAX_GAMEPADS; i++) {
+        if (!isConnected[i]) {
+            controllers[i] = ctl;
+            isConnected[i] = true;
 
-//     rx = Ps3.data.analog.stick.rx;
-//     ry = Ps3.data.analog.stick.ry;
-//     lx = Ps3.data.analog.stick.lx;
-//     ly = Ps3.data.analog.stick.ly;
+            break;
+        }
+    }
+}
 
-//     battery = Ps3.data.status.battery;
-// }
+void team967::GameController::onDisconnectedController(ControllerPtr ctl) {
+    Serial.println("Inside onDisconnectedController");
+    for (int i = 0; i < BP32_MAX_GAMEPADS; i++) {
+        if (isConnected[i] && controllers[i] == ctl) {
+            controllers[i] = nullptr;
+            isConnected[i] = false;
 
-// team967::GameController::GameController(char *mac): m(mac) {
-//     Ps3.attach(controller_update_callback);
-// }
+            break;
+        }
+    }
+}
 
-// team967::GameController::~GameController() {
-//     Ps3.end();
-// }
+team967::GameController::GameController(int gamepadIndex) : gamepadIndex(gamepadIndex) {
+    isObject[gamepadIndex] = true;
+}
 
-// void team967::GameController::begin() {
-//     Ps3.begin(m);
-// }
+team967::GameController* team967::GameController::waitForConnection(void) {
+    bool foundController = false;
+    while(!foundController) {
+        for(int i = 0; i < BP32_MAX_GAMEPADS; i++) {
+            if(isConnected[i] && !isObject[i]) {
+                return new GameController(i);
+            }
+        }
 
-// bool team967::GameController::isConnected() {
-//     return Ps3.isConnected();
-// }
+        update();
+    }
+}
 
-// int8_t team967::GameController::getRightStickX() {
-//     return rx;
-// }
+team967::GameController::~GameController(void) {
+    isObject[gamepadIndex] = false;
+}
 
-// int8_t team967::GameController::getRightStickY() {
-//     return ry;
-// }
+void team967::GameController::begin(void) {
+    for(int i = 0; i < BP32_MAX_GAMEPADS; i++) {
+        controllers[i] = nullptr;
+        isConnected[i] = false;
+        isObject[i] = false;
+    }
 
-// int8_t team967::GameController::getLeftStickX() {
-//     return lx;
-// }
+    BP32.enableVirtualDevice(false);
 
-// int8_t team967::GameController::getLeftStickY() {
-//     return ly;
-// }
+    // This call is mandatory. It sets up Bluepad32 and creates the callbacks.
+    ControllerCallback onConnectedCallback = team967::GameController::onConnectedController;
+    ControllerCallback onDisconnectedCallback = team967::GameController::onDisconnectedController;
 
-// bool team967::GameController::isButtonPressed(uint8_t button) {
-//     if(button > 16) return false;
+    BP32.setup(onConnectedCallback, onDisconnectedCallback);
 
-//     return buttons[button];
-// }
+    BP32.forgetBluetoothKeys();
+}
 
-// int team967::GameController::getBattery() {
-//     return battery;
-// }
+void team967::GameController::update(void) {
+    BP32.update();
+}
+
+GamepadPtr &team967::GameController::get(void) {
+    return controllers[gamepadIndex];
+}
