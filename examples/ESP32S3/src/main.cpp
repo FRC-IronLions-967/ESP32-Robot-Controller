@@ -6,6 +6,7 @@
 #include <DRV8873MotorController.h>
 #include <ESP32S3LegacyMCPWMChannel.h>
 #include <ESP32S3SPIMaster.h>
+#include <PWMServo.h>
 
 using namespace team967;
 
@@ -32,8 +33,11 @@ DRV8873MotorController motorController3(&mcpwmChannel3, &motorControllerSPI3);
 DRV8873MotorController motorController4(&mcpwmChannel4, &motorControllerSPI4);
 DRV8873MotorController motorController5(&mcpwmChannel5, &motorControllerSPI5);
 
-// team967::ESP32S3LegacyMCPWMChannel pwmChannel(0, 0, 47, 21, 20000, 9);
-// team967::DRV8873MotorController motorController(&pwmChannel);
+PWMServo servo0(GPIO_SERVO_0_PIN, 0, DEFAULT_PWM_FREQ, 14);
+PWMServo servo1(GPIO_SERVO_1_PIN, 1, DEFAULT_PWM_FREQ, 14);
+PWMServo servo2(GPIO_SERVO_2_PIN, 2, DEFAULT_PWM_FREQ, 14);
+PWMServo servo3(GPIO_SERVO_3_PIN, 3, DEFAULT_PWM_FREQ, 14);
+PWMServo servo4(GPIO_SERVO_4_PIN, 4, DEFAULT_PWM_FREQ, 14);
 
 void onConnectedController(ControllerPtr ctl);
 
@@ -46,6 +50,8 @@ void setup() {
 
   delay(2000);
 
+  Serial.println("Start serial prints in main core");
+
   // motorController.begin();
   motorController0.begin();
   motorController1.begin();
@@ -53,6 +59,72 @@ void setup() {
   motorController3.begin();
   motorController4.begin();
   motorController5.begin();
+
+  servo0.begin();
+  servo1.begin();
+  servo2.begin();
+  servo3.begin();
+  servo4.begin();
+
+  Serial.println("Past motor controller begin");
+
+  uint8_t readData = 0;
+
+  // motorController0.readRegister(0, &readData);
+
+  // Serial.print("Motor controller 0 fault reg: ");
+  // Serial.println(readData);
+
+  // motorController0.readRegister(1, &readData);
+
+  // Serial.print("Motor controller 0 diag reg: ");
+  // Serial.println(readData);
+
+  // motorController0.readRegister(2, &readData);
+
+  // Serial.print("Motor controller 0 IC1 reg: ");
+  // Serial.println(readData);
+
+  // motorController0.writeRegister(2, 0xDD, &readData);
+
+  // motorController0.readRegister(2, &readData);
+
+  // motorController0.writeRegister(3, 0xEE, &readData);
+
+  // motorController0.readRegister(3, &readData);
+
+  // motorController0.writeRegister(5, 0x0C, &readData);
+
+  // motorController0.readRegister(5, &readData);
+
+
+  // motorController1.writeRegister(2, 0xDD, &readData);
+
+  // motorController1.readRegister(2, &readData);
+
+  // motorController1.writeRegister(3, 0xEE, &readData);
+
+  // motorController1.readRegister(3, &readData);
+
+  // motorController1.writeRegister(5, 0x0C, &readData);
+
+  // motorController1.readRegister(5, &readData);
+
+
+  // motorController2.writeRegister(2, 0xDD, &readData);
+
+  // motorController2.readRegister(2, &readData);
+
+  // motorController2.writeRegister(3, 0xEE, &readData);
+
+  // motorController2.readRegister(3, &readData);
+
+  // motorController2.writeRegister(5, 0x0C, &readData);
+
+  // motorController2.readRegister(5, &readData);
+
+  Serial.print("Motor controller 1 IC1 reg: ");
+  Serial.println(readData);
 
   String fv = BP32.firmwareVersion();
   Serial.print("Firmware version installed: ");
@@ -68,6 +140,8 @@ void setup() {
     else
       Serial.println();
   }
+
+  BP32.enableVirtualDevice(false);
 
   // This call is mandatory. It sets up Bluepad32 and creates the callbacks.
   BP32.setup(&onConnectedController, &onDisconnectedController);
@@ -201,7 +275,7 @@ void processGamepad(ControllerPtr gamepad) {
            gamepad->accelZ(),       // Accelerometer Z
            gamepad->battery()       // 0=Unknown, 1=empty, 255=full
   );
-  Serial.println(buf);
+  // Serial.println(buf);
 
   // You can query the axis and other properties as well. See
   // Controller.h For all the available functions.
@@ -232,7 +306,96 @@ void loop() {
     motorController3.setPower(myControllers[0]->axisX());
     motorController4.setPower(myControllers[0]->axisX());
     motorController5.setPower(myControllers[0]->axisX());
+
+    servo0.setAngleDegrees(myControllers[0]->axisRX() / 6);
+    servo1.setAngleDegrees(myControllers[0]->axisRX() / 6);
+    servo2.setAngleDegrees(myControllers[0]->axisRX() / 6);
+    servo3.setAngleDegrees(myControllers[0]->axisRX() / 6);
+    servo4.setAngleDegrees(myControllers[0]->axisRX() / 6);
+
+    if(myControllers[0]->a()) {
+      uint8_t readData = 0;
+
+      motorController0.readRegister(0, &readData);
+
+      Serial.print("Motor controller 0 status reg: ");
+      Serial.println(readData);
+
+      motorController0.readRegister(1, &readData);
+
+      Serial.print("Motor controller 0 diag reg: ");
+      Serial.println(readData);
+
+
+
+      motorController1.readRegister(0, &readData);
+
+      Serial.print("Motor controller 1 status reg: ");
+      Serial.println(readData);
+
+      motorController1.readRegister(1, &readData);
+
+      Serial.print("Motor controller 1 diag reg: ");
+      Serial.println(readData);
+
+      motorController2.readRegister(0, &readData);
+
+      Serial.print("Motor controller 2 status reg: ");
+      Serial.println(readData);
+
+      motorController2.readRegister(1, &readData);
+
+      Serial.print("Motor controller 2 diag reg: ");
+      Serial.println(readData);
+
+      motorController3.readRegister(0, &readData);
+
+      Serial.print("Motor controller 3 status reg: ");
+      Serial.println(readData);
+
+      motorController3.readRegister(1, &readData);
+
+      Serial.print("Motor controller 3 diag reg: ");
+      Serial.println(readData);
+
+      motorController4.readRegister(0, &readData);
+
+      Serial.print("Motor controller 4 status reg: ");
+      Serial.println(readData);
+
+      motorController4.readRegister(1, &readData);
+
+      Serial.print("Motor controller 4 diag reg: ");
+      Serial.println(readData);
+
+      motorController5.readRegister(0, &readData);
+
+      Serial.print("Motor controller 5 status reg: ");
+      Serial.println(readData);
+
+      motorController5.readRegister(1, &readData);
+
+      Serial.print("Motor controller 5 diag reg: ");
+      Serial.println(readData);
+    }
+
+    if(myControllers[0]->b()) {
+      uint8_t readData = 0;
+
+      motorController0.writeRegister(4, 0x80, &readData);
+      motorController1.writeRegister(4, 0x80, &readData);
+      motorController2.writeRegister(4, 0x80, &readData);
+      motorController3.writeRegister(4, 0x80, &readData);
+      motorController4.writeRegister(4, 0x80, &readData);
+      motorController5.writeRegister(4, 0x80, &readData);
+    }
   }
 
   delay(10);
+
+  // uint8_t readData = 0;
+  // motorController0.readRegister(2, &readData);
+
+  // Serial.print("Motor controller 0 IC1 reg: ");
+  // Serial.println(readData);
 }
