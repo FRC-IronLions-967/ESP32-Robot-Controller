@@ -26,7 +26,14 @@ team967::DRV8873MotorController::~DRV8873MotorController() {
 }
 
 void team967::DRV8873MotorController::begin() {
+    spi->begin();
     pwmChannel->begin();
+
+  writeRegister(2, 0xDD, nullptr);
+
+  writeRegister(3, 0xEE, nullptr);
+
+  writeRegister(5, 0x0C, nullptr);
 }
 
 void team967::DRV8873MotorController::setPower(int32_t power) {
@@ -53,6 +60,9 @@ void team967::DRV8873MotorController::setPower(int32_t power) {
 bool team967::DRV8873MotorController::readRegister(uint8_t addr, uint8_t* readData) {
     uint8_t txBuff[2];
     uint8_t rxBuff[2];
+
+    rxBuff[0] = 0;
+    rxBuff[1] = 0;
 
     // read command, don't care about data byte (index 1)
     // byte 0 has the following structure:

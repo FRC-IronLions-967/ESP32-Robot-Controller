@@ -52,8 +52,8 @@ namespace team967 {
     const int SPI_CSN_5_PIN = 48;
 
     const int SPI_SCLK_PIN = 37;
-    const int SPI_SDI_PIN  = 39;
-    const int SPI_SDO_PIN  = 2;
+    const int SPI_SDI_PIN  = 2;
+    const int SPI_SDO_PIN  = 39;
 
     const int SPI_FREQUENCY = 10 * 1000 * 1000; // not yet tested, but defaulting to 10 MHz
     
