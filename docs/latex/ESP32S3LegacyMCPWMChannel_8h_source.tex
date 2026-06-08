@@ -1,0 +1,61 @@
+\doxysection{ESP32\+S3\+Legacy\+MCPWMChannel.\+h}
+\hypertarget{ESP32S3LegacyMCPWMChannel_8h_source}{}\label{ESP32S3LegacyMCPWMChannel_8h_source}\index{include/ESP32S3LegacyMCPWMChannel.h@{include/ESP32S3LegacyMCPWMChannel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Created:\ 4-\/25-\/2026}}
+\DoxyCodeLine{00006\ \textcolor{comment}{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Last\ Updated:\ 4-\/25-\/2026}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{This\ header\ provides\ a\ class\ for\ interfacing\ with\ the\ MCPWM\ module\ in\ the\ ESP32S3\ with\ legacy\ API.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**************************************************************************************************************************************/}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ TEAM967\_ESP32S3LEGACYMCPWMCHANNEL\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ TEAM967\_ESP32S3LEGACYMCPWMCHANNEL\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <MCPWMChannel.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}driver/mcpwm.h"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }team967\ \{}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel}{ESP32S3LegacyMCPWMChannel}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteam967_1_1MCPWMChannel}{MCPWMChannel}}\ \{}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_config\_t\ pwmConfig;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_unit\_t\ pwmUnit;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_io\_signals\_t\ channelA;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_io\_signals\_t\ channelB;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_timer\_t\ timer;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ initDone\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a442090ff98e82a61d81bcf7239a43ce5}{ESP32S3LegacyMCPWMChannel}}(\textcolor{keywordtype}{int}\ mcpwmId,\ \textcolor{keywordtype}{int}\ channel,\ \textcolor{keywordtype}{int}\ pin0,\ \textcolor{keywordtype}{int}\ pin1,\ \textcolor{keywordtype}{int}\ frequency,\ \textcolor{keywordtype}{int}\ resolution);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_ac5bf5054b1c1492d214cafe7919895dc}{\string~ESP32S3LegacyMCPWMChannel}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a7e8a8e2bffd02a2e51f396b1b2761c39}{begin}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a577e746e7793e3b337ff845c0d739b52}{forward}}(uint32\_t\ duty);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a93b88a3cab6e7b6d0ea2c49fa8fb457c}{reverse}}(uint32\_t\ duty);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a90a01b2fc74ecd1848ce6e70002f1d71}{brake}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a98587a41ace79e876395c41635778613}{coast}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00093\ \ \ \ \ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,68 @@
+\doxysection{FRCPWMMotor\+Controller.\+h}
+\hypertarget{FRCPWMMotorController_8h_source}{}\label{FRCPWMMotorController_8h_source}\index{include/FRCPWMMotorController.h@{include/FRCPWMMotorController.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Created:\ 5-\/15-\/2021}}
+\DoxyCodeLine{00006\ \textcolor{comment}{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Last\ Updated:\ 6-\/21-\/2021}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{This\ header\ provides\ a\ class\ that\ allows\ the\ ESP32\ to\ interface\ with\ standard\ PWM\ motor\ controllers,\ such\ as\ the\ CTRE\ Victors\ and}}
+\DoxyCodeLine{00010\ \textcolor{comment}{Talons\ as\ well\ as\ REV\ Robotics\ Sparks\ and\ SparkMaxes.\ \ It\ uses\ the\ ESP32\ PWM\ libraries\ and\ allows\ for\ complete\ customization\ over}}
+\DoxyCodeLine{00011\ \textcolor{comment}{PWM\ frequency\ and\ timer\ resolution.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**************************************************************************************************************************************/}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ FRCPWMMOTORCONTROLLER\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ FRCPWMMOTORCONTROLLER\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <ExternalEncoder.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <MotorController.h>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ default\ frequency\ for\ the\ PWM\ signal\ in\ Hz}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ DEFAULT\_PWM\_FREQ\ 167}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ resolution\ of\ the\ PWM\ duty\ cycles\ in\ bits}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ DEFAULT\_PWM\_RES\ 8}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{namespace\ }team967\ \{}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteam967_1_1FRCPWMMotorController}{FRCPWMMotorController}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteam967_1_1MotorController}{MotorController}}\ \{}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ freq;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ res;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ chan;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dutyCycleMin;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dutyCycleMax;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ team967::Encoder*\ attachedEncoder;}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1FRCPWMMotorController_a199728d2e8f41f18f8d34933569c58fe}{FRCPWMMotorController}}(\textcolor{keywordtype}{int}\ pin,\ \textcolor{keywordtype}{int}\ channel,\ \textcolor{keywordtype}{int}\ frequency\ =\ DEFAULT\_PWM\_FREQ,\ \textcolor{keywordtype}{int}\ resolution\ =\ DEFAULT\_PWM\_RES);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1FRCPWMMotorController_af216ac503708df46afa214f086069ac4}{\string~FRCPWMMotorController}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1FRCPWMMotorController_ac261322a428453503ac8ff74c0e7045d}{begin}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1FRCPWMMotorController_a6a14e4970205a0e69fbfba33eadfc1fb}{setPower}}(int32\_t\ power);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ void\ attachEncoder(team967::Encoder\ *encoder);}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ team967::Encoder*\ getEncoder(void);}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

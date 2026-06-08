@@ -1,0 +1,162 @@
+\doxysection{team967\+::FRCPWMMotor\+Controller Class Reference}
+\hypertarget{classteam967_1_1FRCPWMMotorController}{}\label{classteam967_1_1FRCPWMMotorController}\index{team967::FRCPWMMotorController@{team967::FRCPWMMotorController}}
+
+
+{\ttfamily \#include $<$FRCPWMMotor\+Controller.\+h$>$}
+
+Inheritance diagram for team967\+::FRCPWMMotor\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteam967_1_1FRCPWMMotorController}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1FRCPWMMotorController_a199728d2e8f41f18f8d34933569c58fe}{FRCPWMMotor\+Controller}} (int pin, int channel, int frequency=DEFAULT\+\_\+\+PWM\+\_\+\+FREQ, int resolution=DEFAULT\+\_\+\+PWM\+\_\+\+RES)
+\item 
+\mbox{\hyperlink{classteam967_1_1FRCPWMMotorController_af216ac503708df46afa214f086069ac4}{\texorpdfstring{$\sim$}{\string~}\+FRCPWMMotor\+Controller}} ()
+\item 
+void \mbox{\hyperlink{classteam967_1_1FRCPWMMotorController_ac261322a428453503ac8ff74c0e7045d}{begin}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1FRCPWMMotorController_a6a14e4970205a0e69fbfba33eadfc1fb}{set\+Power}} (int32\+\_\+t power)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classteam967_1_1MotorController}{team967\+::\+Motor\+Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1MotorController_a27110bbd18983589f9ffa33ee15c8c49}{Motor\+Controller}} (uint32\+\_\+t features, int32\+\_\+t maximum\+Power, int32\+\_\+t minimum\+Power, bool inverted, uint32\+\_\+t coast\+Brake\+Mode)
+\item 
+\mbox{\hyperlink{classteam967_1_1MotorController_a261448b0c2be60e23a1903c28e981381}{\texorpdfstring{$\sim$}{\string~}\+Motor\+Controller}} ()
+\item 
+virtual bool \mbox{\hyperlink{classteam967_1_1MotorController_afdd697a94cd366a60abb80a73404dfb0}{supports\+Features}} (uint32\+\_\+t feature\+Mask)
+\item 
+virtual int32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_a067b7a222d5fee636874ea002f999809}{get\+Maximum\+Motor\+Power}} (void)
+\item 
+virtual int32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_a64e35faf41b2e1ebfa0b738a9b5ec437}{get\+Minimum\+Motor\+Power}} (void)
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MotorController_aa8235d3a10d65ed95ede33d318b96dda}{set\+Inverted}} (bool inverted)
+\item 
+virtual bool \mbox{\hyperlink{classteam967_1_1MotorController_a9460094e29fa494aafb4e0a3aceb162f}{is\+Inverted}} (void)
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MotorController_a59f71db70c5e6ffb67899b46d2268cc0}{set\+Coast\+Brake\+Mode}} (uint32\+\_\+t mode)
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_abd3b3d57869db064e58b9373aadcaa85}{get\+Coast\+Brake\+Mode}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classteam967_1_1MotorController}{team967\+::\+Motor\+Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_a84bc7394025256cad441d80727ee181c}{MOTOR\+\_\+\+REVERSE}} = 0x1
+\item 
+const uint32\+\_\+t {\bfseries MOTOR\+\_\+\+COAST} = 0x2
+\item 
+const uint32\+\_\+t {\bfseries MOTOR\+\_\+\+BRAKE} = 0x4
+\item 
+const uint32\+\_\+t {\bfseries MOTOR\+\_\+\+INVERT} = 0x8
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classteam967_1_1MotorController}{team967\+::\+Motor\+Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t {\bfseries features}
+\item 
+int32\+\_\+t {\bfseries maximum\+Power}
+\item 
+int32\+\_\+t {\bfseries minimum\+Power}
+\item 
+bool {\bfseries inverted}
+\item 
+uint32\+\_\+t {\bfseries coast\+Brake\+Mode}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that provides a way to interact with PWM motor controllers. This class assumes that the controller accepts 1/4 duty cycle as neutral, 1/6 as full reverse, and 1/3 as full forward. This include most CTRE Talons and Victors, as well as REV Sparks. This has been tested with Victor 888\textquotesingle{}s and 884\textquotesingle{}s, but it is assumed that it would work with other controllers as well. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteam967_1_1FRCPWMMotorController_a199728d2e8f41f18f8d34933569c58fe}\index{team967::FRCPWMMotorController@{team967::FRCPWMMotorController}!FRCPWMMotorController@{FRCPWMMotorController}}
+\index{FRCPWMMotorController@{FRCPWMMotorController}!team967::FRCPWMMotorController@{team967::FRCPWMMotorController}}
+\doxysubsubsection{\texorpdfstring{FRCPWMMotorController()}{FRCPWMMotorController()}}
+{\footnotesize\ttfamily \label{classteam967_1_1FRCPWMMotorController_a199728d2e8f41f18f8d34933569c58fe} 
+team967\+::\+FRCPWMMotor\+Controller\+::\+FRCPWMMotor\+Controller (\begin{DoxyParamCaption}\item[{int}]{pin}{, }\item[{int}]{channel}{, }\item[{int}]{frequency}{ = {\ttfamily DEFAULT\+\_\+PWM\+\_\+FREQ}, }\item[{int}]{resolution}{ = {\ttfamily DEFAULT\+\_\+PWM\+\_\+RES}}\end{DoxyParamCaption})}
+
+Constructor to create a new \doxylink{classteam967_1_1MotorController}{Motor\+Controller} with the specified options.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & The pin to use as a signal output for the motor controller \\
+\hline
+{\em channel} & The PWM channel on the ESP32 to use to generate the waveform, can be 0-\/15 \\
+\hline
+{\em frequency} & The frequency (in Hz) to be used for the waveform, default is 167 Hz \\
+\hline
+{\em resolution} & The resolution (in bits) to use for PWM generation, default is 8, max is 16 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{classteam967_1_1FRCPWMMotorController}{FRCPWMMotor\+Controller} object 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1FRCPWMMotorController_af216ac503708df46afa214f086069ac4}\index{team967::FRCPWMMotorController@{team967::FRCPWMMotorController}!````~FRCPWMMotorController@{\texorpdfstring{$\sim$}{\string~}FRCPWMMotorController}}
+\index{````~FRCPWMMotorController@{\texorpdfstring{$\sim$}{\string~}FRCPWMMotorController}!team967::FRCPWMMotorController@{team967::FRCPWMMotorController}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FRCPWMMotorController()}{\string~FRCPWMMotorController()}}
+{\footnotesize\ttfamily \label{classteam967_1_1FRCPWMMotorController_af216ac503708df46afa214f086069ac4} 
+team967\+::\+FRCPWMMotor\+Controller\+::\texorpdfstring{$\sim$}{\string~}\+FRCPWMMotor\+Controller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Destructor for the motor controller object. Detaches the signal pin from the PWM channel so they can both be reused.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteam967_1_1FRCPWMMotorController_ac261322a428453503ac8ff74c0e7045d}\index{team967::FRCPWMMotorController@{team967::FRCPWMMotorController}!begin@{begin}}
+\index{begin@{begin}!team967::FRCPWMMotorController@{team967::FRCPWMMotorController}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{classteam967_1_1FRCPWMMotorController_ac261322a428453503ac8ff74c0e7045d} 
+void team967\+::\+FRCPWMMotor\+Controller\+::begin (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Begins PWM output using the channel and pin specified in the constructor. PWM duty cycle is set to 1/4 by default.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1MotorController_ae6ee2bec0bba8e0303fa23de859bcd86}{team967\+::\+Motor\+Controller}}.
+
+\Hypertarget{classteam967_1_1FRCPWMMotorController_a6a14e4970205a0e69fbfba33eadfc1fb}\index{team967::FRCPWMMotorController@{team967::FRCPWMMotorController}!setPower@{setPower}}
+\index{setPower@{setPower}!team967::FRCPWMMotorController@{team967::FRCPWMMotorController}}
+\doxysubsubsection{\texorpdfstring{setPower()}{setPower()}}
+{\footnotesize\ttfamily \label{classteam967_1_1FRCPWMMotorController_a6a14e4970205a0e69fbfba33eadfc1fb} 
+void team967\+::\+FRCPWMMotor\+Controller\+::set\+Power (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{power}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the power output of the motor. The values passed to this depend on the resolution values specified earlier. For example, in 8 bit mode the acceptable range for values passed to this function is -\/128 to 127. For 16 bit mode they are -\/32768 to 32767.
+
+
+\begin{DoxyParams}{Parameters}
+{\em power} & The power value to set the output to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1MotorController_ae75235d22a2ca9c869e74757f425791c}{team967\+::\+Motor\+Controller}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/FRCPWMMotor\+Controller.\+h\item 
+src/FRCPWMMotor\+Controller.\+cpp\end{DoxyCompactItemize}

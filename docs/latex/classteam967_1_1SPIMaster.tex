@@ -1,0 +1,124 @@
+\doxysection{team967\+::SPIMaster Class Reference}
+\hypertarget{classteam967_1_1SPIMaster}{}\label{classteam967_1_1SPIMaster}\index{team967::SPIMaster@{team967::SPIMaster}}
+Inheritance diagram for team967\+::SPIMaster\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteam967_1_1SPIMaster}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classteam967_1_1SPIMaster_ab0590f76e2a358105b8509ce6d7c3023}{\texorpdfstring{$\sim$}{\string~}\+SPIMaster}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1SPIMaster_a5dd82315df2fcad873ad2e8ece42450c}{begin}} (void)=0
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1SPIMaster_aa1b524762e3d302ad72855c288c719ff}{write}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t n)=0
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1SPIMaster_a5d289923f825577cc557ac3aa5bcdc7f}{read}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t n)=0
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1SPIMaster_a49087566f201947fdbfc8f775403b6f7}{write\+And\+Read}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}tx\+Data, uint8\+\_\+t \texorpdfstring{$\ast$}{*}rx\+Data, uint32\+\_\+t n)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteam967_1_1SPIMaster_ab0590f76e2a358105b8509ce6d7c3023}\index{team967::SPIMaster@{team967::SPIMaster}!````~SPIMaster@{\texorpdfstring{$\sim$}{\string~}SPIMaster}}
+\index{````~SPIMaster@{\texorpdfstring{$\sim$}{\string~}SPIMaster}!team967::SPIMaster@{team967::SPIMaster}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SPIMaster()}{\string~SPIMaster()}}
+{\footnotesize\ttfamily \label{classteam967_1_1SPIMaster_ab0590f76e2a358105b8509ce6d7c3023} 
+team967\+::\+SPIMaster\+::\texorpdfstring{$\sim$}{\string~}\+SPIMaster (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Virtual destructor for class.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteam967_1_1SPIMaster_a5dd82315df2fcad873ad2e8ece42450c}\index{team967::SPIMaster@{team967::SPIMaster}!begin@{begin}}
+\index{begin@{begin}!team967::SPIMaster@{team967::SPIMaster}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{classteam967_1_1SPIMaster_a5dd82315df2fcad873ad2e8ece42450c} 
+virtual void team967\+::\+SPIMaster\+::begin (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Initialize the SPI interface.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a51206fe20e8bcfe0140f3d6bb280587d}{team967\+::\+ESP32\+S3\+SPIMaster}}.
+
+\Hypertarget{classteam967_1_1SPIMaster_a5d289923f825577cc557ac3aa5bcdc7f}\index{team967::SPIMaster@{team967::SPIMaster}!read@{read}}
+\index{read@{read}!team967::SPIMaster@{team967::SPIMaster}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily \label{classteam967_1_1SPIMaster_a5d289923f825577cc557ac3aa5bcdc7f} 
+virtual uint32\+\_\+t team967\+::\+SPIMaster\+::read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint32\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Read a buffer from the SPI interface.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & pointer to buffer to write receive data into \\
+\hline
+{\em n} & number of bytes to read (buffer should be at least this large)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bytes read 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a9e73c8eca15e764c07e88873b34cc2f5}{team967\+::\+ESP32\+S3\+SPIMaster}}.
+
+\Hypertarget{classteam967_1_1SPIMaster_aa1b524762e3d302ad72855c288c719ff}\index{team967::SPIMaster@{team967::SPIMaster}!write@{write}}
+\index{write@{write}!team967::SPIMaster@{team967::SPIMaster}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{classteam967_1_1SPIMaster_aa1b524762e3d302ad72855c288c719ff} 
+virtual uint32\+\_\+t team967\+::\+SPIMaster\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint32\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Write a buffer over the SPI interface.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & pointer to buffer to be transmitted \\
+\hline
+{\em n} & number of bytes to be transmitted\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bytes written 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_acf71ec262130424223b065a5f5ce2d0a}{team967\+::\+ESP32\+S3\+SPIMaster}}.
+
+\Hypertarget{classteam967_1_1SPIMaster_a49087566f201947fdbfc8f775403b6f7}\index{team967::SPIMaster@{team967::SPIMaster}!writeAndRead@{writeAndRead}}
+\index{writeAndRead@{writeAndRead}!team967::SPIMaster@{team967::SPIMaster}}
+\doxysubsubsection{\texorpdfstring{writeAndRead()}{writeAndRead()}}
+{\footnotesize\ttfamily \label{classteam967_1_1SPIMaster_a49087566f201947fdbfc8f775403b6f7} 
+virtual uint32\+\_\+t team967\+::\+SPIMaster\+::write\+And\+Read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{tx\+Data}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{rx\+Data}{, }\item[{uint32\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Write and read simultaneously over the SPI interface.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx\+Data} & pointer to transmit buffer \\
+\hline
+{\em rx\+Data} & pointer to receive buffer \\
+\hline
+{\em n} & number of bytes to write and read (both buffers should be at least this large) \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a0b270063e998db4ee7611d24fb89f9de}{team967\+::\+ESP32\+S3\+SPIMaster}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/SPIMaster.\+h\item 
+src/SPIMaster.\+cpp\end{DoxyCompactItemize}

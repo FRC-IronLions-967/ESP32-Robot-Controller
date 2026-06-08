@@ -1,0 +1,116 @@
+\doxysection{ESP32\+S3\+MCPWMChannel.\+h}
+\hypertarget{ESP32S3MCPWMChannel_8h_source}{}\label{ESP32S3MCPWMChannel_8h_source}\index{include/ESP32S3MCPWMChannel.h@{include/ESP32S3MCPWMChannel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ /**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Created:\ 4-\/25-\/2026}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Last\ Updated:\ 4-\/25-\/2026}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ This\ header\ provides\ a\ class\ for\ interfacing\ with\ the\ MCPWM\ module\ in\ the\ ESP32S3.}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ **************************************************************************************************************************************/}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \#ifndef\ TEAM967\_ESP32S3MCPWMCHANNEL\_H}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \#define\ TEAM967\_ESP32S3MCPWMCHANNEL\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ \#include\ <stdint.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \#include\ <MCPWMChannel.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ \#include\ <Arduino.h>}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ \#include\ "{}driver/mcpwm\_prelude.h"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ namespace\ team967\ \{}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ \ \ \ \ /**}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ \ \ \ \ \ *\ Class\ to\ interface\ with\ the\ MCPWM\ module\ in\ the\ ESP32S3.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ \ \ \ \ \ */}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ \ \ \ \ class\ ESP32S3MCPWMChannel\ :\ public\ MCPWMChannel\ \{}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ private:}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_timer\_config\_t\ timer\_config;}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_operator\_config\_t\ oper\_config;}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_comparator\_config\_t\ comp\_config;}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_generator\_config\_t\ gen0\_config;}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_generator\_config\_t\ gen1\_config;}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_timer\_handle\_t\ timer;}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_oper\_handle\_t\ oper;}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_cmpr\_handle\_t\ comp;}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_gen\_handle\_t\ gen0;}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ mcpwm\_gen\_handle\_t\ gen1;}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ bool\ initDone\ =\ false;}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ public:}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ const\ int\ MCPWM\_REFERENCE\_FREQ\ =\ 80\ *\ 1000\ *\ 1000;}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ int\ mcpwmId;}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ int\ pin0;}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ int\ pin1;}}
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ int\ frequency;}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ int\ resolution;}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Constructor\ to\ create\ a\ new\ MCPWMChannel\ with\ the\ specified\ options.}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ A\ new\ MCPWMChannel\ object}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ ESP32S3MCPWMChannel(int\ mcpwmId,\ int\ pin0,\ int\ pin1,\ int\ frequency,\ int\ resolution);}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Virtual\ destructor\ for\ class.}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \string~ESP32S3MCPWMChannel();}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00069\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Initialize\ the\ pins\ and\ timers.}}
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ begin(void);}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00076\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Set\ the\ motor\ to\ run\ forward,\ using\ a\ given\ duty\ cycle.}}
+\DoxyCodeLine{00077\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00078\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ duty\ Forward\ duty\ cycle}}
+\DoxyCodeLine{00079\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00081\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ forward(uint32\_t\ duty);}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00085\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Set\ the\ motor\ to\ run\ in\ reverse,\ using\ a\ given\ duty\ cycle.}}
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00087\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ duty\ Reverse\ duty\ cycle}}
+\DoxyCodeLine{00088\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ reverse(uint32\_t\ duty);}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Set\ the\ motor\ to\ off\ and\ brake.}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ brake(void);}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Set\ the\ motor\ to\ off\ and\ coast.}}
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00103\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00104\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00105\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ coast(void);}}
+\DoxyCodeLine{00106\ \textcolor{comment}{//\ \ \ \ \ \};}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ \#endif}}
+
+\end{DoxyCode}

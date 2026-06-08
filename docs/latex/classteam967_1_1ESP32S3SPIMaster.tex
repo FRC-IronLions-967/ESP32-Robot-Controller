@@ -1,0 +1,157 @@
+\doxysection{team967\+::ESP32\+S3\+SPIMaster Class Reference}
+\hypertarget{classteam967_1_1ESP32S3SPIMaster}{}\label{classteam967_1_1ESP32S3SPIMaster}\index{team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}}
+Inheritance diagram for team967\+::ESP32\+S3\+SPIMaster\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteam967_1_1ESP32S3SPIMaster}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a687b1312e14e2e53e93fff945796077b}{ESP32\+S3\+SPIMaster}} (int sck, int mosi, int miso, int cs, int frequency, spi\+\_\+host\+\_\+device\+\_\+t spi\+Host=SPI2\+\_\+\+HOST)
+\item 
+\mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a1f244a1c92bac69148c4c3771a2a9550}{\texorpdfstring{$\sim$}{\string~}\+ESP32\+S3\+SPIMaster}} ()
+\item 
+void \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a51206fe20e8bcfe0140f3d6bb280587d}{begin}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_acf71ec262130424223b065a5f5ce2d0a}{write}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t n)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a9e73c8eca15e764c07e88873b34cc2f5}{read}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t n)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a0b270063e998db4ee7611d24fb89f9de}{write\+And\+Read}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}tx\+Data, uint8\+\_\+t \texorpdfstring{$\ast$}{*}rx\+Data, uint32\+\_\+t n)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classteam967_1_1SPIMaster}{team967\+::\+SPIMaster}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classteam967_1_1SPIMaster_ab0590f76e2a358105b8509ce6d7c3023}{\texorpdfstring{$\sim$}{\string~}\+SPIMaster}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteam967_1_1ESP32S3SPIMaster_a687b1312e14e2e53e93fff945796077b}\index{team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}!ESP32S3SPIMaster@{ESP32S3SPIMaster}}
+\index{ESP32S3SPIMaster@{ESP32S3SPIMaster}!team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}}
+\doxysubsubsection{\texorpdfstring{ESP32S3SPIMaster()}{ESP32S3SPIMaster()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3SPIMaster_a687b1312e14e2e53e93fff945796077b} 
+team967\+::\+ESP32\+S3\+SPIMaster\+::\+ESP32\+S3\+SPIMaster (\begin{DoxyParamCaption}\item[{int}]{sck}{, }\item[{int}]{mosi}{, }\item[{int}]{miso}{, }\item[{int}]{cs}{, }\item[{int}]{frequency}{, }\item[{spi\+\_\+host\+\_\+device\+\_\+t}]{spi\+Host}{ = {\ttfamily SPI2\+\_\+HOST}}\end{DoxyParamCaption})}
+
+Constructor, creates a new \doxylink{classteam967_1_1ESP32S3SPIMaster}{ESP32\+S3\+SPIMaster} object with the given pins.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sck} & SPI clock pin \\
+\hline
+{\em mosi} & SPI master out, slave in pin \\
+\hline
+{\em miso} & SPI master in, slave out pin \\
+\hline
+{\em cs} & SPI chip select pin \\
+\hline
+{\em frequency} & SPI frequency in Hz \\
+\hline
+{\em spi\+Host} & Which of the hardware SPI controllers to use (defaults to SPI2, but can use others if desired, see Espressif docs)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{classteam967_1_1ESP32S3SPIMaster}{ESP32\+S3\+SPIMaster} object 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1ESP32S3SPIMaster_a1f244a1c92bac69148c4c3771a2a9550}\index{team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}!````~ESP32S3SPIMaster@{\texorpdfstring{$\sim$}{\string~}ESP32S3SPIMaster}}
+\index{````~ESP32S3SPIMaster@{\texorpdfstring{$\sim$}{\string~}ESP32S3SPIMaster}!team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ESP32S3SPIMaster()}{\string~ESP32S3SPIMaster()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3SPIMaster_a1f244a1c92bac69148c4c3771a2a9550} 
+team967\+::\+ESP32\+S3\+SPIMaster\+::\texorpdfstring{$\sim$}{\string~}\+ESP32\+S3\+SPIMaster (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Virtual destructor for class.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteam967_1_1ESP32S3SPIMaster_a51206fe20e8bcfe0140f3d6bb280587d}\index{team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}!begin@{begin}}
+\index{begin@{begin}!team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3SPIMaster_a51206fe20e8bcfe0140f3d6bb280587d} 
+void team967\+::\+ESP32\+S3\+SPIMaster\+::begin (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Initialize the SPI interface.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1SPIMaster_a5dd82315df2fcad873ad2e8ece42450c}{team967\+::\+SPIMaster}}.
+
+\Hypertarget{classteam967_1_1ESP32S3SPIMaster_a9e73c8eca15e764c07e88873b34cc2f5}\index{team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}!read@{read}}
+\index{read@{read}!team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3SPIMaster_a9e73c8eca15e764c07e88873b34cc2f5} 
+uint32\+\_\+t team967\+::\+ESP32\+S3\+SPIMaster\+::read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint32\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Read a buffer from the SPI interface.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & pointer to buffer to write receive data into \\
+\hline
+{\em n} & number of bytes to read (buffer should be at least this large)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bytes read 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1SPIMaster_a5d289923f825577cc557ac3aa5bcdc7f}{team967\+::\+SPIMaster}}.
+
+\Hypertarget{classteam967_1_1ESP32S3SPIMaster_acf71ec262130424223b065a5f5ce2d0a}\index{team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}!write@{write}}
+\index{write@{write}!team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3SPIMaster_acf71ec262130424223b065a5f5ce2d0a} 
+uint32\+\_\+t team967\+::\+ESP32\+S3\+SPIMaster\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint32\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write a buffer over the SPI interface.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & pointer to buffer to be transmitted \\
+\hline
+{\em n} & number of bytes to be transmitted\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number of bytes written 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1SPIMaster_aa1b524762e3d302ad72855c288c719ff}{team967\+::\+SPIMaster}}.
+
+\Hypertarget{classteam967_1_1ESP32S3SPIMaster_a0b270063e998db4ee7611d24fb89f9de}\index{team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}!writeAndRead@{writeAndRead}}
+\index{writeAndRead@{writeAndRead}!team967::ESP32S3SPIMaster@{team967::ESP32S3SPIMaster}}
+\doxysubsubsection{\texorpdfstring{writeAndRead()}{writeAndRead()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3SPIMaster_a0b270063e998db4ee7611d24fb89f9de} 
+uint32\+\_\+t team967\+::\+ESP32\+S3\+SPIMaster\+::write\+And\+Read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{tx\+Data}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{rx\+Data}{, }\item[{uint32\+\_\+t}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write and read simultaneously over the SPI interface.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tx\+Data} & pointer to transmit buffer \\
+\hline
+{\em rx\+Data} & pointer to receive buffer \\
+\hline
+{\em n} & number of bytes to write and read (both buffers should be at least this large) \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1SPIMaster_a49087566f201947fdbfc8f775403b6f7}{team967\+::\+SPIMaster}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/ESP32\+S3\+SPIMaster.\+h\item 
+src/ESP32\+S3\+SPIMaster.\+cpp\end{DoxyCompactItemize}

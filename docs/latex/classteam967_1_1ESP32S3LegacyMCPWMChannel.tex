@@ -1,0 +1,176 @@
+\doxysection{team967\+::ESP32\+S3\+Legacy\+MCPWMChannel Class Reference}
+\hypertarget{classteam967_1_1ESP32S3LegacyMCPWMChannel}{}\label{classteam967_1_1ESP32S3LegacyMCPWMChannel}\index{team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}}
+
+
+{\ttfamily \#include $<$ESP32\+S3\+Legacy\+MCPWMChannel.\+h$>$}
+
+Inheritance diagram for team967\+::ESP32\+S3\+Legacy\+MCPWMChannel\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteam967_1_1ESP32S3LegacyMCPWMChannel}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a442090ff98e82a61d81bcf7239a43ce5}{ESP32\+S3\+Legacy\+MCPWMChannel}} (int mcpwm\+Id, int channel, int pin0, int pin1, int frequency, int resolution)
+\item 
+\mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_ac5bf5054b1c1492d214cafe7919895dc}{\texorpdfstring{$\sim$}{\string~}\+ESP32\+S3\+Legacy\+MCPWMChannel}} ()
+\item 
+void \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a7e8a8e2bffd02a2e51f396b1b2761c39}{begin}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a577e746e7793e3b337ff845c0d739b52}{forward}} (uint32\+\_\+t duty)
+\item 
+void \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a93b88a3cab6e7b6d0ea2c49fa8fb457c}{reverse}} (uint32\+\_\+t duty)
+\item 
+void \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a90a01b2fc74ecd1848ce6e70002f1d71}{brake}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a98587a41ace79e876395c41635778613}{coast}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classteam967_1_1MCPWMChannel}{team967\+::\+MCPWMChannel}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1MCPWMChannel_abf24e7d60f5ce53edd48383311759fa3}{MCPWMChannel}} (int mcpwm\+Id, int channel, int pin0, int pin1, int frequency, int resolution)
+\item 
+virtual \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a4ec30bd69b774b1f07fc6a6ac8725fff}{\texorpdfstring{$\sim$}{\string~}\+MCPWMChannel}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classteam967_1_1MCPWMChannel}{team967\+::\+MCPWMChannel}}}
+\begin{DoxyCompactItemize}
+\item 
+const int {\bfseries MCPWM\+\_\+\+REFERENCE\+\_\+\+FREQ} = 80 \texorpdfstring{$\ast$}{*} 1000 \texorpdfstring{$\ast$}{*} 1000
+\item 
+int {\bfseries mcpwm\+Id}
+\item 
+int {\bfseries channel}
+\item 
+int {\bfseries pin0}
+\item 
+int {\bfseries pin1}
+\item 
+int {\bfseries frequency}
+\item 
+int {\bfseries resolution}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to interface with the MCPWM module in the ESP32\+S3. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteam967_1_1ESP32S3LegacyMCPWMChannel_a442090ff98e82a61d81bcf7239a43ce5}\index{team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}!ESP32S3LegacyMCPWMChannel@{ESP32S3LegacyMCPWMChannel}}
+\index{ESP32S3LegacyMCPWMChannel@{ESP32S3LegacyMCPWMChannel}!team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{ESP32S3LegacyMCPWMChannel()}{ESP32S3LegacyMCPWMChannel()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3LegacyMCPWMChannel_a442090ff98e82a61d81bcf7239a43ce5} 
+team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel\+::\+ESP32\+S3\+Legacy\+MCPWMChannel (\begin{DoxyParamCaption}\item[{int}]{mcpwm\+Id}{, }\item[{int}]{channel}{, }\item[{int}]{pin0}{, }\item[{int}]{pin1}{, }\item[{int}]{frequency}{, }\item[{int}]{resolution}{}\end{DoxyParamCaption})}
+
+Constructor to create a new \doxylink{classteam967_1_1MCPWMChannel}{MCPWMChannel} with the specified options.
+
+\begin{DoxyReturn}{Returns}
+A new \doxylink{classteam967_1_1MCPWMChannel}{MCPWMChannel} object 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1ESP32S3LegacyMCPWMChannel_ac5bf5054b1c1492d214cafe7919895dc}\index{team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}!````~ESP32S3LegacyMCPWMChannel@{\texorpdfstring{$\sim$}{\string~}ESP32S3LegacyMCPWMChannel}}
+\index{````~ESP32S3LegacyMCPWMChannel@{\texorpdfstring{$\sim$}{\string~}ESP32S3LegacyMCPWMChannel}!team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ESP32S3LegacyMCPWMChannel()}{\string~ESP32S3LegacyMCPWMChannel()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3LegacyMCPWMChannel_ac5bf5054b1c1492d214cafe7919895dc} 
+team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel\+::\texorpdfstring{$\sim$}{\string~}\+ESP32\+S3\+Legacy\+MCPWMChannel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Virtual destructor for class.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteam967_1_1ESP32S3LegacyMCPWMChannel_a7e8a8e2bffd02a2e51f396b1b2761c39}\index{team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}!begin@{begin}}
+\index{begin@{begin}!team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3LegacyMCPWMChannel_a7e8a8e2bffd02a2e51f396b1b2761c39} 
+void team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel\+::begin (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Initialize the pins and timers.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a9ef4f8ee93048cbf305b6566e3eb620c}{team967\+::\+MCPWMChannel}}.
+
+\Hypertarget{classteam967_1_1ESP32S3LegacyMCPWMChannel_a90a01b2fc74ecd1848ce6e70002f1d71}\index{team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}!brake@{brake}}
+\index{brake@{brake}!team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{brake()}{brake()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3LegacyMCPWMChannel_a90a01b2fc74ecd1848ce6e70002f1d71} 
+void team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel\+::brake (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Set the motor to off and brake.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a6cb2d3d228e989aa29b848bda8ec32ae}{team967\+::\+MCPWMChannel}}.
+
+\Hypertarget{classteam967_1_1ESP32S3LegacyMCPWMChannel_a98587a41ace79e876395c41635778613}\index{team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}!coast@{coast}}
+\index{coast@{coast}!team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{coast()}{coast()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3LegacyMCPWMChannel_a98587a41ace79e876395c41635778613} 
+void team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel\+::coast (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Set the motor to off and coast.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a4d92a1c1ba07cb23de821b7778b599ae}{team967\+::\+MCPWMChannel}}.
+
+\Hypertarget{classteam967_1_1ESP32S3LegacyMCPWMChannel_a577e746e7793e3b337ff845c0d739b52}\index{team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}!forward@{forward}}
+\index{forward@{forward}!team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{forward()}{forward()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3LegacyMCPWMChannel_a577e746e7793e3b337ff845c0d739b52} 
+void team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel\+::forward (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{duty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Set the motor to run forward, using a given duty cycle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty} & Forward duty cycle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a1e19f829f6c9e987a5ec122c63ffac2b}{team967\+::\+MCPWMChannel}}.
+
+\Hypertarget{classteam967_1_1ESP32S3LegacyMCPWMChannel_a93b88a3cab6e7b6d0ea2c49fa8fb457c}\index{team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}!reverse@{reverse}}
+\index{reverse@{reverse}!team967::ESP32S3LegacyMCPWMChannel@{team967::ESP32S3LegacyMCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3LegacyMCPWMChannel_a93b88a3cab6e7b6d0ea2c49fa8fb457c} 
+void team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel\+::reverse (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{duty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Set the motor to run in reverse, using a given duty cycle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty} & Reverse duty cycle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a6447950610e8539e96e70d4b4913fe05}{team967\+::\+MCPWMChannel}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/ESP32\+S3\+Legacy\+MCPWMChannel.\+h\item 
+src/ESP32\+S3\+Legacy\+PWMChannel.\+cpp\end{DoxyCompactItemize}

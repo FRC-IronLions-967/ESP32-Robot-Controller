@@ -1,0 +1,86 @@
+\doxysection{DRV8873\+Motor\+Controller.\+h}
+\hypertarget{DRV8873MotorController_8h_source}{}\label{DRV8873MotorController_8h_source}\index{include/DRV8873MotorController.h@{include/DRV8873MotorController.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Created:\ 4-\/11-\/2026}}
+\DoxyCodeLine{00006\ \textcolor{comment}{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Last\ Updated:\ 4-\/11-\/2026}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{This\ header\ provides\ a\ class\ for\ interfacing\ with\ the\ DRV8873\ H-\/Bridge\ Motor\ Driver\ IC\ from\ Texas\ Instruments.\ \ See\ TI\ documentation}}
+\DoxyCodeLine{00010\ \textcolor{comment}{for\ device\ specific\ details.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**************************************************************************************************************************************/}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ TEAM967\_DRV8873MOTORCONTROLLER\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ TEAM967\_DRV8873MOTORCONTROLLER\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <MotorController.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <MCPWMChannel.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <SPIMaster.h>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }team967\ \{}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteam967_1_1DRV8873MotorController}{DRV8873MotorController}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteam967_1_1MotorController}{MotorController}}\ \{}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1MCPWMChannel}{MCPWMChannel}}*\ pwmChannel;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1SPIMaster}{SPIMaster}}*\ spi;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a0107b1a9e8f3b22ed257af5628cd5511}{FAULT\_REG\_ADDR}}\ =\ 0x00;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DIAG\_REG\_ADDR\ \ =\ 0x01;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IC1\_REG\_ADDR\ \ \ =\ 0x02;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IC2\_REG\_ADDR\ \ \ =\ 0x03;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IC3\_REG\_ADDR\ \ \ =\ 0x04;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IC4\_REG\_ADDR\ \ \ =\ 0x05;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_af94378e9a8e61822cfbbfc84ef55ae58}{FAULT\_OTW}}\ \ =\ 0x20;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FAULT\_UVLO\ =\ 0x10;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FAULT\_CPUV\ =\ 0x08;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FAULT\_OCP\ \ =\ 0x04;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FAULT\_TSD\ \ =\ 0x02;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ FAULT\_OLD\ \ =\ 0x01;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a70acb284a23fa2adf1f384ca56070d87}{DIAG\_OL1}}\ \ \ \ =\ 0x80;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DIAG\_OL2\ \ \ \ =\ 0x40;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DIAG\_ITRIP1\ =\ 0x20;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DIAG\_ITRIP2\ =\ 0x10;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DIAG\_OCP\_H1\ =\ 0x08;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DIAG\_OCP\_L1\ =\ 0x04;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DIAG\_OCP\_H2\ =\ 0x02;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DIAG\_OCP\_L2\ =\ 0x01;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_ac6fd5a12c9d4cbd175b8d280a56ac2bb}{DRV8873MotorController}}(\mbox{\hyperlink{classteam967_1_1MCPWMChannel}{MCPWMChannel}}*\ pwmChannel,\ \mbox{\hyperlink{classteam967_1_1SPIMaster}{SPIMaster}}*\ spi);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_ac343a434a59a5b099c00e638f86de907}{\string~DRV8873MotorController}}();}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a2bcfbcab0a9004c6adb43481309dac2f}{begin}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a47c3814fba037ed961951da8f928282a}{setPower}}(int32\_t\ power);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a479839302b6a07be63090813875a1505}{readRegister}}(uint8\_t\ addr,\ uint8\_t*\ readData);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a2e4949ce57e1a514f4cac5097d61ba26}{writeRegister}}(uint8\_t\ addr,\ uint8\_t\ writeData,\ uint8\_t*\ readData);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a9c5926c9dc03826ce4b870d409c33dbb}{faultOccurred}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a14aa9b18a6e2038ecf0a36ed5f24e0de}{checkFault}}(uint8\_t\ fault);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a705638a055f42bb4260df8ed5526f837}{checkDiag}}(uint8\_t\ diag);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

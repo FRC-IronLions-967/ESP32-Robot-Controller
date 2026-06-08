@@ -1,0 +1,51 @@
+\doxysection{Encoder.\+h}
+\hypertarget{Encoder_8h_source}{}\label{Encoder_8h_source}\index{include/Encoder.h@{include/Encoder.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Created:\ 6-\/20-\/2021}}
+\DoxyCodeLine{00006\ \textcolor{comment}{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Last\ Updated:\ 6-\/20-\/2021}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{This\ header\ provides\ a\ virtual\ class\ (interface?)\ to\ allow\ for\ different\ types\ of\ encoders\ to\ be\ used.\ \ In\ order\ to\ use\ whatever\ kind}}
+\DoxyCodeLine{00010\ \textcolor{comment}{of\ encoder\ you\ wish,\ simply\ create\ a\ class\ that\ pulls\ data\ from\ it\ and\ implements\ the\ following\ methods.\ \ It\ can\ then\ be\ attached\ to}}
+\DoxyCodeLine{00011\ \textcolor{comment}{the\ MotorController\ and\ PWMServo\ classes\ for\ your\ use.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**************************************************************************************************************************************/}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ TEAM967\_ENCODER\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ TEAM967\_ENCODER\_H}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }team967\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteam967_1_1Encoder}{Encoder}}\ \{}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classteam967_1_1Encoder_aa7ef488b99581dd3be9fb29e13c84bf1}{\string~Encoder}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1Encoder_a87d5ba1b4da3f42dbf53e27bd9bfe136}{setCount}}(int64\_t\ count)\ =\ 0;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ int64\_t\ \mbox{\hyperlink{classteam967_1_1Encoder_a64cca570f855528cace1319c3a3a7b90}{getCount}}(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1Encoder_ae7f446d597db3d1d2bd4d8d58f5c7de4}{setCPR}}(uint16\_t\ cpr)\ =\ 0;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ uint16\_t\ \mbox{\hyperlink{classteam967_1_1Encoder_a6cb4d965c8380d3a2110edf519e33aef}{getCPR}}(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ int16\_t\ \mbox{\hyperlink{classteam967_1_1Encoder_aa11d2544095470a899c0a61478710ae1}{getRotationsInt}}(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ int16\_t\ \mbox{\hyperlink{classteam967_1_1Encoder_a4f0bb09e9819645f12d81a5c223835f2}{getRotationsRem}}(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classteam967_1_1Encoder_af0a0387532c37fba3de1d36621c1ea2e}{getRotationsDouble}}(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

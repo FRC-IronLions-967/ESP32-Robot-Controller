@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['robotscheduler_50',['RobotScheduler',['../classteam967_1_1_robot_scheduler.html',1,'team967']]],
-  ['robotsubsystem_51',['RobotSubsystem',['../classteam967_1_1_robot_subsystem.html',1,'team967']]]
+  ['mcpwmchannel_0',['MCPWMChannel',['../classteam967_1_1MCPWMChannel.html',1,'team967']]],
+  ['motorcontroller_1',['MotorController',['../classteam967_1_1MotorController.html',1,'team967']]]
 ];
