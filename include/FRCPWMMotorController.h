@@ -12,11 +12,13 @@ PWM frequency and timer resolution.
 
 **************************************************************************************************************************************/
 
-#ifndef MOTORCONTROLLER_H
-#define MOTORCONTROLLER_H
+#ifndef FRCPWMMOTORCONTROLLER_H
+#define FRCPWMMOTORCONTROLLER_H
 
 #include <Arduino.h>
-#include "ExternalEncoder.h"
+#include <ExternalEncoder.h>
+#include <MotorController.h>
+
 #include <stdint.h>
 
 // default frequency for the PWM signal in Hz
@@ -32,7 +34,7 @@ namespace team967 {
      * full forward.  This include most CTRE Talons and Victors, as well as REV Sparks.  This has been tested with Victor 888's and 884's, but it is assumed that it would work with
      * other controllers as well.
      */
-    class MotorController {
+    class FRCPWMMotorController : public MotorController {
 
         private:
             int p;
@@ -43,9 +45,7 @@ namespace team967 {
             int dutyCycleMin;
             int dutyCycleMax;
 
-            bool inv;
-
-            team967::Encoder* attachedEncoder;
+            // team967::Encoder* attachedEncoder;
 
         public:
             /**
@@ -55,9 +55,9 @@ namespace team967 {
              * @param channel The PWM channel on the ESP32 to use to generate the waveform, can be 0-15
              * @param frequency The frequency (in Hz) to be used for the waveform, default is 167 Hz
              * @param resolution The resolution (in bits) to use for PWM generation, default is 8, max is 16
-             * @return A new MotorController object
+             * @return A new FRCPWMMotorController object
              */
-            MotorController(int pin, int channel, int frequency = DEFAULT_PWM_FREQ, int resolution = DEFAULT_PWM_RES);
+            FRCPWMMotorController(int pin, int channel, int frequency = DEFAULT_PWM_FREQ, int resolution = DEFAULT_PWM_RES);
 
             /**
              * Destructor for the motor controller object.  Detaches the signal pin from the PWM channel so they can both be reused.
@@ -65,23 +65,7 @@ namespace team967 {
              * @param none
              * @return nothing
              */
-            ~MotorController();
-
-            /**
-             * Sets the inversion state of this object.
-             * 
-             * @param inverted Whether or not this object's output should be inverted
-             * @return nothing
-             */
-            void setInverted(bool inverted);
-
-            /**
-             * Returns whether or not this object's output is inverted.
-             * 
-             * @param none
-             * @return true if inverted, false otherwise
-             */
-            bool isInverted(void);
+            ~FRCPWMMotorController();
 
             /**
              * Begins PWM output using the channel and pin specified in the constructor.  PWM duty cycle is set to 1/4 by default.
@@ -98,7 +82,7 @@ namespace team967 {
              * @param power The power value to set the output to
              * @return nothing
              */
-            void set(int16_t power);
+            void setPower(int32_t power);
 
             /**
              * Attaches an Encoder object to this motor controller for measuring position, speed, etc.
@@ -106,7 +90,7 @@ namespace team967 {
              * @param encoder A pointer to the Encoder object to attach
              * @return nothing
              */
-            void attachEncoder(team967::Encoder *encoder);
+            // void attachEncoder(team967::Encoder *encoder);
 
             /**
              * Returns a pointer to the Encoder attached to this object.
@@ -114,7 +98,7 @@ namespace team967 {
              * @param none
              * @return A pointer to the Encoder object attached to this object, or nullptr if does not exist
              */
-            team967::Encoder* getEncoder(void);
+            // team967::Encoder* getEncoder(void);
 
     };
 

@@ -1,4 +1,4 @@
-#include "SparkController.h"
+#include <SparkController.h>
 
 team967::SparkController::SparkController(int forwardPin, int reversePin) {
     fPin = forwardPin;

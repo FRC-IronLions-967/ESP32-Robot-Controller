@@ -1,0 +1,313 @@
+\doxysection{team967\+::DRV8873\+Motor\+Controller Class Reference}
+\hypertarget{classteam967_1_1DRV8873MotorController}{}\label{classteam967_1_1DRV8873MotorController}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+
+
+{\ttfamily \#include $<$DRV8873\+Motor\+Controller.\+h$>$}
+
+Inheritance diagram for team967\+::DRV8873\+Motor\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteam967_1_1DRV8873MotorController}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1DRV8873MotorController_ac6fd5a12c9d4cbd175b8d280a56ac2bb}{DRV8873\+Motor\+Controller}} (\mbox{\hyperlink{classteam967_1_1MCPWMChannel}{MCPWMChannel}} \texorpdfstring{$\ast$}{*}pwm\+Channel, \mbox{\hyperlink{classteam967_1_1SPIMaster}{SPIMaster}} \texorpdfstring{$\ast$}{*}spi)
+\item 
+\mbox{\hyperlink{classteam967_1_1DRV8873MotorController_ac343a434a59a5b099c00e638f86de907}{\texorpdfstring{$\sim$}{\string~}\+DRV8873\+Motor\+Controller}} ()
+\item 
+void \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a2bcfbcab0a9004c6adb43481309dac2f}{begin}} (void)
+\item 
+void \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a47c3814fba037ed961951da8f928282a}{set\+Power}} (int32\+\_\+t power)
+\item 
+bool \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a479839302b6a07be63090813875a1505}{read\+Register}} (uint8\+\_\+t addr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}read\+Data)
+\item 
+bool \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a2e4949ce57e1a514f4cac5097d61ba26}{write\+Register}} (uint8\+\_\+t addr, uint8\+\_\+t write\+Data, uint8\+\_\+t \texorpdfstring{$\ast$}{*}read\+Data)
+\item 
+bool \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a9c5926c9dc03826ce4b870d409c33dbb}{fault\+Occurred}} (void)
+\item 
+bool \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a14aa9b18a6e2038ecf0a36ed5f24e0de}{check\+Fault}} (uint8\+\_\+t fault)
+\item 
+bool \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a705638a055f42bb4260df8ed5526f837}{check\+Diag}} (uint8\+\_\+t diag)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classteam967_1_1MotorController}{team967\+::\+Motor\+Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1MotorController_a27110bbd18983589f9ffa33ee15c8c49}{Motor\+Controller}} (uint32\+\_\+t features, int32\+\_\+t maximum\+Power, int32\+\_\+t minimum\+Power, bool inverted, uint32\+\_\+t coast\+Brake\+Mode)
+\item 
+\mbox{\hyperlink{classteam967_1_1MotorController_a261448b0c2be60e23a1903c28e981381}{\texorpdfstring{$\sim$}{\string~}\+Motor\+Controller}} ()
+\item 
+virtual bool \mbox{\hyperlink{classteam967_1_1MotorController_afdd697a94cd366a60abb80a73404dfb0}{supports\+Features}} (uint32\+\_\+t feature\+Mask)
+\item 
+virtual int32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_a067b7a222d5fee636874ea002f999809}{get\+Maximum\+Motor\+Power}} (void)
+\item 
+virtual int32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_a64e35faf41b2e1ebfa0b738a9b5ec437}{get\+Minimum\+Motor\+Power}} (void)
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MotorController_aa8235d3a10d65ed95ede33d318b96dda}{set\+Inverted}} (bool inverted)
+\item 
+virtual bool \mbox{\hyperlink{classteam967_1_1MotorController_a9460094e29fa494aafb4e0a3aceb162f}{is\+Inverted}} (void)
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MotorController_a59f71db70c5e6ffb67899b46d2268cc0}{set\+Coast\+Brake\+Mode}} (uint32\+\_\+t mode)
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_abd3b3d57869db064e58b9373aadcaa85}{get\+Coast\+Brake\+Mode}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a0107b1a9e8f3b22ed257af5628cd5511}{FAULT\+\_\+\+REG\+\_\+\+ADDR}} = 0x00
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_a49aa02d7954dd815f35adbbcbe02d4cd}\label{classteam967_1_1DRV8873MotorController_a49aa02d7954dd815f35adbbcbe02d4cd} 
+const uint8\+\_\+t {\bfseries DIAG\+\_\+\+REG\+\_\+\+ADDR} = 0x01
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_af170158be825c269b60502c8933d55d4}\label{classteam967_1_1DRV8873MotorController_af170158be825c269b60502c8933d55d4} 
+const uint8\+\_\+t {\bfseries IC1\+\_\+\+REG\+\_\+\+ADDR} = 0x02
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_a7df492e7a3906554223e5148785827c5}\label{classteam967_1_1DRV8873MotorController_a7df492e7a3906554223e5148785827c5} 
+const uint8\+\_\+t {\bfseries IC2\+\_\+\+REG\+\_\+\+ADDR} = 0x03
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_a7e0124a7c877104c2d79bfd1b1f7da73}\label{classteam967_1_1DRV8873MotorController_a7e0124a7c877104c2d79bfd1b1f7da73} 
+const uint8\+\_\+t {\bfseries IC3\+\_\+\+REG\+\_\+\+ADDR} = 0x04
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_a8dd0d3a0e3ca7957cdb9892ac2053478}\label{classteam967_1_1DRV8873MotorController_a8dd0d3a0e3ca7957cdb9892ac2053478} 
+const uint8\+\_\+t {\bfseries IC4\+\_\+\+REG\+\_\+\+ADDR} = 0x05
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_af94378e9a8e61822cfbbfc84ef55ae58}{FAULT\+\_\+\+OTW}} = 0x20
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_a0e4355476b1600f418ff8b5b7d9f4a88}\label{classteam967_1_1DRV8873MotorController_a0e4355476b1600f418ff8b5b7d9f4a88} 
+const uint8\+\_\+t {\bfseries FAULT\+\_\+\+UVLO} = 0x10
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_aa78afc0ffe74886a9cafa13ad19df60c}\label{classteam967_1_1DRV8873MotorController_aa78afc0ffe74886a9cafa13ad19df60c} 
+const uint8\+\_\+t {\bfseries FAULT\+\_\+\+CPUV} = 0x08
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_a1d759e3212002e11384728eb05e20903}\label{classteam967_1_1DRV8873MotorController_a1d759e3212002e11384728eb05e20903} 
+const uint8\+\_\+t {\bfseries FAULT\+\_\+\+OCP} = 0x04
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_a0cf39c959059c42b2bd156feae9faeca}\label{classteam967_1_1DRV8873MotorController_a0cf39c959059c42b2bd156feae9faeca} 
+const uint8\+\_\+t {\bfseries FAULT\+\_\+\+TSD} = 0x02
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_a4330c4b17eeaa29045928fc1f780e2c9}\label{classteam967_1_1DRV8873MotorController_a4330c4b17eeaa29045928fc1f780e2c9} 
+const uint8\+\_\+t {\bfseries FAULT\+\_\+\+OLD} = 0x01
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a70acb284a23fa2adf1f384ca56070d87}{DIAG\+\_\+\+OL1}} = 0x80
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_ad860b83930085d2b075b844b9a9b1ec6}\label{classteam967_1_1DRV8873MotorController_ad860b83930085d2b075b844b9a9b1ec6} 
+const uint8\+\_\+t {\bfseries DIAG\+\_\+\+OL2} = 0x40
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_ad640dc12e0f7933da2ef6415bf3abbee}\label{classteam967_1_1DRV8873MotorController_ad640dc12e0f7933da2ef6415bf3abbee} 
+const uint8\+\_\+t {\bfseries DIAG\+\_\+\+ITRIP1} = 0x20
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_a089f7b60c8a6e7bc96b51c7a5fdd7402}\label{classteam967_1_1DRV8873MotorController_a089f7b60c8a6e7bc96b51c7a5fdd7402} 
+const uint8\+\_\+t {\bfseries DIAG\+\_\+\+ITRIP2} = 0x10
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_ab87be6c8357e8a3b7012e973321a8606}\label{classteam967_1_1DRV8873MotorController_ab87be6c8357e8a3b7012e973321a8606} 
+const uint8\+\_\+t {\bfseries DIAG\+\_\+\+OCP\+\_\+\+H1} = 0x08
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_a53fe615117d970a44823a057b08497d3}\label{classteam967_1_1DRV8873MotorController_a53fe615117d970a44823a057b08497d3} 
+const uint8\+\_\+t {\bfseries DIAG\+\_\+\+OCP\+\_\+\+L1} = 0x04
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_ad35bc1ddb97f07c6a3f664ea4ec790a1}\label{classteam967_1_1DRV8873MotorController_ad35bc1ddb97f07c6a3f664ea4ec790a1} 
+const uint8\+\_\+t {\bfseries DIAG\+\_\+\+OCP\+\_\+\+H2} = 0x02
+\item 
+\Hypertarget{classteam967_1_1DRV8873MotorController_a7dee6c40f3334ad9511c4345b30458b5}\label{classteam967_1_1DRV8873MotorController_a7dee6c40f3334ad9511c4345b30458b5} 
+const uint8\+\_\+t {\bfseries DIAG\+\_\+\+OCP\+\_\+\+L2} = 0x01
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classteam967_1_1MotorController}{team967\+::\+Motor\+Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_a84bc7394025256cad441d80727ee181c}{MOTOR\+\_\+\+REVERSE}} = 0x1
+\item 
+const uint32\+\_\+t {\bfseries MOTOR\+\_\+\+COAST} = 0x2
+\item 
+const uint32\+\_\+t {\bfseries MOTOR\+\_\+\+BRAKE} = 0x4
+\item 
+const uint32\+\_\+t {\bfseries MOTOR\+\_\+\+INVERT} = 0x8
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classteam967_1_1MotorController}{team967\+::\+Motor\+Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t {\bfseries features}
+\item 
+int32\+\_\+t {\bfseries maximum\+Power}
+\item 
+int32\+\_\+t {\bfseries minimum\+Power}
+\item 
+bool {\bfseries inverted}
+\item 
+uint32\+\_\+t {\bfseries coast\+Brake\+Mode}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to interface with the DRV8873 H-\/\+Bridge Motor Driver IC from Texas Instruments. This IC has several operating modes, but this class uses the PWM mode (which is the device default). Configuration and status monitoring are done via a SPI interface, but motor power and inversion status are set via PWM over two pins. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteam967_1_1DRV8873MotorController_ac6fd5a12c9d4cbd175b8d280a56ac2bb}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!DRV8873MotorController@{DRV8873MotorController}}
+\index{DRV8873MotorController@{DRV8873MotorController}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{DRV8873MotorController()}{DRV8873MotorController()}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_ac6fd5a12c9d4cbd175b8d280a56ac2bb} 
+team967\+::\+DRV8873\+Motor\+Controller\+::\+DRV8873\+Motor\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classteam967_1_1MCPWMChannel}{MCPWMChannel}} \texorpdfstring{$\ast$}{*}}]{pwm\+Channel}{, }\item[{\mbox{\hyperlink{classteam967_1_1SPIMaster}{SPIMaster}} \texorpdfstring{$\ast$}{*}}]{spi}{}\end{DoxyParamCaption})}
+
+Constructor to create a new \doxylink{classteam967_1_1DRV8873MotorController}{DRV8873\+Motor\+Controller} with the specified options.
+
+\begin{DoxyReturn}{Returns}
+A new \doxylink{classteam967_1_1DRV8873MotorController}{DRV8873\+Motor\+Controller} object 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1DRV8873MotorController_ac343a434a59a5b099c00e638f86de907}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!````~DRV8873MotorController@{\texorpdfstring{$\sim$}{\string~}DRV8873MotorController}}
+\index{````~DRV8873MotorController@{\texorpdfstring{$\sim$}{\string~}DRV8873MotorController}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DRV8873MotorController()}{\string~DRV8873MotorController()}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_ac343a434a59a5b099c00e638f86de907} 
+team967\+::\+DRV8873\+Motor\+Controller\+::\texorpdfstring{$\sim$}{\string~}\+DRV8873\+Motor\+Controller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Virtual destructor for class.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteam967_1_1DRV8873MotorController_a2bcfbcab0a9004c6adb43481309dac2f}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!begin@{begin}}
+\index{begin@{begin}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_a2bcfbcab0a9004c6adb43481309dac2f} 
+void team967\+::\+DRV8873\+Motor\+Controller\+::begin (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Initialize the pins and timers.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1MotorController_ae6ee2bec0bba8e0303fa23de859bcd86}{team967\+::\+Motor\+Controller}}.
+
+\Hypertarget{classteam967_1_1DRV8873MotorController_a705638a055f42bb4260df8ed5526f837}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!checkDiag@{checkDiag}}
+\index{checkDiag@{checkDiag}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{checkDiag()}{checkDiag()}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_a705638a055f42bb4260df8ed5526f837} 
+bool team967\+::\+DRV8873\+Motor\+Controller\+::check\+Diag (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{diag}{}\end{DoxyParamCaption})}
+
+Check if a specific diagnostic condition has occurred.
+
+
+\begin{DoxyParams}{Parameters}
+{\em diag} & Diagnostic flags to check (OR together for multiple)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if diagnostic condition has occurred, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1DRV8873MotorController_a14aa9b18a6e2038ecf0a36ed5f24e0de}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!checkFault@{checkFault}}
+\index{checkFault@{checkFault}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{checkFault()}{checkFault()}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_a14aa9b18a6e2038ecf0a36ed5f24e0de} 
+bool team967\+::\+DRV8873\+Motor\+Controller\+::check\+Fault (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{fault}{}\end{DoxyParamCaption})}
+
+Check if a specific set of faults has occurred. This will check the logical AND of the faults.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fault} & Fault flags to check (OR together for multiple)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if fault(s) have occurred, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1DRV8873MotorController_a9c5926c9dc03826ce4b870d409c33dbb}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!faultOccurred@{faultOccurred}}
+\index{faultOccurred@{faultOccurred}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{faultOccurred()}{faultOccurred()}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_a9c5926c9dc03826ce4b870d409c33dbb} 
+bool team967\+::\+DRV8873\+Motor\+Controller\+::fault\+Occurred (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Check if a fault has occurred on the motor controller.
+
+\begin{DoxyReturn}{Returns}
+true if fault, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1DRV8873MotorController_a479839302b6a07be63090813875a1505}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!readRegister@{readRegister}}
+\index{readRegister@{readRegister}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{readRegister()}{readRegister()}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_a479839302b6a07be63090813875a1505} 
+bool team967\+::\+DRV8873\+Motor\+Controller\+::read\+Register (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{read\+Data}{}\end{DoxyParamCaption})}
+
+Read a register back via the SPI bus.
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & Address of register \\
+\hline
+{\em read\+Data} & Pointer to byte to place register into\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1DRV8873MotorController_a47c3814fba037ed961951da8f928282a}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!setPower@{setPower}}
+\index{setPower@{setPower}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{setPower()}{setPower()}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_a47c3814fba037ed961951da8f928282a} 
+void team967\+::\+DRV8873\+Motor\+Controller\+::set\+Power (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{power}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function to set motor power.
+
+
+\begin{DoxyParams}{Parameters}
+{\em power} & motor power (will be constrained within motor power bounds)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1MotorController_ae75235d22a2ca9c869e74757f425791c}{team967\+::\+Motor\+Controller}}.
+
+\Hypertarget{classteam967_1_1DRV8873MotorController_a2e4949ce57e1a514f4cac5097d61ba26}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!writeRegister@{writeRegister}}
+\index{writeRegister@{writeRegister}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{writeRegister()}{writeRegister()}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_a2e4949ce57e1a514f4cac5097d61ba26} 
+bool team967\+::\+DRV8873\+Motor\+Controller\+::write\+Register (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr}{, }\item[{uint8\+\_\+t}]{write\+Data}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{read\+Data}{}\end{DoxyParamCaption})}
+
+Write a register via the SPI bus.
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & Address of register \\
+\hline
+{\em write\+Data} & Data to write to the register \\
+\hline
+{\em read\+Data} & Pointer to byte to place read value into\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, false otherwise 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteam967_1_1DRV8873MotorController_a70acb284a23fa2adf1f384ca56070d87}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!DIAG\_OL1@{DIAG\_OL1}}
+\index{DIAG\_OL1@{DIAG\_OL1}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{DIAG\_OL1}{DIAG\_OL1}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_a70acb284a23fa2adf1f384ca56070d87} 
+const uint8\+\_\+t team967\+::\+DRV8873\+Motor\+Controller\+::\+DIAG\+\_\+\+OL1 = 0x80}
+
+Constants defining some diagnostic flags for different faults \Hypertarget{classteam967_1_1DRV8873MotorController_af94378e9a8e61822cfbbfc84ef55ae58}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!FAULT\_OTW@{FAULT\_OTW}}
+\index{FAULT\_OTW@{FAULT\_OTW}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{FAULT\_OTW}{FAULT\_OTW}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_af94378e9a8e61822cfbbfc84ef55ae58} 
+const uint8\+\_\+t team967\+::\+DRV8873\+Motor\+Controller\+::\+FAULT\+\_\+\+OTW = 0x20}
+
+Constants defining fault conditions in status register \Hypertarget{classteam967_1_1DRV8873MotorController_a0107b1a9e8f3b22ed257af5628cd5511}\index{team967::DRV8873MotorController@{team967::DRV8873MotorController}!FAULT\_REG\_ADDR@{FAULT\_REG\_ADDR}}
+\index{FAULT\_REG\_ADDR@{FAULT\_REG\_ADDR}!team967::DRV8873MotorController@{team967::DRV8873MotorController}}
+\doxysubsubsection{\texorpdfstring{FAULT\_REG\_ADDR}{FAULT\_REG\_ADDR}}
+{\footnotesize\ttfamily \label{classteam967_1_1DRV8873MotorController_a0107b1a9e8f3b22ed257af5628cd5511} 
+const uint8\+\_\+t team967\+::\+DRV8873\+Motor\+Controller\+::\+FAULT\+\_\+\+REG\+\_\+\+ADDR = 0x00}
+
+Constants for SPI register addresses 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/DRV8873\+Motor\+Controller.\+h\item 
+src/DRV8873\+Motor\+Controller.\+cpp\end{DoxyCompactItemize}

@@ -40,7 +40,7 @@ namespace team967 {
 
             bool inv;
 
-            team967::Encoder* attachedEncoder;
+            // team967::Encoder* attachedEncoder;
 
         public:
             /**
@@ -102,7 +102,7 @@ namespace team967 {
              * @param encoder A pointer to the Encoder object to attach
              * @return nothing
              */
-            void attachEncoder(team967::Encoder *encoder);
+            // void attachEncoder(team967::Encoder *encoder);
 
             /**
              * Member function to get a pointer to the attached encoder.
@@ -110,7 +110,7 @@ namespace team967 {
              * @param none
              * @return A pointer to the attached encoder, or nullptr if it does not exist
              */
-            team967::Encoder* getEncoder(void);
+            // team967::Encoder* getEncoder(void);
 
     };
 

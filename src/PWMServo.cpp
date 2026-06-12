@@ -10,7 +10,7 @@ This file provides the definitions of the class methods defined in PWMServo.h.  
 
 **************************************************************************************************************************************/
 
-#include "PWMServo.h"
+#include <PWMServo.h>
 
 team967::PWMServo::PWMServo(int pin, int channel, int frequency, int resolution): p(pin), chan(channel), freq(frequency), res(resolution) {
     // maximum supported resolution is 16 bits
@@ -19,7 +19,7 @@ team967::PWMServo::PWMServo(int pin, int channel, int frequency, int resolution)
     dutyCycleMin = ((1<<res) / 6);
     dutyCycleMax = ((1<<res) / 3);
 
-    attachedEncoder = nullptr;
+    // attachedEncoder = nullptr;
 
     inv = false;
 }
@@ -65,13 +65,13 @@ void team967::PWMServo::setAngleDegrees(int8_t angle) {
     ledcWrite(chan, dutyCycle);
 }
 
-void team967::PWMServo::attachEncoder(team967::Encoder *encoder) {
-    attachedEncoder = encoder;
-}
+// void team967::PWMServo::attachEncoder(team967::Encoder *encoder) {
+//     attachedEncoder = encoder;
+// }
 
-team967::Encoder* team967::PWMServo::getEncoder() {
-    if(attachedEncoder != nullptr) {
-        return attachedEncoder;
-    }
-    return nullptr;
-}
+// team967::Encoder* team967::PWMServo::getEncoder() {
+//     if(attachedEncoder != nullptr) {
+//         return attachedEncoder;
+//     }
+//     return nullptr;
+// }

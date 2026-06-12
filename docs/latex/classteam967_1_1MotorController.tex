@@ -1,0 +1,242 @@
+\doxysection{team967\+::Motor\+Controller Class Reference}
+\hypertarget{classteam967_1_1MotorController}{}\label{classteam967_1_1MotorController}\index{team967::MotorController@{team967::MotorController}}
+
+
+{\ttfamily \#include $<$Motor\+Controller.\+h$>$}
+
+Inheritance diagram for team967\+::Motor\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteam967_1_1MotorController}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1MotorController_a27110bbd18983589f9ffa33ee15c8c49}{Motor\+Controller}} (uint32\+\_\+t features, int32\+\_\+t maximum\+Power, int32\+\_\+t minimum\+Power, bool inverted, uint32\+\_\+t coast\+Brake\+Mode)
+\item 
+\mbox{\hyperlink{classteam967_1_1MotorController_a261448b0c2be60e23a1903c28e981381}{\texorpdfstring{$\sim$}{\string~}\+Motor\+Controller}} ()
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MotorController_ae6ee2bec0bba8e0303fa23de859bcd86}{begin}} (void)=0
+\item 
+virtual bool \mbox{\hyperlink{classteam967_1_1MotorController_afdd697a94cd366a60abb80a73404dfb0}{supports\+Features}} (uint32\+\_\+t feature\+Mask)
+\item 
+virtual int32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_a067b7a222d5fee636874ea002f999809}{get\+Maximum\+Motor\+Power}} (void)
+\item 
+virtual int32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_a64e35faf41b2e1ebfa0b738a9b5ec437}{get\+Minimum\+Motor\+Power}} (void)
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MotorController_aa8235d3a10d65ed95ede33d318b96dda}{set\+Inverted}} (bool inverted)
+\item 
+virtual bool \mbox{\hyperlink{classteam967_1_1MotorController_a9460094e29fa494aafb4e0a3aceb162f}{is\+Inverted}} (void)
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MotorController_a59f71db70c5e6ffb67899b46d2268cc0}{set\+Coast\+Brake\+Mode}} (uint32\+\_\+t mode)
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_abd3b3d57869db064e58b9373aadcaa85}{get\+Coast\+Brake\+Mode}} (void)
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MotorController_ae75235d22a2ca9c869e74757f425791c}{set\+Power}} (int32\+\_\+t power)=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1MotorController_a84bc7394025256cad441d80727ee181c}{MOTOR\+\_\+\+REVERSE}} = 0x1
+\item 
+\Hypertarget{classteam967_1_1MotorController_a0d767cb90117a15a5f8761ab11341878}\label{classteam967_1_1MotorController_a0d767cb90117a15a5f8761ab11341878} 
+const uint32\+\_\+t {\bfseries MOTOR\+\_\+\+COAST} = 0x2
+\item 
+\Hypertarget{classteam967_1_1MotorController_aa8e7b8410e35b6154eec4a2e78dbf755}\label{classteam967_1_1MotorController_aa8e7b8410e35b6154eec4a2e78dbf755} 
+const uint32\+\_\+t {\bfseries MOTOR\+\_\+\+BRAKE} = 0x4
+\item 
+\Hypertarget{classteam967_1_1MotorController_a9a3745bd7df447048834a49f346eb2ab}\label{classteam967_1_1MotorController_a9a3745bd7df447048834a49f346eb2ab} 
+const uint32\+\_\+t {\bfseries MOTOR\+\_\+\+INVERT} = 0x8
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classteam967_1_1MotorController_a0b062b8655444fc57116a2083f687cbb}\label{classteam967_1_1MotorController_a0b062b8655444fc57116a2083f687cbb} 
+uint32\+\_\+t {\bfseries features}
+\item 
+\Hypertarget{classteam967_1_1MotorController_afaff6fba804dd9a881ea4939e563af2b}\label{classteam967_1_1MotorController_afaff6fba804dd9a881ea4939e563af2b} 
+int32\+\_\+t {\bfseries maximum\+Power}
+\item 
+\Hypertarget{classteam967_1_1MotorController_ac6b2d5f3dd514fc5644be8cf7e92a536}\label{classteam967_1_1MotorController_ac6b2d5f3dd514fc5644be8cf7e92a536} 
+int32\+\_\+t {\bfseries minimum\+Power}
+\item 
+\Hypertarget{classteam967_1_1MotorController_a0d6af9dc66c3fd6a60b34716af2232ce}\label{classteam967_1_1MotorController_a0d6af9dc66c3fd6a60b34716af2232ce} 
+bool {\bfseries inverted}
+\item 
+\Hypertarget{classteam967_1_1MotorController_ae26d04d5ea79197f995b89b0c7d3afef}\label{classteam967_1_1MotorController_ae26d04d5ea79197f995b89b0c7d3afef} 
+uint32\+\_\+t {\bfseries coast\+Brake\+Mode}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for motor controllers to be derived from. This can include both the old FRC style controllers (Talons, Victors, Sparks) or the TI 8873 controllers used on the latest board revision. This allows a unified interface to both types. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteam967_1_1MotorController_a27110bbd18983589f9ffa33ee15c8c49}\index{team967::MotorController@{team967::MotorController}!MotorController@{MotorController}}
+\index{MotorController@{MotorController}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{MotorController()}{MotorController()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_a27110bbd18983589f9ffa33ee15c8c49} 
+team967\+::\+Motor\+Controller\+::\+Motor\+Controller (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{features}{, }\item[{int32\+\_\+t}]{maximum\+Power}{, }\item[{int32\+\_\+t}]{minimum\+Power}{, }\item[{bool}]{inverted}{, }\item[{uint32\+\_\+t}]{coast\+Brake\+Mode}{}\end{DoxyParamCaption})}
+
+Constructor to create a new \doxylink{classteam967_1_1MotorController}{Motor\+Controller} with the specified options.
+
+\begin{DoxyReturn}{Returns}
+A new \doxylink{classteam967_1_1MotorController}{Motor\+Controller} object 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1MotorController_a261448b0c2be60e23a1903c28e981381}\index{team967::MotorController@{team967::MotorController}!````~MotorController@{\texorpdfstring{$\sim$}{\string~}MotorController}}
+\index{````~MotorController@{\texorpdfstring{$\sim$}{\string~}MotorController}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MotorController()}{\string~MotorController()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_a261448b0c2be60e23a1903c28e981381} 
+team967\+::\+Motor\+Controller\+::\texorpdfstring{$\sim$}{\string~}\+Motor\+Controller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Virtual destructor for class.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteam967_1_1MotorController_ae6ee2bec0bba8e0303fa23de859bcd86}\index{team967::MotorController@{team967::MotorController}!begin@{begin}}
+\index{begin@{begin}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_ae6ee2bec0bba8e0303fa23de859bcd86} 
+virtual void team967\+::\+Motor\+Controller\+::begin (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Initialize the \doxylink{classteam967_1_1MotorController}{Motor\+Controller} in hardware.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a2bcfbcab0a9004c6adb43481309dac2f}{team967\+::\+DRV8873\+Motor\+Controller}}, and \mbox{\hyperlink{classteam967_1_1FRCPWMMotorController_ac261322a428453503ac8ff74c0e7045d}{team967\+::\+FRCPWMMotor\+Controller}}.
+
+\Hypertarget{classteam967_1_1MotorController_abd3b3d57869db064e58b9373aadcaa85}\index{team967::MotorController@{team967::MotorController}!getCoastBrakeMode@{getCoastBrakeMode}}
+\index{getCoastBrakeMode@{getCoastBrakeMode}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{getCoastBrakeMode()}{getCoastBrakeMode()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_abd3b3d57869db064e58b9373aadcaa85} 
+uint32\+\_\+t team967\+::\+Motor\+Controller\+::get\+Coast\+Brake\+Mode (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function to check the current coast/brake mode status.
+
+\begin{DoxyReturn}{Returns}
+Current coast/brake mode status (check against MOTOR\+\_\+\+COAST or MOTOR\+\_\+\+BRAKE) 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1MotorController_a067b7a222d5fee636874ea002f999809}\index{team967::MotorController@{team967::MotorController}!getMaximumMotorPower@{getMaximumMotorPower}}
+\index{getMaximumMotorPower@{getMaximumMotorPower}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{getMaximumMotorPower()}{getMaximumMotorPower()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_a067b7a222d5fee636874ea002f999809} 
+virtual int32\+\_\+t team967\+::\+Motor\+Controller\+::get\+Maximum\+Motor\+Power (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function to get the maximum supported motor power. For example, some controllers may take an 8 bit integer, while others may take 16 bits.
+
+\begin{DoxyReturn}{Returns}
+Maximum supported motor power 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1MotorController_a64e35faf41b2e1ebfa0b738a9b5ec437}\index{team967::MotorController@{team967::MotorController}!getMinimumMotorPower@{getMinimumMotorPower}}
+\index{getMinimumMotorPower@{getMinimumMotorPower}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{getMinimumMotorPower()}{getMinimumMotorPower()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_a64e35faf41b2e1ebfa0b738a9b5ec437} 
+virtual int32\+\_\+t team967\+::\+Motor\+Controller\+::get\+Minimum\+Motor\+Power (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function to get the minimum supported motor power. For example, some controllers may take an 8 bit integer, while others may take 16 bits.
+
+\begin{DoxyReturn}{Returns}
+Minimum supported motor power 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1MotorController_a9460094e29fa494aafb4e0a3aceb162f}\index{team967::MotorController@{team967::MotorController}!isInverted@{isInverted}}
+\index{isInverted@{isInverted}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{isInverted()}{isInverted()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_a9460094e29fa494aafb4e0a3aceb162f} 
+bool team967\+::\+Motor\+Controller\+::is\+Inverted (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function to check the current inversion status.
+
+\begin{DoxyReturn}{Returns}
+true if inverted, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1MotorController_a59f71db70c5e6ffb67899b46d2268cc0}\index{team967::MotorController@{team967::MotorController}!setCoastBrakeMode@{setCoastBrakeMode}}
+\index{setCoastBrakeMode@{setCoastBrakeMode}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{setCoastBrakeMode()}{setCoastBrakeMode()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_a59f71db70c5e6ffb67899b46d2268cc0} 
+void team967\+::\+Motor\+Controller\+::set\+Coast\+Brake\+Mode (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{mode}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function to put the \doxylink{classteam967_1_1MotorController}{Motor\+Controller} into coast or brake mode. This may not be supported by every controller
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & mode to put controller in (MOTOR\+\_\+\+COAST or MOTOR\+\_\+\+BRAKE) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1MotorController_aa8235d3a10d65ed95ede33d318b96dda}\index{team967::MotorController@{team967::MotorController}!setInverted@{setInverted}}
+\index{setInverted@{setInverted}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{setInverted()}{setInverted()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_aa8235d3a10d65ed95ede33d318b96dda} 
+void team967\+::\+Motor\+Controller\+::set\+Inverted (\begin{DoxyParamCaption}\item[{bool}]{inverted}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function to invert the \doxylink{classteam967_1_1MotorController}{Motor\+Controller}. Depending on the underlying implementation, this may invert in hardware (modifying the controller settings, or in software).
+
+
+\begin{DoxyParams}{Parameters}
+{\em inverted} & Whether the motor should be inverted (true) or uninverted (false) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1MotorController_ae75235d22a2ca9c869e74757f425791c}\index{team967::MotorController@{team967::MotorController}!setPower@{setPower}}
+\index{setPower@{setPower}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{setPower()}{setPower()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_ae75235d22a2ca9c869e74757f425791c} 
+virtual void team967\+::\+Motor\+Controller\+::set\+Power (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{power}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Function to set motor power.
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint32\+\_\+t} & power \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1DRV8873MotorController_a47c3814fba037ed961951da8f928282a}{team967\+::\+DRV8873\+Motor\+Controller}}, and \mbox{\hyperlink{classteam967_1_1FRCPWMMotorController_a6a14e4970205a0e69fbfba33eadfc1fb}{team967\+::\+FRCPWMMotor\+Controller}}.
+
+\Hypertarget{classteam967_1_1MotorController_afdd697a94cd366a60abb80a73404dfb0}\index{team967::MotorController@{team967::MotorController}!supportsFeatures@{supportsFeatures}}
+\index{supportsFeatures@{supportsFeatures}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{supportsFeatures()}{supportsFeatures()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_afdd697a94cd366a60abb80a73404dfb0} 
+bool team967\+::\+Motor\+Controller\+::supports\+Features (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{feature\+Mask}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Function to check if the motor controller supports one or more features.
+
+
+\begin{DoxyParams}{Parameters}
+{\em feature\+Mask} & Bitmask of features to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all queried features are supported, false otherwise 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classteam967_1_1MotorController_a84bc7394025256cad441d80727ee181c}\index{team967::MotorController@{team967::MotorController}!MOTOR\_REVERSE@{MOTOR\_REVERSE}}
+\index{MOTOR\_REVERSE@{MOTOR\_REVERSE}!team967::MotorController@{team967::MotorController}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_REVERSE}{MOTOR\_REVERSE}}
+{\footnotesize\ttfamily \label{classteam967_1_1MotorController_a84bc7394025256cad441d80727ee181c} 
+const uint32\+\_\+t team967\+::\+Motor\+Controller\+::\+MOTOR\+\_\+\+REVERSE = 0x1}
+
+Bit masks for the various potential features a \doxylink{classteam967_1_1MotorController}{Motor\+Controller} might support. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Motor\+Controller.\+h\item 
+src/Motor\+Controller.\+cpp\end{DoxyCompactItemize}

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['encconfig_4',['encConfig',['../classteam967_1_1_external_encoder.html#a69e9eb7e94e833bc690347764b2d296e',1,'team967::ExternalEncoder']]],
-  ['encoder_5',['Encoder',['../classteam967_1_1_encoder.html',1,'team967']]],
-  ['encodertype_6',['EncoderType',['../classteam967_1_1_external_encoder.html#a5e8f2b8f44121b7aae4548823e05c4a9',1,'team967::ExternalEncoder']]],
-  ['externalencoder_7',['ExternalEncoder',['../classteam967_1_1_external_encoder.html#a705ba1e2a12819b7b8161b47e320e41f',1,'team967::ExternalEncoder::ExternalEncoder()'],['../classteam967_1_1_external_encoder.html',1,'team967::ExternalEncoder']]]
+  ['encoder_0',['Encoder',['../classteam967_1_1Encoder.html',1,'team967']]],
+  ['esp32s3legacymcpwmchannel_1',['ESP32S3LegacyMCPWMChannel',['../classteam967_1_1ESP32S3LegacyMCPWMChannel.html',1,'team967::ESP32S3LegacyMCPWMChannel'],['../classteam967_1_1ESP32S3LegacyMCPWMChannel.html#a442090ff98e82a61d81bcf7239a43ce5',1,'team967::ESP32S3LegacyMCPWMChannel::ESP32S3LegacyMCPWMChannel()']]],
+  ['esp32s3pwmoutput_2',['ESP32S3PWMOutput',['../classteam967_1_1ESP32S3PWMOutput.html',1,'team967::ESP32S3PWMOutput'],['../classteam967_1_1ESP32S3PWMOutput.html#ac2cd4b105404afb9b12a08cb55877c31',1,'team967::ESP32S3PWMOutput::ESP32S3PWMOutput()']]],
+  ['esp32s3spimaster_3',['ESP32S3SPIMaster',['../classteam967_1_1ESP32S3SPIMaster.html',1,'team967::ESP32S3SPIMaster'],['../classteam967_1_1ESP32S3SPIMaster.html#a687b1312e14e2e53e93fff945796077b',1,'team967::ESP32S3SPIMaster::ESP32S3SPIMaster()']]]
 ];

@@ -1,0 +1,228 @@
+\doxysection{External\+Encoder.\+h}
+\hypertarget{ExternalEncoder_8h_source}{}\label{ExternalEncoder_8h_source}\index{include/ExternalEncoder.h@{include/ExternalEncoder.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ /**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Created:\ 6-\/19-\/2021}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Last\ Updated:\ 6-\/20-\/2021}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ This\ header\ provides\ a\ class\ that\ uses\ the\ ESP32's\ pulse\ counting\ peripherals\ to\ interact\ with\ a\ quadrature\ encoder.\ \ It\ was\ based\ off}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ of\ madhephaestus's\ ESP32\ encoder\ library,\ which\ can\ be\ found\ here:\ https://github.com/madhephaestus/ESP32Encoder/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ Unlike\ madhephaestus's\ library,\ this\ one\ also\ provides\ support\ for\ velocity\ measurements,\ which\ could\ prove\ useful,\ and\ provides\ the\ }}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ ability\ to\ set\ the\ number\ of\ clicks\ per\ rotation\ to\ get\ the\ number\ of\ rotations\ that\ have\ passed.}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ **************************************************************************************************************************************/}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ \#ifndef\ EXTERNALENCODER\_H}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \#define\ EXTERNALENCODER\_H}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ \#include\ <Arduino.h>}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ \#include\ <driver/gpio.h>}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ \#include\ <driver/pcnt.h>}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ \#include\ <soc/pcnt\_struct.h>}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ \#include\ "{}Encoder.h"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ namespace\ team967\ \{}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ \ \ \ \ /**}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ \ \ \ \ \ *\ Class\ that\ provides\ a\ way\ to\ talk\ to\ externally\ connected\ encoders\ (ones\ that\ are\ not\ integrated\ into\ a\ motor\ controller\ or\ other\ peripheral).}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ \ \ \ \ */}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ \ \ \ \ class\ ExternalEncoder\ :\ public\ Encoder\ \{}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ public:}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Enum\ describing\ the\ different\ ways\ to\ measure\ the\ encoder\ pulses.\ \ Single\ only\ uses\ one\ of\ the\ two\ channels,\ half\ uses\ both\ channels\ but\ measures\ only\ one\ edge\ of\ the}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ waveform,\ and\ full\ uses\ both\ channels\ and\ measures\ both\ the\ leading\ and\ trailing\ edges\ of\ the\ waveform.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ enum\ EncoderType\ \{}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Single,}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Half,}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Full}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \};}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ private:}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ port\ for\ A\ input\ channel}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ gpio\_num\_t\ channelA;}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ port\ for\ B\ input\ channel}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ gpio\_num\_t\ channelB;}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ number\ of\ clicks\ per\ rotation}}
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ clicksPerRotation;}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ type\ of\ encoder\ to\ use}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ EncoderType\ encoderType;}}
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ whether\ or\ not\ this\ object\ is\ attached\ to\ an\ pulse\ counter}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ bool\ attached;}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ whether\ or\ not\ this\ object\ should\ use\ pullup\ resistors}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ bool\ pullUps;}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ id\ of\ the\ pulse\ counter\ this\ object\ is\ attached\ to}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ pcnt\_unit\_t\ counterId;}}
+\DoxyCodeLine{00060\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ current\ count}}
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ int64\_t\ count;}}
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ private\ member\ function\ to\ attach\ to\ a\ port}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ bool\ attach();}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ static\ definitions\ for\ things\ that\ cannot\ be\ class\ members}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ static\ const\ uint8\_t\ MAX\_ENCODERS;}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ interrupt\ handle\ for\ pulse\ counter}}
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ static\ pcnt\_isr\_handle\_t\ isrHandle;}}
+\DoxyCodeLine{00069\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ static\ array\ of\ pulse\ counters}}
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ static\ ExternalEncoder\ *encoders[];}}
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ whether\ or\ not\ the\ interrupt\ has\ been\ attached}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ static\ bool\ attachedInterrupt;}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ //\ interrupt\ handler}}
+\DoxyCodeLine{00074\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ static\ void\ IRAM\_ATTR\ isrHandler(void\ *arg);}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ public:}}
+\DoxyCodeLine{00078\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00079\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Encoder\ configuration\ field.\ \ DO\ NOT\ USE.\ \ It\ is\ public\ so\ that\ it\ can\ be\ accessed\ from\ the\ interrupt\ handler,\ which}}
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ must\ be\ static.}}
+\DoxyCodeLine{00081\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00082\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ pcnt\_config\_t\ encConfig;}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00085\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Time\ of\ last\ update.\ \ DO\ NOT\ USE.\ \ It\ is\ public\ so\ that\ it\ can\ be\ accessed\ from\ the\ interrupt\ handler.}}
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00087\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ lastUpdate;}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Value\ at\ time\ of\ last\ update.\ \ DO\ NOT\ USE.\ \ It\ is\ public\ so\ that\ it\ can\ be\ accessed\ from\ the\ interrupt\ handler.}}
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ int64\_t\ lastValue;}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Constructor\ to\ create\ a\ new\ ExternalEncoder\ object\ with\ the\ specified\ options.}}
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ pinA\ The\ pin\ number\ for\ channel\ A\ of\ the\ encoder}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ pinB\ The\ pin\ number\ for\ channel\ B\ of\ the\ encoder,\ this\ will\ not\ be\ used\ in\ EncoderType::Single\ mode}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ type\ The\ type\ of\ measurement\ to\ use,\ @see\ EncoderType}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ cpr\ The\ number\ of\ clicks\ the\ encoder\ will\ send\ per\ each\ rotation,\ default\ is\ 128}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ A\ new\ ExternalEncoder\ object}}
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00103\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ ExternalEncoder(uint8\_t\ pinA,\ uint8\_t\ pinB,\ EncoderType\ type,\ uint16\_t\ cpr\ =\ 128,\ bool\ usePullUps\ =\ true);}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00106\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Destructor,\ stops\ the\ encoder\ counter,\ but\ does\ not\ change\ the\ pin\ assignments.\ \ This\ can\ be\ done\ manually\ by\ the\ user\ if\ so\ desired.}}
+\DoxyCodeLine{00107\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00108\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ none}}
+\DoxyCodeLine{00109\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00111\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \string~ExternalEncoder(void);}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Attaches\ the\ pins\ to\ the\ pulse\ counter\ and\ begins\ counting\ pulses.}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00116\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ none}}
+\DoxyCodeLine{00117\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00118\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00119\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ begin(void);}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00122\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Sets\ the\ encoder\ count\ (clicks)\ to\ a\ specified\ value.}}
+\DoxyCodeLine{00123\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00124\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ count\ A\ 64\ bit\ signed\ integer\ specifying\ the\ number\ of\ clicks}}
+\DoxyCodeLine{00125\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00126\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00127\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ setCount(int64\_t\ count);}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00130\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Returns\ the\ number\ of\ clicks\ counted\ by\ the\ pulse\ counter.}}
+\DoxyCodeLine{00131\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00132\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ none}}
+\DoxyCodeLine{00133\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ The\ number\ of\ clicks\ as\ a\ 16\ bit\ signed\ integer}}
+\DoxyCodeLine{00134\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00135\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ int64\_t\ getCount(void);}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00138\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Zeros\ the\ click\ count\ in\ the\ pulse\ counter.}}
+\DoxyCodeLine{00139\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00140\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ none}}
+\DoxyCodeLine{00141\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00142\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00143\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ clearCount(void);}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00146\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Stops\ the\ pulse\ counter\ from\ counting\ future\ ticks.\ \ The\ pulse\ counter\ can\ be\ reenabled\ with\ resumeCount().}}
+\DoxyCodeLine{00147\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00148\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ none}}
+\DoxyCodeLine{00149\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00150\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00151\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ pauseCount(void);}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00154\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Resumes\ the\ counting\ of\ ticks.\ \ This\ should\ only\ be\ used\ after\ a\ call\ to\ pauseCount().}}
+\DoxyCodeLine{00155\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00156\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ none}}
+\DoxyCodeLine{00157\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00158\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00159\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ resumeCount(void);}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00162\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Sets\ a\ filtering\ parameter\ for\ ignoring\ variances\ in\ signals.\ \ Read\ more\ about\ this\ at:}}
+\DoxyCodeLine{00163\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ https://docs.espressif.com/projects/esp-\/idf/en/latest/esp32/api-\/reference/peripherals/pcnt.html}}
+\DoxyCodeLine{00164\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00165\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ value\ The\ filter\ value\ to\ be\ used}}
+\DoxyCodeLine{00166\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00167\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00168\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ setFilter(uint16\_t\ value);}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00171\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Sets\ the\ clicks\ per\ rotation\ (CPR)\ value\ to\ be\ used\ by\ this\ encoder.}}
+\DoxyCodeLine{00172\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00173\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ cpr\ The\ number\ of\ clicks\ per\ rotation}}
+\DoxyCodeLine{00174\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ nothing}}
+\DoxyCodeLine{00175\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00176\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ void\ setCPR(uint16\_t\ cpr);}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00179\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Returns\ the\ number\ of\ clicks\ per\ rotation\ for\ this\ object.}}
+\DoxyCodeLine{00180\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00181\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ none}}
+\DoxyCodeLine{00182\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ The\ number\ of\ clicks\ per\ rotation\ as\ a\ 16\ bit\ unsigned\ integer}}
+\DoxyCodeLine{00183\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00184\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ getCPR(void);}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00187\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Returns\ the\ current\ velocity,\ in\ revolutions\ per\ second,\ of\ the\ encoder.}}
+\DoxyCodeLine{00188\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00189\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ none}}
+\DoxyCodeLine{00190\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ The\ speed\ in\ rotations\ per\ second}}
+\DoxyCodeLine{00191\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00192\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ double\ getVelocity(void);}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00195\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Returns\ the\ number\ of\ rotations\ rounded\ down\ to\ the\ closest\ integer\ value.\ \ This\ can\ be\ useful\ if\ you\ do\ not\ want\ floating\ point\ value\ for\ whatever\ reason.}}
+\DoxyCodeLine{00196\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00197\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ none}}
+\DoxyCodeLine{00198\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ The\ number\ of\ rotations\ as\ a\ 64\ bit\ signed\ integer}}
+\DoxyCodeLine{00199\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00200\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ int16\_t\ getRotationsInt(void);}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00203\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Returns\ the\ number\ of\ clicks\ above\ the\ last\ rotation.\ \ In\ other\ words,\ if\ CPR\ =\ 128,\ and\ the\ encoder\ has\ counted\ 191\ clicks,\ 63\ will\ be\ returned.}}
+\DoxyCodeLine{00204\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00205\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ none}}
+\DoxyCodeLine{00206\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ The\ number\ of\ clicks\ above\ the\ last\ rotation\ as\ a\ 16\ bit\ signed\ integer}}
+\DoxyCodeLine{00207\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00208\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ int16\_t\ getRotationsRem(void);}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ /**}}
+\DoxyCodeLine{00211\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Returns\ the\ number\ of\ rotations\ as\ a\ floating\ point.}}
+\DoxyCodeLine{00212\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00213\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @param\ none}}
+\DoxyCodeLine{00214\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ @return\ The\ number\ of\ rotations\ as\ a\ floating\ point\ value}}
+\DoxyCodeLine{00215\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00216\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ double\ getRotationsDouble(void);}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{comment}{//\ \ \ \ \ \};}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{comment}{//\ \#endif}}
+
+\end{DoxyCode}

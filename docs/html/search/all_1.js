@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['batterymonitor_1',['BatteryMonitor',['../classteam967_1_1_battery_monitor.html',1,'team967']]],
-  ['begin_2',['begin',['../classteam967_1_1_external_encoder.html#aad161fddcf59f597f57faab5d5ac56de',1,'team967::ExternalEncoder::begin()'],['../classteam967_1_1_game_controller.html#a5fe38b7e04d18896fc2eea4d45b01da7',1,'team967::GameController::begin()'],['../classteam967_1_1_motor_controller.html#a8120bdc71041a6b2611eb13f7e208dd1',1,'team967::MotorController::begin()'],['../classteam967_1_1_p_w_m_servo.html#a5dc8d6bd9257d2f910d63efda3256538',1,'team967::PWMServo::begin()']]]
+  ['checkdiag_0',['checkDiag',['../classteam967_1_1DRV8873MotorController.html#a705638a055f42bb4260df8ed5526f837',1,'team967::DRV8873MotorController']]],
+  ['checkfault_1',['checkFault',['../classteam967_1_1DRV8873MotorController.html#a14aa9b18a6e2038ecf0a36ed5f24e0de',1,'team967::DRV8873MotorController']]],
+  ['coast_2',['coast',['../classteam967_1_1ESP32S3LegacyMCPWMChannel.html#a98587a41ace79e876395c41635778613',1,'team967::ESP32S3LegacyMCPWMChannel::coast()'],['../classteam967_1_1MCPWMChannel.html#a4d92a1c1ba07cb23de821b7778b599ae',1,'team967::MCPWMChannel::coast()']]]
 ];

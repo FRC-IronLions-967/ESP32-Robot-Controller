@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['lastupdate_25',['lastUpdate',['../classteam967_1_1_external_encoder.html#aa8f57d903911d4f7240b3cfeceaca723',1,'team967::ExternalEncoder']]],
-  ['lastvalue_26',['lastValue',['../classteam967_1_1_external_encoder.html#a7dedf60012b124bdd62a241f2a834934',1,'team967::ExternalEncoder']]]
+  ['isinverted_0',['isInverted',['../classteam967_1_1MotorController.html#a9460094e29fa494aafb4e0a3aceb162f',1,'team967::MotorController::isInverted()'],['../classteam967_1_1PWMServo.html#abb822216fdf47a8c32b7af2d5bc00fa8',1,'team967::PWMServo::isInverted()']]]
 ];

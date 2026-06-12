@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['clearcount_54',['clearCount',['../classteam967_1_1_external_encoder.html#a512457d448fe417bd072e582d586ea09',1,'team967::ExternalEncoder']]]
+  ['drv8873motorcontroller_0',['DRV8873MotorController',['../classteam967_1_1DRV8873MotorController.html#ac6fd5a12c9d4cbd175b8d280a56ac2bb',1,'team967::DRV8873MotorController']]]
 ];

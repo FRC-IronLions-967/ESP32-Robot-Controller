@@ -1,0 +1,73 @@
+\doxysection{Motor\+Controller.\+h}
+\hypertarget{MotorController_8h_source}{}\label{MotorController_8h_source}\index{include/MotorController.h@{include/MotorController.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Created:\ 4-\/11-\/2026}}
+\DoxyCodeLine{00006\ \textcolor{comment}{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Last\ Updated:\ 4-\/11-\/2026}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{This\ header\ provides\ a\ base\ class\ for\ motor\ controllers\ to\ be\ derived\ from.\ \ This\ can\ include\ both\ the\ old\ FRC\ style\ controllers}}
+\DoxyCodeLine{00010\ \textcolor{comment}{(Talons,\ Victors,\ Sparks)\ or\ the\ TI\ 8873\ controllers\ used\ on\ the\ latest\ board\ revision.\ \ This\ allows\ a\ unified\ interface\ to\ both\ types.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**************************************************************************************************************************************/}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ TEAM967\_MOTORCONTROLLER\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ TEAM967\_MOTORCONTROLLER\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }team967\ \{}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteam967_1_1MotorController}{MotorController}}\ \{}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ features;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ maximumPower;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ minimumPower;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ inverted;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ coastBrakeMode;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1MotorController_a27110bbd18983589f9ffa33ee15c8c49}{MotorController}}(uint32\_t\ features,\ int32\_t\ maximumPower,\ int32\_t\ minimumPower,\ \textcolor{keywordtype}{bool}\ inverted,\ uint32\_t\ coastBrakeMode);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1MotorController_a261448b0c2be60e23a1903c28e981381}{\string~MotorController}}();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1MotorController_ae6ee2bec0bba8e0303fa23de859bcd86}{begin}}(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classteam967_1_1MotorController_a84bc7394025256cad441d80727ee181c}{MOTOR\_REVERSE}}\ =\ 0x1;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ MOTOR\_COAST\ \ \ =\ 0x2;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ MOTOR\_BRAKE\ \ \ =\ 0x4;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ MOTOR\_INVERT\ \ =\ 0x8;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classteam967_1_1MotorController_afdd697a94cd366a60abb80a73404dfb0}{supportsFeatures}}(uint32\_t\ featureMask);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ int32\_t\ \mbox{\hyperlink{classteam967_1_1MotorController_a067b7a222d5fee636874ea002f999809}{getMaximumMotorPower}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ int32\_t\ \mbox{\hyperlink{classteam967_1_1MotorController_a64e35faf41b2e1ebfa0b738a9b5ec437}{getMinimumMotorPower}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1MotorController_aa8235d3a10d65ed95ede33d318b96dda}{setInverted}}(\textcolor{keywordtype}{bool}\ inverted);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classteam967_1_1MotorController_a9460094e29fa494aafb4e0a3aceb162f}{isInverted}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1MotorController_a59f71db70c5e6ffb67899b46d2268cc0}{setCoastBrakeMode}}(uint32\_t\ mode);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\_t\ \mbox{\hyperlink{classteam967_1_1MotorController_abd3b3d57869db064e58b9373aadcaa85}{getCoastBrakeMode}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1MotorController_ae75235d22a2ca9c869e74757f425791c}{setPower}}(int32\_t\ power)\ =\ 0;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \};}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

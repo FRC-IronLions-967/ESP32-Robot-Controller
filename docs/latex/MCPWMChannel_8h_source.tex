@@ -1,0 +1,56 @@
+\doxysection{MCPWMChannel.\+h}
+\hypertarget{MCPWMChannel_8h_source}{}\label{MCPWMChannel_8h_source}\index{include/MCPWMChannel.h@{include/MCPWMChannel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Created:\ 4-\/25-\/2026}}
+\DoxyCodeLine{00006\ \textcolor{comment}{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Last\ Updated:\ 4-\/25-\/2026}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{This\ header\ provides\ a\ class\ for\ interfacing\ with\ the\ MCPWM\ module\ in\ the\ ESP32S3.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**************************************************************************************************************************************/}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ TEAM967\_MCPWMCHANNEL\_T}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ TEAM967\_MCPWMCHANNEL\_T}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }team967\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteam967_1_1MCPWMChannel}{MCPWMChannel}}\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MCPWM\_REFERENCE\_FREQ\ =\ 80\ *\ 1000\ *\ 1000;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mcpwmId;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ channel;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pin0;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pin1;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ frequency;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ resolution;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1MCPWMChannel_abf24e7d60f5ce53edd48383311759fa3}{MCPWMChannel}}(\textcolor{keywordtype}{int}\ mcpwmId,\ \textcolor{keywordtype}{int}\ channel,\ \textcolor{keywordtype}{int}\ pin0,\ \textcolor{keywordtype}{int}\ pin1,\ \textcolor{keywordtype}{int}\ frequency,\ \textcolor{keywordtype}{int}\ resolution);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a4ec30bd69b774b1f07fc6a6ac8725fff}{\string~MCPWMChannel}}()\ =\ 0;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a9ef4f8ee93048cbf305b6566e3eb620c}{begin}}(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a1e19f829f6c9e987a5ec122c63ffac2b}{forward}}(uint32\_t\ duty)\ =\ 0;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a6447950610e8539e96e70d4b4913fe05}{reverse}}(uint32\_t\ duty)\ =\ 0;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a6cb2d3d228e989aa29b848bda8ec32ae}{brake}}(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a4d92a1c1ba07cb23de821b7778b599ae}{coast}}(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

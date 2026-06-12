@@ -1,0 +1,72 @@
+\doxysection{PWMServo.\+h}
+\hypertarget{PWMServo_8h_source}{}\label{PWMServo_8h_source}\index{include/PWMServo.h@{include/PWMServo.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Created:\ 6-\/12-\/2021}}
+\DoxyCodeLine{00006\ \textcolor{comment}{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Last\ Updated:\ 6-\/21-\/2021}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{This\ header\ provides\ a\ class\ that\ provides\ similar\ functionality\ to\ the\ MotorController\ class,\ but\ commands\ servos\ to\ absolute}}
+\DoxyCodeLine{00010\ \textcolor{comment}{positions\ instead.\ \ Currently\ the\ class\ is\ rather\ limited,\ and\ only\ supports\ a\ range\ of\ motion\ of\ +-\/90°\ from\ the\ neutral\ position.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{This\ will\ likely\ be\ changed\ to\ allow\ for\ more\ flexibility.\ \ If\ you\ wish\ to\ run\ a\ servo\ in\ continuous\ mode,\ the\ PWM\ control\ is\ nearly}}
+\DoxyCodeLine{00012\ \textcolor{comment}{identical\ to\ the\ PWM\ control\ for\ a\ motor\ controller,\ so\ you\ can\ just\ use\ the\ MotorController\ class\ to\ do\ so.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**************************************************************************************************************************************/}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ PWMSERVO\_H}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ PWMSERVO\_H}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}ExternalEncoder.h"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ default\ frequency\ for\ the\ PWM\ signal\ in\ Hz}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ DEFAULT\_PWM\_FREQ\ 167}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ resolution\ of\ the\ PWM\ duty\ cycles\ in\ bits}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ DEFAULT\_PWM\_RES\ 16}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }team967\ \{}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteam967_1_1PWMServo}{PWMServo}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ p;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ freq;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ res;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ chan;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dutyCycleMin;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dutyCycleMax;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ inv;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ team967::Encoder*\ attachedEncoder;}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1PWMServo_a6ca0ccc73d9d060395b2999a204afcfe}{PWMServo}}(\textcolor{keywordtype}{int}\ pin,\ \textcolor{keywordtype}{int}\ channel,\ \textcolor{keywordtype}{int}\ frequency\ =\ DEFAULT\_PWM\_FREQ,\ \textcolor{keywordtype}{int}\ resolution\ =\ DEFAULT\_PWM\_RES);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1PWMServo_a4072598ca7ca99afec81358be2fc3cc6}{\string~PWMServo}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1PWMServo_a71834f24c7fa30098d1e70db5f399b3b}{setInverted}}(\textcolor{keywordtype}{bool}\ inverted);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classteam967_1_1PWMServo_abb822216fdf47a8c32b7af2d5bc00fa8}{isInverted}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1PWMServo_a5dc8d6bd9257d2f910d63efda3256538}{begin}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1PWMServo_a0477d7682c72b53e3f121faaaf7b74c6}{setAngleDegrees}}(int8\_t\ angle);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ void\ attachEncoder(team967::Encoder\ *encoder);}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ team967::Encoder*\ getEncoder(void);}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

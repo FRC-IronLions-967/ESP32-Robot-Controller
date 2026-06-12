@@ -1,0 +1,56 @@
+\doxysection{ESP32\+S3\+SPIMaster.\+h}
+\hypertarget{ESP32S3SPIMaster_8h_source}{}\label{ESP32S3SPIMaster_8h_source}\index{include/ESP32S3SPIMaster.h@{include/ESP32S3SPIMaster.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Created:\ 4-\/27-\/2026}}
+\DoxyCodeLine{00006\ \textcolor{comment}{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Last\ Updated:\ 4-\/27-\/2026}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{This\ header\ provides\ a\ class\ that\ describes\ a\ SPI\ interface\ for\ the\ ESP32S3.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**************************************************************************************************************************************/}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ TEAM967\_ESP32S3SPIMASTER\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ TEAM967\_ESP32S3SPIMASTER\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <SPIMaster.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}driver/spi\_master.h"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{namespace\ }team967\ \{}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster}{ESP32S3SPIMaster}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteam967_1_1SPIMaster}{SPIMaster}}\ \{}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ spi\_device\_handle\_t\ spiHandle;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ spi\_bus\_config\_t\ spiBusConfig;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ spi\_device\_interface\_config\_t\ spiDeviceConfig;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ spi\_host\_device\_t\ spiHost;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ csPin;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a687b1312e14e2e53e93fff945796077b}{ESP32S3SPIMaster}}(\textcolor{keywordtype}{int}\ sck,\ \textcolor{keywordtype}{int}\ mosi,\ \textcolor{keywordtype}{int}\ miso,\ \textcolor{keywordtype}{int}\ cs,\ \textcolor{keywordtype}{int}\ frequency,\ spi\_host\_device\_t\ spiHost\ =\ SPI2\_HOST);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a1f244a1c92bac69148c4c3771a2a9550}{\string~ESP32S3SPIMaster}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a51206fe20e8bcfe0140f3d6bb280587d}{begin}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_acf71ec262130424223b065a5f5ce2d0a}{write}}(uint8\_t*\ data,\ uint32\_t\ n);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a9e73c8eca15e764c07e88873b34cc2f5}{read}}(uint8\_t*\ data,\ uint32\_t\ n);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classteam967_1_1ESP32S3SPIMaster_a0b270063e998db4ee7611d24fb89f9de}{writeAndRead}}(uint8\_t*\ txData,\ uint8\_t*\ rxData,\ uint32\_t\ n);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

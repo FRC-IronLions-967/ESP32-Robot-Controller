@@ -1,0 +1,51 @@
+\doxysection{ESP32\+S3\+PWMOutput.\+h}
+\hypertarget{ESP32S3PWMOutput_8h_source}{}\label{ESP32S3PWMOutput_8h_source}\index{include/ESP32S3PWMOutput.h@{include/ESP32S3PWMOutput.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Created:\ 4-\/17-\/2026}}
+\DoxyCodeLine{00006\ \textcolor{comment}{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Last\ Updated:\ 4-\/17-\/2026}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{This\ header\ provides\ a\ class\ for\ generating\ a\ PWM\ output\ on\ the\ ESP32\ S3\ board.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**************************************************************************************************************************************/}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ TEAM967\_ESP32S3PWMOUTPUT\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ TEAM967\_ESP32S3PWMOUTPUT\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <Arduino.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <PWMOutput.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }team967\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput}{ESP32S3PWMOutput}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classteam967_1_1PWMOutput}{PWMOutput}}\ \{}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_timer\_config\_t*\ timerConfig;}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ ledc\_channel\_config\_t*\ channelConfig;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_ac2cd4b105404afb9b12a08cb55877c31}{ESP32S3PWMOutput}}(ledc\_timer\_config\_t*\ timerConfig,\ ledc\_channel\_config\_t*\ channelConfig);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_a50aa7de352b6de96892a2f45d9ad915c}{\string~ESP32S3PWMOutput}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_ac7f39fc682f053bdf8c7f9944300e109}{getFreqHz}}()\ =\ 0;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_a05eaed128ab8fbb21776301fdee16590}{getMaxDuty}}()\ =\ 0;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_a1cdb278782f920477af6ad9909ef87bc}{setDuty}}(uint32\_t\ duty)\ =\ 0;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
