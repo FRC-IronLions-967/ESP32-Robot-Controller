@@ -37,6 +37,8 @@ void setup() {
   motorController0.begin();
   motorController1.begin();
 
+  motorController0.setInverted(true);
+
   // this starts the Bluetooth to listen for game controller connections
   GameController::begin();
 
