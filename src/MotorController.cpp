@@ -21,7 +21,7 @@ int32_t team967::MotorController::MotorController::getMinimumMotorPower(void) {
 }
 
 void team967::MotorController::setInverted(bool inverted) {
-    inverted = inverted;
+    this->inverted = inverted;
 }
 
 bool team967::MotorController::isInverted(void) {
