@@ -1,0 +1,117 @@
+\doxysection{team967\+::Game\+Controller Class Reference}
+\hypertarget{classteam967_1_1GameController}{}\label{classteam967_1_1GameController}\index{team967::GameController@{team967::GameController}}
+
+
+{\ttfamily \#include $<$Game\+Controller.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1GameController_a7bf2249e60565941ff757031f63bd6a6}{\texorpdfstring{$\sim$}{\string~}\+Game\+Controller}} (void)
+\item 
+Gamepad\+Ptr \& \mbox{\hyperlink{classteam967_1_1GameController_acd57fab07acbf6d0eeaad268e84acbed}{get}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classteam967_1_1GameController}{Game\+Controller}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classteam967_1_1GameController_aa9f79177178b8b242f25632061dda9cc}{wait\+For\+Connection}} (void)
+\item 
+static void \mbox{\hyperlink{classteam967_1_1GameController_a5fe38b7e04d18896fc2eea4d45b01da7}{begin}} (void)
+\item 
+static void \mbox{\hyperlink{classteam967_1_1GameController_a2e3ca66354b709025412019ebb1fed87}{update}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that provides access to a Bluepad32 controllers with a little bit of wrapping. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteam967_1_1GameController_a7bf2249e60565941ff757031f63bd6a6}\index{team967::GameController@{team967::GameController}!````~GameController@{\texorpdfstring{$\sim$}{\string~}GameController}}
+\index{````~GameController@{\texorpdfstring{$\sim$}{\string~}GameController}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GameController()}{\string~GameController()}}
+{\footnotesize\ttfamily \label{classteam967_1_1GameController_a7bf2249e60565941ff757031f63bd6a6} 
+team967\+::\+Game\+Controller\+::\texorpdfstring{$\sim$}{\string~}\+Game\+Controller (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Destructor for the \doxylink{classteam967_1_1GameController}{Game\+Controller} object. Disconnects from the control so Bluetooth can be used by something else.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteam967_1_1GameController_a5fe38b7e04d18896fc2eea4d45b01da7}\index{team967::GameController@{team967::GameController}!begin@{begin}}
+\index{begin@{begin}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{classteam967_1_1GameController_a5fe38b7e04d18896fc2eea4d45b01da7} 
+void team967\+::\+Game\+Controller\+::begin (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Function to begin listening for incoming controller connections to be able to create new instances of this class. Should be called before anything else in this class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1GameController_acd57fab07acbf6d0eeaad268e84acbed}\index{team967::GameController@{team967::GameController}!get@{get}}
+\index{get@{get}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classteam967_1_1GameController_acd57fab07acbf6d0eeaad268e84acbed} 
+Gamepad\+Ptr \& team967\+::\+Game\+Controller\+::get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Returns a reference to the Gamepad\+Ptr object that is connected.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1GameController_a2e3ca66354b709025412019ebb1fed87}\index{team967::GameController@{team967::GameController}!update@{update}}
+\index{update@{update}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{classteam967_1_1GameController_a2e3ca66354b709025412019ebb1fed87} 
+void team967\+::\+Game\+Controller\+::update (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Updates the gamepad with the latest values, should be called inside a loop.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1GameController_aa9f79177178b8b242f25632061dda9cc}\index{team967::GameController@{team967::GameController}!waitForConnection@{waitForConnection}}
+\index{waitForConnection@{waitForConnection}!team967::GameController@{team967::GameController}}
+\doxysubsubsection{\texorpdfstring{waitForConnection()}{waitForConnection()}}
+{\footnotesize\ttfamily \label{classteam967_1_1GameController_aa9f79177178b8b242f25632061dda9cc} 
+\mbox{\hyperlink{classteam967_1_1GameController}{team967\+::\+Game\+Controller}} \texorpdfstring{$\ast$}{*} team967\+::\+Game\+Controller\+::wait\+For\+Connection (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Wait until a controller connects, then return a new instance of this class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to a \doxylink{classteam967_1_1GameController}{Game\+Controller} object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Game\+Controller.\+h\item 
+src/Game\+Controller.\+cpp\end{DoxyCompactItemize}

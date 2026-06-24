@@ -1,0 +1,180 @@
+\doxysection{team967\+::MCPWMChannel Class Reference}
+\hypertarget{classteam967_1_1MCPWMChannel}{}\label{classteam967_1_1MCPWMChannel}\index{team967::MCPWMChannel@{team967::MCPWMChannel}}
+Inheritance diagram for team967\+::MCPWMChannel\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteam967_1_1MCPWMChannel}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1MCPWMChannel_abf24e7d60f5ce53edd48383311759fa3}{MCPWMChannel}} (int mcpwm\+Id, int channel, int pin0, int pin1, int frequency, int resolution)
+\item 
+virtual \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a4ec30bd69b774b1f07fc6a6ac8725fff}{\texorpdfstring{$\sim$}{\string~}\+MCPWMChannel}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a9ef4f8ee93048cbf305b6566e3eb620c}{begin}} (void)=0
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a1e19f829f6c9e987a5ec122c63ffac2b}{forward}} (uint32\+\_\+t duty)=0
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a6447950610e8539e96e70d4b4913fe05}{reverse}} (uint32\+\_\+t duty)=0
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a6cb2d3d228e989aa29b848bda8ec32ae}{brake}} (void)=0
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1MCPWMChannel_a4d92a1c1ba07cb23de821b7778b599ae}{coast}} (void)=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classteam967_1_1MCPWMChannel_a768be0af39823a56362d55602c35d9b8}\label{classteam967_1_1MCPWMChannel_a768be0af39823a56362d55602c35d9b8} 
+const int {\bfseries MCPWM\+\_\+\+REFERENCE\+\_\+\+FREQ} = 80 \texorpdfstring{$\ast$}{*} 1000 \texorpdfstring{$\ast$}{*} 1000
+\item 
+\Hypertarget{classteam967_1_1MCPWMChannel_ace5bd333e7057bac8ed2ba446f86a3e8}\label{classteam967_1_1MCPWMChannel_ace5bd333e7057bac8ed2ba446f86a3e8} 
+int {\bfseries mcpwm\+Id}
+\item 
+\Hypertarget{classteam967_1_1MCPWMChannel_a5b38c2f49e2284600cae7d48f1341b77}\label{classteam967_1_1MCPWMChannel_a5b38c2f49e2284600cae7d48f1341b77} 
+int {\bfseries channel}
+\item 
+\Hypertarget{classteam967_1_1MCPWMChannel_a4a12cabc44e189b123b522bea5a26863}\label{classteam967_1_1MCPWMChannel_a4a12cabc44e189b123b522bea5a26863} 
+int {\bfseries pin0}
+\item 
+\Hypertarget{classteam967_1_1MCPWMChannel_ab066463b8d9f39289b56c52442eec27e}\label{classteam967_1_1MCPWMChannel_ab066463b8d9f39289b56c52442eec27e} 
+int {\bfseries pin1}
+\item 
+\Hypertarget{classteam967_1_1MCPWMChannel_a3379b169345a4f8b33975acc7d01db79}\label{classteam967_1_1MCPWMChannel_a3379b169345a4f8b33975acc7d01db79} 
+int {\bfseries frequency}
+\item 
+\Hypertarget{classteam967_1_1MCPWMChannel_a70c3c57997f2ad16480968cf5a10f026}\label{classteam967_1_1MCPWMChannel_a70c3c57997f2ad16480968cf5a10f026} 
+int {\bfseries resolution}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteam967_1_1MCPWMChannel_abf24e7d60f5ce53edd48383311759fa3}\index{team967::MCPWMChannel@{team967::MCPWMChannel}!MCPWMChannel@{MCPWMChannel}}
+\index{MCPWMChannel@{MCPWMChannel}!team967::MCPWMChannel@{team967::MCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{MCPWMChannel()}{MCPWMChannel()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MCPWMChannel_abf24e7d60f5ce53edd48383311759fa3} 
+team967\+::\+MCPWMChannel\+::\+MCPWMChannel (\begin{DoxyParamCaption}\item[{int}]{mcpwm\+Id}{, }\item[{int}]{channel}{, }\item[{int}]{pin0}{, }\item[{int}]{pin1}{, }\item[{int}]{frequency}{, }\item[{int}]{resolution}{}\end{DoxyParamCaption})}
+
+Constructor for abstract class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mcpwm\+Id} & MCPWM module number (0 or 1) \\
+\hline
+{\em channel} & Timer channel number (0 to 2) \\
+\hline
+{\em pin0} & First pin for motor control \\
+\hline
+{\em pin1} & Second pin for motor control \\
+\hline
+{\em frequency} & PWM frequency in Hertz \\
+\hline
+{\em resolution} & Resolution of PWM in bits \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classteam967_1_1MCPWMChannel_a4ec30bd69b774b1f07fc6a6ac8725fff}\index{team967::MCPWMChannel@{team967::MCPWMChannel}!````~MCPWMChannel@{\texorpdfstring{$\sim$}{\string~}MCPWMChannel}}
+\index{````~MCPWMChannel@{\texorpdfstring{$\sim$}{\string~}MCPWMChannel}!team967::MCPWMChannel@{team967::MCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MCPWMChannel()}{\string~MCPWMChannel()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MCPWMChannel_a4ec30bd69b774b1f07fc6a6ac8725fff} 
+team967\+::\+MCPWMChannel\+::\texorpdfstring{$\sim$}{\string~}\+MCPWMChannel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Virtual destructor for class.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteam967_1_1MCPWMChannel_a9ef4f8ee93048cbf305b6566e3eb620c}\index{team967::MCPWMChannel@{team967::MCPWMChannel}!begin@{begin}}
+\index{begin@{begin}!team967::MCPWMChannel@{team967::MCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MCPWMChannel_a9ef4f8ee93048cbf305b6566e3eb620c} 
+virtual void team967\+::\+MCPWMChannel\+::begin (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Initialize the pins and timers.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a7e8a8e2bffd02a2e51f396b1b2761c39}{team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel}}.
+
+\Hypertarget{classteam967_1_1MCPWMChannel_a6cb2d3d228e989aa29b848bda8ec32ae}\index{team967::MCPWMChannel@{team967::MCPWMChannel}!brake@{brake}}
+\index{brake@{brake}!team967::MCPWMChannel@{team967::MCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{brake()}{brake()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MCPWMChannel_a6cb2d3d228e989aa29b848bda8ec32ae} 
+virtual void team967\+::\+MCPWMChannel\+::brake (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Set the motor to off and brake.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a90a01b2fc74ecd1848ce6e70002f1d71}{team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel}}.
+
+\Hypertarget{classteam967_1_1MCPWMChannel_a4d92a1c1ba07cb23de821b7778b599ae}\index{team967::MCPWMChannel@{team967::MCPWMChannel}!coast@{coast}}
+\index{coast@{coast}!team967::MCPWMChannel@{team967::MCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{coast()}{coast()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MCPWMChannel_a4d92a1c1ba07cb23de821b7778b599ae} 
+virtual void team967\+::\+MCPWMChannel\+::coast (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Set the motor to off and coast.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a98587a41ace79e876395c41635778613}{team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel}}.
+
+\Hypertarget{classteam967_1_1MCPWMChannel_a1e19f829f6c9e987a5ec122c63ffac2b}\index{team967::MCPWMChannel@{team967::MCPWMChannel}!forward@{forward}}
+\index{forward@{forward}!team967::MCPWMChannel@{team967::MCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{forward()}{forward()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MCPWMChannel_a1e19f829f6c9e987a5ec122c63ffac2b} 
+virtual void team967\+::\+MCPWMChannel\+::forward (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{duty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Set the motor to run forward, using a given duty cycle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty} & Forward duty cycle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a577e746e7793e3b337ff845c0d739b52}{team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel}}.
+
+\Hypertarget{classteam967_1_1MCPWMChannel_a6447950610e8539e96e70d4b4913fe05}\index{team967::MCPWMChannel@{team967::MCPWMChannel}!reverse@{reverse}}
+\index{reverse@{reverse}!team967::MCPWMChannel@{team967::MCPWMChannel}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily \label{classteam967_1_1MCPWMChannel_a6447950610e8539e96e70d4b4913fe05} 
+virtual void team967\+::\+MCPWMChannel\+::reverse (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{duty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Set the motor to run in reverse, using a given duty cycle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty} & Reverse duty cycle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3LegacyMCPWMChannel_a93b88a3cab6e7b6d0ea2c49fa8fb457c}{team967\+::\+ESP32\+S3\+Legacy\+MCPWMChannel}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/MCPWMChannel.\+h\item 
+src/MCPWMChannel.\+cpp\end{DoxyCompactItemize}

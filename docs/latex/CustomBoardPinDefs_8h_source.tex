@@ -1,0 +1,42 @@
+\doxysection{Custom\+Board\+Pin\+Defs.\+h}
+\hypertarget{CustomBoardPinDefs_8h_source}{}\label{CustomBoardPinDefs_8h_source}\index{include/CustomBoardPinDefs.h@{include/CustomBoardPinDefs.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CUSTOMBOARDPINDEFS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CUSTOMBOARDPINDEFS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }team967\ \{}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{comment}{//\ definitions\ for\ the\ gpio\ pins\ on\ the\ custom\ ESP32\ board}}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_0\ =\ 23;}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_1\ =\ 22;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_2\ =\ 21;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_3\ =\ 32;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_4\ =\ 19;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_5\ =\ 33;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_6\ =\ 18;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_7\ =\ 25;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_8\ =\ 26;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_9\ =\ 17;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_10\ =\ 27;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_GPIO\_11\ =\ 16;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ ESP32\_ONBOARD\_LED\ =\ 2;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ definition\ for\ the\ battery\ monitoring\ pin}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_BATT\ =\ 34;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ definitions\ for\ the\ default\ I2C\ pins}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_I2C\_SCL\ =\ PCB\_GPIO\_1;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_I2C\_SDA\ =\ PCB\_GPIO\_2;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ definitions\ for\ the\ default\ SPI\ pins}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_SPI\_MOSI\ =\ PCB\_GPIO\_0;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_SPI\_MISO\ =\ PCB\_GPIO\_4;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ PCB\_SPI\_CLK\ \ =\ PCB\_GPIO\_6;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

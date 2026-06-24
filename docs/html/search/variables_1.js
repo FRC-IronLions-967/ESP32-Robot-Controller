@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['lastupdate_89',['lastUpdate',['../classteam967_1_1_external_encoder.html#aa8f57d903911d4f7240b3cfeceaca723',1,'team967::ExternalEncoder']]],
-  ['lastvalue_90',['lastValue',['../classteam967_1_1_external_encoder.html#a7dedf60012b124bdd62a241f2a834934',1,'team967::ExternalEncoder']]]
+  ['fault_5fotw_0',['FAULT_OTW',['../classteam967_1_1DRV8873MotorController.html#af94378e9a8e61822cfbbfc84ef55ae58',1,'team967::DRV8873MotorController']]],
+  ['fault_5freg_5faddr_1',['FAULT_REG_ADDR',['../classteam967_1_1DRV8873MotorController.html#a0107b1a9e8f3b22ed257af5628cd5511',1,'team967::DRV8873MotorController']]]
 ];

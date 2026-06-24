@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pausecount_74',['pauseCount',['../classteam967_1_1_external_encoder.html#ac7bcf2676d98e0818f9b49609eac07c1',1,'team967::ExternalEncoder']]],
-  ['pwmservo_75',['PWMServo',['../classteam967_1_1_p_w_m_servo.html#a6ca0ccc73d9d060395b2999a204afcfe',1,'team967::PWMServo']]]
+  ['mcpwmchannel_0',['MCPWMChannel',['../classteam967_1_1MCPWMChannel.html#abf24e7d60f5ce53edd48383311759fa3',1,'team967::MCPWMChannel']]],
+  ['motorcontroller_1',['MotorController',['../classteam967_1_1MotorController.html#a27110bbd18983589f9ffa33ee15c8c49',1,'team967::MotorController']]]
 ];

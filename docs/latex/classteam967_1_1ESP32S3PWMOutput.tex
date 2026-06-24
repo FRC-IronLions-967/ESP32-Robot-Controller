@@ -1,0 +1,111 @@
+\doxysection{team967\+::ESP32\+S3\+PWMOutput Class Reference}
+\hypertarget{classteam967_1_1ESP32S3PWMOutput}{}\label{classteam967_1_1ESP32S3PWMOutput}\index{team967::ESP32S3PWMOutput@{team967::ESP32S3PWMOutput}}
+Inheritance diagram for team967\+::ESP32\+S3\+PWMOutput\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteam967_1_1ESP32S3PWMOutput}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_ac2cd4b105404afb9b12a08cb55877c31}{ESP32\+S3\+PWMOutput}} (ledc\+\_\+timer\+\_\+config\+\_\+t \texorpdfstring{$\ast$}{*}timer\+Config, ledc\+\_\+channel\+\_\+config\+\_\+t \texorpdfstring{$\ast$}{*}channel\+Config)
+\item 
+\mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_a50aa7de352b6de96892a2f45d9ad915c}{\texorpdfstring{$\sim$}{\string~}\+ESP32\+S3\+PWMOutput}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_ac7f39fc682f053bdf8c7f9944300e109}{get\+Freq\+Hz}} ()=0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_a05eaed128ab8fbb21776301fdee16590}{get\+Max\+Duty}} ()=0
+\item 
+void \mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_a1cdb278782f920477af6ad9909ef87bc}{set\+Duty}} (uint32\+\_\+t duty)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classteam967_1_1PWMOutput}{team967\+::\+PWMOutput}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classteam967_1_1PWMOutput_a017c5afaeef17d48ed264c7babbc2529}{\texorpdfstring{$\sim$}{\string~}\+PWMOutput}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteam967_1_1ESP32S3PWMOutput_ac2cd4b105404afb9b12a08cb55877c31}\index{team967::ESP32S3PWMOutput@{team967::ESP32S3PWMOutput}!ESP32S3PWMOutput@{ESP32S3PWMOutput}}
+\index{ESP32S3PWMOutput@{ESP32S3PWMOutput}!team967::ESP32S3PWMOutput@{team967::ESP32S3PWMOutput}}
+\doxysubsubsection{\texorpdfstring{ESP32S3PWMOutput()}{ESP32S3PWMOutput()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3PWMOutput_ac2cd4b105404afb9b12a08cb55877c31} 
+team967\+::\+ESP32\+S3\+PWMOutput\+::\+ESP32\+S3\+PWMOutput (\begin{DoxyParamCaption}\item[{ledc\+\_\+timer\+\_\+config\+\_\+t \texorpdfstring{$\ast$}{*}}]{timer\+Config}{, }\item[{ledc\+\_\+channel\+\_\+config\+\_\+t \texorpdfstring{$\ast$}{*}}]{channel\+Config}{}\end{DoxyParamCaption})}
+
+Constructor to create a new \doxylink{classteam967_1_1ESP32S3PWMOutput}{ESP32\+S3\+PWMOutput} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer\+Config} & Configuration for timer (can be shared betweeen PWM channels) \\
+\hline
+{\em channel\+Config} & Configuration for channel (unique to each PWM channel)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxylink{classteam967_1_1ESP32S3PWMOutput}{ESP32\+S3\+PWMOutput} object 
+\end{DoxyReturn}
+\Hypertarget{classteam967_1_1ESP32S3PWMOutput_a50aa7de352b6de96892a2f45d9ad915c}\index{team967::ESP32S3PWMOutput@{team967::ESP32S3PWMOutput}!````~ESP32S3PWMOutput@{\texorpdfstring{$\sim$}{\string~}ESP32S3PWMOutput}}
+\index{````~ESP32S3PWMOutput@{\texorpdfstring{$\sim$}{\string~}ESP32S3PWMOutput}!team967::ESP32S3PWMOutput@{team967::ESP32S3PWMOutput}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ESP32S3PWMOutput()}{\string~ESP32S3PWMOutput()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3PWMOutput_a50aa7de352b6de96892a2f45d9ad915c} 
+team967\+::\+ESP32\+S3\+PWMOutput\+::\texorpdfstring{$\sim$}{\string~}\+ESP32\+S3\+PWMOutput (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Destructor.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteam967_1_1ESP32S3PWMOutput_ac7f39fc682f053bdf8c7f9944300e109}\index{team967::ESP32S3PWMOutput@{team967::ESP32S3PWMOutput}!getFreqHz@{getFreqHz}}
+\index{getFreqHz@{getFreqHz}!team967::ESP32S3PWMOutput@{team967::ESP32S3PWMOutput}}
+\doxysubsubsection{\texorpdfstring{getFreqHz()}{getFreqHz()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3PWMOutput_ac7f39fc682f053bdf8c7f9944300e109} 
+uint32\+\_\+t team967\+::\+ESP32\+S3\+PWMOutput\+::get\+Freq\+Hz (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Function to get the frequency in Hertz of the PWM channel.
+
+\begin{DoxyReturn}{Returns}
+frequency in Hertz as integer 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1PWMOutput_a75e89a557270d3915e529de286399f91}{team967\+::\+PWMOutput}}.
+
+\Hypertarget{classteam967_1_1ESP32S3PWMOutput_a05eaed128ab8fbb21776301fdee16590}\index{team967::ESP32S3PWMOutput@{team967::ESP32S3PWMOutput}!getMaxDuty@{getMaxDuty}}
+\index{getMaxDuty@{getMaxDuty}!team967::ESP32S3PWMOutput@{team967::ESP32S3PWMOutput}}
+\doxysubsubsection{\texorpdfstring{getMaxDuty()}{getMaxDuty()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3PWMOutput_a05eaed128ab8fbb21776301fdee16590} 
+uint32\+\_\+t team967\+::\+ESP32\+S3\+PWMOutput\+::get\+Max\+Duty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Function to get the maximum value that can be set for the duty cycle.
+
+\begin{DoxyReturn}{Returns}
+maximum duty cycle for PWM channel 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1PWMOutput_acf3a6b10e85663a2d8e03d9f76e8a0b4}{team967\+::\+PWMOutput}}.
+
+\Hypertarget{classteam967_1_1ESP32S3PWMOutput_a1cdb278782f920477af6ad9909ef87bc}\index{team967::ESP32S3PWMOutput@{team967::ESP32S3PWMOutput}!setDuty@{setDuty}}
+\index{setDuty@{setDuty}!team967::ESP32S3PWMOutput@{team967::ESP32S3PWMOutput}}
+\doxysubsubsection{\texorpdfstring{setDuty()}{setDuty()}}
+{\footnotesize\ttfamily \label{classteam967_1_1ESP32S3PWMOutput_a1cdb278782f920477af6ad9909ef87bc} 
+void team967\+::\+ESP32\+S3\+PWMOutput\+::set\+Duty (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{duty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Function to set the duty cycle for the PWM channel.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classteam967_1_1PWMOutput_a23f51708ea369b4792ae643f82bcae36}{team967\+::\+PWMOutput}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ESP32\+S3\+PWMOutput.\+h\end{DoxyCompactItemize}

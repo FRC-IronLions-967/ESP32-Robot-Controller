@@ -1,0 +1,86 @@
+\doxysection{team967\+::PWMOutput Class Reference}
+\hypertarget{classteam967_1_1PWMOutput}{}\label{classteam967_1_1PWMOutput}\index{team967::PWMOutput@{team967::PWMOutput}}
+Inheritance diagram for team967\+::PWMOutput\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classteam967_1_1PWMOutput}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classteam967_1_1PWMOutput_a017c5afaeef17d48ed264c7babbc2529}{\texorpdfstring{$\sim$}{\string~}\+PWMOutput}} ()=0
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1PWMOutput_a75e89a557270d3915e529de286399f91}{get\+Freq\+Hz}} ()=0
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{classteam967_1_1PWMOutput_acf3a6b10e85663a2d8e03d9f76e8a0b4}{get\+Max\+Duty}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classteam967_1_1PWMOutput_a23f51708ea369b4792ae643f82bcae36}{set\+Duty}} (uint32\+\_\+t duty)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classteam967_1_1PWMOutput_a017c5afaeef17d48ed264c7babbc2529}\index{team967::PWMOutput@{team967::PWMOutput}!````~PWMOutput@{\texorpdfstring{$\sim$}{\string~}PWMOutput}}
+\index{````~PWMOutput@{\texorpdfstring{$\sim$}{\string~}PWMOutput}!team967::PWMOutput@{team967::PWMOutput}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PWMOutput()}{\string~PWMOutput()}}
+{\footnotesize\ttfamily \label{classteam967_1_1PWMOutput_a017c5afaeef17d48ed264c7babbc2529} 
+virtual team967\+::\+PWMOutput\+::\texorpdfstring{$\sim$}{\string~}\+PWMOutput (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Virtual destructor.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classteam967_1_1PWMOutput_a75e89a557270d3915e529de286399f91}\index{team967::PWMOutput@{team967::PWMOutput}!getFreqHz@{getFreqHz}}
+\index{getFreqHz@{getFreqHz}!team967::PWMOutput@{team967::PWMOutput}}
+\doxysubsubsection{\texorpdfstring{getFreqHz()}{getFreqHz()}}
+{\footnotesize\ttfamily \label{classteam967_1_1PWMOutput_a75e89a557270d3915e529de286399f91} 
+virtual uint32\+\_\+t team967\+::\+PWMOutput\+::get\+Freq\+Hz (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Initialize the channels. Function to get the frequency in Hertz of the PWM channel.
+
+\begin{DoxyReturn}{Returns}
+frequency in Hertz as integer 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_ac7f39fc682f053bdf8c7f9944300e109}{team967\+::\+ESP32\+S3\+PWMOutput}}.
+
+\Hypertarget{classteam967_1_1PWMOutput_acf3a6b10e85663a2d8e03d9f76e8a0b4}\index{team967::PWMOutput@{team967::PWMOutput}!getMaxDuty@{getMaxDuty}}
+\index{getMaxDuty@{getMaxDuty}!team967::PWMOutput@{team967::PWMOutput}}
+\doxysubsubsection{\texorpdfstring{getMaxDuty()}{getMaxDuty()}}
+{\footnotesize\ttfamily \label{classteam967_1_1PWMOutput_acf3a6b10e85663a2d8e03d9f76e8a0b4} 
+virtual uint32\+\_\+t team967\+::\+PWMOutput\+::get\+Max\+Duty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Function to get the maximum value that can be set for the duty cycle.
+
+\begin{DoxyReturn}{Returns}
+maximum duty cycle for PWM channel 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_a05eaed128ab8fbb21776301fdee16590}{team967\+::\+ESP32\+S3\+PWMOutput}}.
+
+\Hypertarget{classteam967_1_1PWMOutput_a23f51708ea369b4792ae643f82bcae36}\index{team967::PWMOutput@{team967::PWMOutput}!setDuty@{setDuty}}
+\index{setDuty@{setDuty}!team967::PWMOutput@{team967::PWMOutput}}
+\doxysubsubsection{\texorpdfstring{setDuty()}{setDuty()}}
+{\footnotesize\ttfamily \label{classteam967_1_1PWMOutput_a23f51708ea369b4792ae643f82bcae36} 
+virtual void team967\+::\+PWMOutput\+::set\+Duty (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{duty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Function to set the duty cycle for the PWM channel.
+
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classteam967_1_1ESP32S3PWMOutput_a1cdb278782f920477af6ad9909ef87bc}{team967\+::\+ESP32\+S3\+PWMOutput}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/PWMOutput.\+h\end{DoxyCompactItemize}

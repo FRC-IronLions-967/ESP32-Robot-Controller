@@ -1,0 +1,43 @@
+\doxysection{SPIMaster.\+h}
+\hypertarget{SPIMaster_8h_source}{}\label{SPIMaster_8h_source}\index{include/SPIMaster.h@{include/SPIMaster.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**************************************************************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Author(s):\ Nathan\ Stark}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{Created:\ 4-\/27-\/2026}}
+\DoxyCodeLine{00006\ \textcolor{comment}{}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Last\ Updated:\ 4-\/27-\/2026}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{This\ header\ provides\ a\ class\ that\ describes\ a\ generic\ SPI\ interface.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**************************************************************************************************************************************/}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ TEAM967\_SPIMASTER\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ TEAM967\_SPIMASTER\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }team967\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classteam967_1_1SPIMaster}{SPIMaster}}\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classteam967_1_1SPIMaster_ab0590f76e2a358105b8509ce6d7c3023}{\string~SPIMaster}}()\ =\ 0;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classteam967_1_1SPIMaster_a5dd82315df2fcad873ad2e8ece42450c}{begin}}(\textcolor{keywordtype}{void})\ =\ 0;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\_t\ \mbox{\hyperlink{classteam967_1_1SPIMaster_aa1b524762e3d302ad72855c288c719ff}{write}}(uint8\_t*\ data,\ uint32\_t\ n)\ =\ 0;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\_t\ \mbox{\hyperlink{classteam967_1_1SPIMaster_a5d289923f825577cc557ac3aa5bcdc7f}{read}}(uint8\_t*\ data,\ uint32\_t\ n)\ =\ 0;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ uint32\_t\ \mbox{\hyperlink{classteam967_1_1SPIMaster_a49087566f201947fdbfc8f775403b6f7}{writeAndRead}}(uint8\_t*\ txData,\ uint8\_t*\ rxData,\ uint32\_t\ n)\ =\ 0;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
