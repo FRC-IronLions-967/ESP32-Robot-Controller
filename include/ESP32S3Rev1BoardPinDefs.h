@@ -59,6 +59,8 @@ namespace team967 {
     
     const int RGB_LED_PIN = 38;
 
+    const int BOOT_BUTTON_GPIO = 0;
+
 }
 
 #endif

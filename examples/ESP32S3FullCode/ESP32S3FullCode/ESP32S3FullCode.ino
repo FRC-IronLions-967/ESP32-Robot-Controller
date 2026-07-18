@@ -48,7 +48,7 @@ const int SHOOTER_SPEEDS[] = {51, 102, 153, 204, 255, 306, 357, 408, 459, 511};
 int shooterSpeedIndex = 9;
 
 bool lBumpPrevState = false;
-bool rBumpPrevState = true;
+bool rBumpPrevState = false;
 
 const int TRIGGER_THRESH = 256;
 
@@ -80,8 +80,19 @@ void setup() {
   // this starts the Bluetooth to listen for game controller connections
   GameController::begin();
 
-  // wait for a connection to a game controller
-  controller = GameController::waitForConnection();
+  pinMode(BOOT_BUTTON_GPIO, INPUT);
+
+  bool connected = false;
+
+  while(!connected) {
+    connected = GameController::attemptConnection(&controller);
+
+    if(digitalRead(BOOT_BUTTON_GPIO) == 0) {
+      GameController::enablePairing();
+    }
+
+    delay(100);
+  }
 }
 
 void loop() {
@@ -97,18 +108,18 @@ void loop() {
     motorController0.setPower(axisY - axisX);
     motorController1.setPower(axisY + axisX);
 
-    if(!lBumpPrevState && controller->get()->topLeft()) {
+    if(!lBumpPrevState && controller->get()->l1()) {
       if(shooterSpeedIndex > 0) shooterSpeedIndex--;
     }
 
-    if(!rBumpPrevState && controller->get()->topRight()) {
+    if(!rBumpPrevState && controller->get()->r1()) {
       if(shooterSpeedIndex < 9) shooterSpeedIndex++;
     }
 
-    lBumpPrevState = controller->get()->topLeft();
-    rBumpPrevState = controller->get()->topRight();
+    lBumpPrevState = controller->get()->l1();
+    rBumpPrevState = controller->get()->r1();
 
-    int nextState;
+    int nextState = state;
 
     switch(state) {
       case STATE_IDLE:
@@ -160,7 +171,7 @@ void loop() {
       case STATE_SHOOT:
         motorController2.setPower(KICKER_SPEED);
         motorController3.setPower(SHOOTER_SPEEDS[shooterSpeedIndex]);
-
+        
         if(controller->get()->throttle() < TRIGGER_THRESH) {
           nextState = STATE_IDLE;
         }

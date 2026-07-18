@@ -43,8 +43,19 @@ void setup() {
   // this starts the Bluetooth to listen for game controller connections
   GameController::begin();
 
-  // wait for a connection to a game controller
-  controller = GameController::waitForConnection();
+  pinMode(BOOT_BUTTON_GPIO, INPUT);
+
+  bool connected = false;
+
+  while(!connected) {
+    connected = GameController::attemptConnection(&controller);
+
+    if(digitalRead(BOOT_BUTTON_GPIO) == 0) {
+      GameController::enablePairing();
+    }
+
+    delay(100);
+  }
 }
 
 void loop() {

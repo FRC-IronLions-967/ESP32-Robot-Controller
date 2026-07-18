@@ -28,6 +28,8 @@ void team967::GameController::onConnectedController(ControllerPtr ctl) {
             break;
         }
     }
+
+    BP32.enableNewBluetoothConnections(false);
 }
 
 void team967::GameController::onDisconnectedController(ControllerPtr ctl) {
@@ -59,6 +61,19 @@ team967::GameController* team967::GameController::waitForConnection(void) {
     }
 }
 
+bool team967::GameController::attemptConnection(team967::GameController** gameController) {
+    update();
+
+    for(int i = 0; i < BP32_MAX_GAMEPADS; i++) {
+        if(isConnected[i] && !isObject[i]) {
+            *gameController = new GameController(i);
+            return true;
+        }
+    }
+
+    return false;
+}
+
 team967::GameController::~GameController(void) {
     isObject[gamepadIndex] = false;
 }
@@ -76,9 +91,19 @@ void team967::GameController::begin(void) {
     ControllerCallback onConnectedCallback = team967::GameController::onConnectedController;
     ControllerCallback onDisconnectedCallback = team967::GameController::onDisconnectedController;
 
-    BP32.setup(onConnectedCallback, onDisconnectedCallback);
+    BP32.enableNewBluetoothConnections(false);
 
+    BP32.setup(onConnectedCallback, onDisconnectedCallback);
+}
+
+void team967::GameController::enablePairing(void) {
     BP32.forgetBluetoothKeys();
+
+    BP32.enableNewBluetoothConnections(true);
+}
+
+void team967::GameController::disablePairing(void) {
+    BP32.enableNewBluetoothConnections(false);
 }
 
 void team967::GameController::update(void) {

@@ -53,6 +53,14 @@ namespace team967 {
             static GameController* waitForConnection(void);
 
             /**
+             * If a new controller connection is available, connect to it, otherwise return false.
+             * 
+             * @param gameController Pointer to GameController pointer that will have result placed in it
+             * @return true if a controller was connected, false otherwise
+             */
+            static bool attemptConnection(GameController** gameController);
+
+            /**
              * Destructor for the GameController object.  Disconnects from the control so Bluetooth can be used by something else.
              * 
              * @param none
@@ -61,13 +69,25 @@ namespace team967 {
             ~GameController(void);
 
             /**
-             * Function to begin listening for incoming controller connections to be able to create new instances of this
-             * class.  Should be called before anything else in this class.
+             * Function to initialize Bluepad32, by default pairing will be disabled until manually enabled to prevent issues.
              * 
              * @param none
              * @return nothing
              */
             static void begin(void);
+
+            /**
+             * Function to enable pairing, pairing mode will last until a controller is connected or manually disabled.
+             * 
+             * @param none
+             * @return nothing
+             */
+            static void enablePairing(void);
+
+            /**
+             * Function to manually disable pairing mode.
+             */
+            static void disablePairing(void);
 
             /**
              * Updates the gamepad with the latest values, should be called inside a loop.

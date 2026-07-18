@@ -12,7 +12,7 @@
 using namespace team967;
 
 // this is the object that manages the Bluetooth gamepad
-GameController* controller;
+GameController* controller = nullptr;
 
 // these are PWM channels that are responsible for controlling the motors
 ESP32S3LegacyMCPWMChannel mcpwmChannel0(0, 0, MOTOR_CONTROLLER_0_IN1_PIN, MOTOR_CONTROLLER_0_IN2_PIN, MOTOR_CONTROLLER_PWM_FREQ, MOTOR_CONTROLLER_RESOLUTION_BITS);
@@ -53,8 +53,19 @@ void setup() {
   // this starts the Bluetooth to listen for game controller connections
   GameController::begin();
 
-  // wait for a connection to a game controller
-  controller = GameController::waitForConnection();
+  pinMode(BOOT_BUTTON_GPIO, INPUT);
+
+  bool connected = false;
+
+  while(!connected) {
+    connected = GameController::attemptConnection(&controller);
+
+    if(digitalRead(BOOT_BUTTON_GPIO) == 0) {
+      GameController::enablePairing();
+    }
+
+    delay(100);
+  }
 }
 
 void loop() {
